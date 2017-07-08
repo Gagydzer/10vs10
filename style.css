@@ -1,0 +1,92 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.abouthead { height: 381px;
+ background: black url('img/backgr.jpg') no-repeat center
+}
+.abouthead div {display: flex; 
+				flex-direction: column;
+				justify-content: flex-end; flex-wrap:wrap;
+				max-width: 1000px; margin: auto; height: 381px;}
+				
+.abouthead h1 {font-size: 28pt; color: white; padding-bottom: 24px;}
+/* body */
+
+
+.bodyabout {display: flex; flex-wrap: wrap; max-width: 1000px; margin: 40pt auto 0 auto;
+}
+
+.bodyabout h1 {font-size: 28pt; color: #151515; padding-bottom: 24px;}
+.bodyabout p {font-size: 18pt; line-height: 1.5; padding-bottom: 24px;}
+
+.bodyabout ul {font-size: 18pt; line-height: 1.2; margin-bottom: 44px;
+    list-style: none;
+	padding: 0; margin-left: -20px;
+}
+
+.bodyabout ul li:before {
+    content:  "—";
+    position: relative;
+    left:     -5px;
+}
+
+.about_clear {width: 100%; height:1px; margin-bottom: 150px}
+
+#block1 {flex-basis: 40%; flex-grow: 1; padding: 0 20px}
+#img1 {flex-basis: 40%; flex-grow: 1; min-width: 450px; background:black; min-height: 200px}
+#img1 img {width: 100%; height: auto;}
+#block3 {padding: 0 20px; margin-top: 100px}
+#slider {margin: 0 20px; }
+#img2 {margin: 100px 0 0 20px;flex-basis: 40%; flex-grow: 1;  min-width: 450px; background:black; min-height: 200px}
+#block4 {margin-top: 100px; padding: 0 40px; flex-basis: 40%; flex-grow: 1; }
+#block5 {margin: 0 20px; margin-top: 150px;}
+#img3 {margin: 50px 0 0 20px;flex-basis: 40%; flex-grow: 1;  min-width: 450px; background:black; min-height: 400px}
+#img4 {margin: 50px 0 0 40px;flex-basis: 40%; flex-grow: 1;  min-width: 450px; background:black; min-height: 400px}
+#quote1 {margin: 50px 0 0 20px;flex-basis: 50%; flex-grow: 1;  background:black; min-height: 200px}
+#quote2 {margin: 50px 0 0 20px;flex-basis: 30%; flex-grow: 1;  min-width: 300px; background:black; min-height: 150px; align-self: center}
+
+/* editor */
+
+#editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 20px; color: white !important}
+#editor h1 {color: white !important}
+.slider {width: 100%; height: 600px; background: #50b4a5}
