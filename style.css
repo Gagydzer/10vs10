@@ -79,6 +79,7 @@ table {
 
 #block1 {flex-basis: 326px; flex-grow:1; padding-right: 20px; margin-top: 40px}
 #img1 {flex-grow:1;margin-top: 40px}
+#img1_cont {max-width: 520px}
 #img1 img {width: 100%; height: auto;}
 #block3 {margin-top: 100px; margin-bottom: 50px}
 #slider {width: 100%; display: flex; justify-content: space-between}
@@ -117,7 +118,7 @@ table {
    #block4 {order:1}
    #quote2 {margin:  20px auto}
    .img2_cont, .img_cont {max-width:100%}
-
+	.bodyabout ul {margin-left: 0}
 }
 
 
