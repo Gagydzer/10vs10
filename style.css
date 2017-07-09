@@ -54,7 +54,7 @@ table {
 				
 .abouthead h1 {font-size: 28pt; color: white; margin-bottom: 16px; font-weight: bold; font-family: verdana, sans-serif; line-height: 1.2;
 }
-.abouthead p {padding-bottom: 30px; color: white}
+.abouthead p {padding-bottom: 20px; color: white}
 /* body */
 
 
@@ -109,6 +109,9 @@ table {
 
 
 /* media-query */
+@media screen and (max-width: 1100px) {
+.bodyabout ul {margin-left: 0 !important}
+}
 @media screen and (max-width: 800px) {
 	#block1 {padding-right:0}
 	#img1 {width: 100%}
