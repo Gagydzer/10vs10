@@ -23,7 +23,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body { 
+body {  color: #1e1e1e;
 	line-height: 1;
 }
 ol, ul {
@@ -41,6 +41,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+
 .abouthead { height: 281px;
  background: black url('img/backgr1.jpg') no-repeat center
 }
@@ -55,7 +58,7 @@ table {
 /* body */
 
 
-.bodyabout {display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; color: #1e1e1e;
+.bodyabout {display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; 
 }
 
 .bodyabout h1 {font-size: 28pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
@@ -75,7 +78,7 @@ table {
 .about_clear {width: 100%; height:1px; margin-bottom: 50px}
 
 #block1 {flex-basis: 326px; flex-grow:1; padding-right: 20px; margin-top: 40px}
-#img1 {flex-grow:1;background:black; min-height: 593px; min-width: 450px; margin-top: 40px}
+#img1 {flex-grow:1;min-height: 593px; min-width: 450px; margin-top: 40px}
 #img1 img {width: 100%; height: auto;}
 #block3 {margin-top: 100px; margin-bottom: 50px}
 #slider {width: 100%; display: flex; justify-content: space-between}
@@ -84,7 +87,8 @@ table {
   width: 100%; /* ширина картинки */
   height: auto; /* высота картинки */
 }
-#img2 {margin-top: 100px;flex-grow: 1;  flex-basis: 400px; min-height: 200px; display: flex; justify-content: center}
+#comb_cont {width: 100%; display: flex; flex-wrap: wrap;}
+#img2 {margin-top: 100px;flex-grow: 1;  flex-basis: 400px; min-height: 200px; display: flex; justify-content: center;}
 #img2 img {
   width: 100%; /* ширина картинки */
   height: auto; /* высота картинки */
@@ -92,8 +96,8 @@ table {
 .img2_cont {max-width: 300px}
 #block4 {margin-top: 100px; flex-basis: 325px; flex-grow: 1; margin-left: 20px; min-width: 323px; align-self: center;}
 #block5 {margin-top: 100px;}
-#img3 {margin: 50px 20px 0 0 ;flex-basis: 360px; flex-grow: 1;  background:black; min-height: 400px}
-#img4 {margin: 50px 0 0 ;flex-basis: 362px; flex-grow: 1;  background:black; min-height: 400px}
+#img3 {margin: 50px 20px 0 0 ;flex-basis: 360px; flex-grow: 1; min-height: 400px}
+#img4 {margin: 50px 0 0 ;flex-basis: 362px; flex-grow: 1;  min-height: 400px}
 .img_cont img {  width: 100%; /* ширина картинки */
   height: auto; /* высота картинки */}
 .img_cont {max-width: 596px}
@@ -104,12 +108,13 @@ table {
 @media screen and (max-width: 800px) {
  #block4 {margin-left: 0}
    #img3 {margin-right: 0}
+   #img2 {order:2}
+   #block4 {order:1}
    #quote2 {margin:  20px auto}
    .img2_cont, .img_cont {max-width:100%}
 
 }
  blockquote {
-    background: #f7f7f7;
     font-style: italic;
 	font-size: 16pt;
 }
@@ -139,4 +144,4 @@ blockquote > p:first-child {
 
 #editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 0; color: white !important}
 #editor h1 {color: white !important}
-.slider {width: 100%; height: 600px; background: #50b4a5}
+.video {width: 100%; height: 600px; background: #50b4a5; margin-bottom: 20px}
