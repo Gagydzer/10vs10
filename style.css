@@ -110,6 +110,7 @@ table {
 /* media-query */
 @media screen and (max-width: 800px) {
 	#block1 {padding-right:0}
+	#img1 {width: 100%}
  #block4 {margin-left: 0}
    #img3 {margin-right: 0}
    #img2 {order:2}
