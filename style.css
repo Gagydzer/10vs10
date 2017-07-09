@@ -78,7 +78,7 @@ table {
 .about_clear {width: 100%; height:1px; margin-bottom: 50px}
 
 #block1 {flex-basis: 326px; flex-grow:1; padding-right: 20px; margin-top: 40px}
-#img1 {flex-grow:1;min-height: 593px; margin-top: 40px}
+#img1 {flex-grow:1;margin-top: 40px}
 #img1 img {width: 100%; height: auto;}
 #block3 {margin-top: 100px; margin-bottom: 50px}
 #slider {width: 100%; display: flex; justify-content: space-between}
