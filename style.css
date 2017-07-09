@@ -79,7 +79,7 @@ table {
 
 #block1 {flex-basis: 326px; flex-grow:1; padding-right: 20px; margin-top: 40px}
 #img1 {flex-grow:1;margin-top: 40px}
-#img1_cont {max-width: 520px}
+#img1_cont {display: block;max-width: 100%}
 #img1_cont img {width: 100%; height: auto;}
 #block3 {margin-top: 100px; margin-bottom: 50px}
 #slider {width: 100%; display: flex; justify-content: space-between}
