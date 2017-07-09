@@ -52,7 +52,7 @@ table {
 				justify-content: flex-end; 
 				max-width: 1000px; margin: auto; height: 281px; margin: 0 auto ; padding: 0 20px;}
 				
-.abouthead h1 {font-size: 28pt; color: white; padding-bottom: 16px; font-weight: bold; font-family: verdana, sans-serif; line-height: 1.2;
+.abouthead h1 {font-size: 28pt; color: white; margin-bottom: 16px; font-weight: bold; font-family: verdana, sans-serif; line-height: 1.2;
 }
 .abouthead p {padding-bottom: 40px; color: white}
 /* body */
