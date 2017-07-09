@@ -115,10 +115,11 @@ table {
  #block4 {margin-left: 0}
    #img3 {margin-right: 0}
    #img2 {order:2}
-   #block4 {order:1}
+   #block4 {order:1; flex-basis: 100%}
    #quote2 {margin:  20px auto}
    .img2_cont, .img_cont {max-width:100%}
 	.bodyabout ul {margin-left: 0 !important}
+	.img2_cont {max-width: 100%}
 }
 
 
