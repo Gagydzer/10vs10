@@ -147,13 +147,13 @@ h2{ font-family:Proxima Nova}
 	.banner { height: 1346px;
  background: black url('img/banner_low.jpg') no-repeat center; width: 100%
 }
-.banner_container {display: none}
+
 .banner .banner_container2 {margin: 0 auto; padding-top:100px; text-align: center; padding-left: 0; max-width: 800px;
 }
-.banner_container2 h1 {display: none; font-size: 36pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
+.banner_container2 h1 {font-size: 36pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
 }
-.banner_container2 p {display: none;font-size: 16pt;}
-.banner_container2 #button {display: none}
+.banner_container2 p {font-size: 16pt;}
+.banner_container2 #button {}
 }
 
 
