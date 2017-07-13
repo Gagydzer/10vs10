@@ -58,11 +58,10 @@ h2{ font-family:Proxima Nova}
 .abouthead p {padding-bottom: 20px; color: white}
 /* body */
 
-
-
-.banner { height: 872px;
- background: url('img/banner4.png') no-repeat center
+	.banner { height: 1346px;
+ background: black url('img/banner_low.jpg') no-repeat center; width: 100%
 }
+
 .banner .banner_container {
 				max-width: 1000px; margin: 0 auto;}
 .banner .banner_container2 { padding-top:400px; width: 600px; padding-left: 20px; 
@@ -144,16 +143,8 @@ h2{ font-family:Proxima Nova}
    .img2_cont, .img_cont {max-width:100%}
 	.bodyabout ul {margin-left: 0 !important}
 	.img2_cont {max-width: 100%}
-	.banner { height: 1346px;
- background: black url('img/banner_low.jpg') no-repeat center; width: 100%
-}
-.banner_container {display: none}
-.banner .banner_container2 {margin: 0 auto; padding-top:100px; text-align: center; padding-left: 0; max-width: 800px;
-}
-.banner_container2 h1 {display: none; font-size: 36pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
-}
-.banner_container2 p {display: none;font-size: 16pt;}
-.banner_container2 #button {display: none}
+
+
 }
 
 
