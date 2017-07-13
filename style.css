@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {  color: #1e1e1e;
 	line-height: 1;
+
 }
 ol, ul {
 	list-style: none;
@@ -42,8 +43,8 @@ table {
 	border-spacing: 0;
 }
 
-
-
+h1{ font-family:Proxima Nova}
+h2{ font-family:Proxima Nova}
 .abouthead { height: 281px;
  background: black url('img/backgr1.jpg') no-repeat center
 }
@@ -52,16 +53,46 @@ table {
 				justify-content: flex-end; 
 				max-width: 1000px; margin: auto; height: 281px; margin: 0 auto ; padding: 0 20px;}
 				
-.abouthead h1 {font-size: 28pt; color: white; margin-bottom: 16px; font-weight: bold; font-family: verdana, sans-serif; line-height: 1.2;
+.abouthead h1 {font-size: 28pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2;
 }
 .abouthead p {padding-bottom: 20px; color: white}
 /* body */
 
 
+.banner { height: 1292px;
+ background: url('img/banner_low.png') no-repeat center
+}
+.banner .banner_container {
+				max-width: 1000px; margin: 0 auto;}
+.banner .banner_container2 { padding-left: 20px; padding-top:160px; text-align: center;
+}
+				
+.banner_container2 h1 {font-size: 48pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
+}
+.banner_container2 p {color: white; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);}
+.banner_container2 #button {width: 508px; height: 248px; background: url('img/button.png') no-repeat center; cursor: pointer}
+.banner_container2 #button {margin: 0 auto}
+.banner_container2 #button:hover {background: url('img/button_hover.png') no-repeat center;  cursor: pointer}
 .bodyabout {display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; 
 }
 
-.bodyabout h1 {font-size: 28pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
+@media screen and (max-width: 800px) {
+.bodyabout ul {margin-left: 0 !important}
+}
+@media screen and (min-width: 800px) {
+.banner { height: 872px;
+ background: url('img/banner4.png') no-repeat center
+}
+.banner_container2 #button {margin: 0 0 0 40px}
+.banner .banner_container {
+				max-width: 1000px; margin: 0 auto;}
+.banner .banner_container2 { padding-top:400px; width: 600px; padding-left: 20px; 
+}
+}
+
+
+.bodyabout h1 {font-size: 36pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
+.bodyabout h2 {font-size: 24pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
 .bodyabout p {font-size: 16pt; line-height: 1.5; padding-bottom: 24px;}
 .bodyabout p:last-child {padding-bottom: 0;}
 .bodyabout ul {font-size: 16pt; line-height: 1.2; margin-bottom: 44px;
@@ -109,7 +140,7 @@ table {
 
 
 /* media-query */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
 .bodyabout ul {margin-left: 0 !important}
 }
 @media screen and (max-width: 800px) {
@@ -158,4 +189,5 @@ blockquote > p:first-child {
 
 #editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 0; color: white !important}
 #editor h1 {color: white !important}
+#editor h2 {color: white !important}
 .video {width: 100%; height: 600px; background: #50b4a5; margin-bottom: 20px}
