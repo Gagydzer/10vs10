@@ -152,8 +152,8 @@ h2{ font-family:Proxima Nova}
 }
 .banner_container2 h1 {font-size: 36pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
 }
-.banner_container2 p {font-size: 16pt;width: 100%; display: block}
-.banner_container2 #button {width: 80%;}
+.banner_container2 p {font-size: 16pt;}
+.banner_container2 #button {width: 80%; display: none}
 }
 
 
