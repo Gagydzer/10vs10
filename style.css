@@ -53,7 +53,7 @@ h2{ font-family:Proxima Nova}
 				justify-content: flex-end; 
 				max-width: 1000px; margin: auto; height: 281px; margin: 0 auto ; padding: 0 20px;}
 				
-.abouthead h1 {font-size: 28pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2;
+.abouthead h1 {font-size: 32pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2;
 }
 .abouthead p {padding-bottom: 20px; color: white}
 /* body */
@@ -78,9 +78,65 @@ h2{ font-family:Proxima Nova}
 .bodyabout {display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; 
 }
 
+.banner_comb { height: 600px;
+ background: url('img/bigback.jpg') no-repeat center; margin: 50px 0 0 0
+}
+.banner_container_comb {height: 600px;
+				display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; align-items: center;}
+
+
+.banner_container_comb h1 {font-size: 36pt; color: white; padding-bottom: 24px; font-weight: bold;}
+.banner_container_comb h2 {font-size: 24pt; color: white; padding-bottom: 24px; font-weight: bold;}
+.banner_container_comb p {color: white; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71)}
+
+.banner_container_comb #img2 {margin-top: 0}
+.banner_container_comb #block4 {margin-top: 0}
+
+@media screen and (max-width: 800px) {
+.banner_comb {background: #0b1c2e; height: auto;}
+.banner_container_comb {height: auto; padding-top: 30px; padding-bottom: 70px}
+.banner_container_comb #block4 {margin-top: 100px; margin-bottom: 60px}
+
+.banner_1 {background: #0b1c2e !important; height: auto !important; padding-top: 100px; padding-bottom: 100px}
+.banner_1_wrap {height: auto !important; padding-top: 30px; padding-bottom: 70px}
+.banner_1 #block4 {margin-bottom: 60px}
+
+.banner_1_light {background: white !important; height: auto !important; padding-top: 100px; padding-bottom: 100px}
+.banner_1_wrap {height: auto !important; padding-top: 30px; padding-bottom: 70px}
+.banner_1_light #block4 {margin-bottom: 60px}
 
 
 
+}
+
+
+div.nexturl {text-align: center; margin: 60px auto; width: 100%}
+div.nexturl a {color: #151515;}
+div.nexturl a:hover {color: #ff4c4c;}
+div.nexturl a.active {color: #ff4c4c;}
+h1.tire:after {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: currentColor;
+    display: inline-block;
+
+    position: relative;
+    top: -10px;
+    margin-left: 13px;
+}
+
+h2.tire:after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background: currentColor;
+    display: inline-block;
+
+    position: relative;
+    top: -8px;
+    margin-left: 13px;
+}
 
 .bodyabout h1 {font-size: 36pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
 .bodyabout h2 {font-size: 24pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
@@ -104,6 +160,7 @@ h2{ font-family:Proxima Nova}
 #img1_cont {display: block;max-width: 100%}
 #img1_cont img {width: 100%; height: auto;}
 #block3 {margin-top: 100px; margin-bottom: 50px}
+#block3_1 {margin-bottom: 50px}
 #slider {width: 100%; display: flex; justify-content: space-between}
 .slide_cont {display: block; flex-basis: 400px}
 .slide_cont img {
@@ -124,8 +181,8 @@ h2{ font-family:Proxima Nova}
 .img_cont img {  width: 100%; /* ширина картинки */
   height: auto; /* высота картинки */}
 .img_cont {max-width: 596px}
-#quote1 {margin: 0px 0 0 0;flex-basis: 425px; flex-grow: 1;  align-self:center}
-#quote2 {margin: 50px 0 0 20px; flex-basis: 200px;  text-align: center}
+#quote1 {margin: 50px 0 0 0;flex-basis: 425px; flex-grow: 1;  align-self:center}
+#quote2 {margin: 60px 0 0 20px; flex-basis: 200px;  text-align: center}
 #quote2 img {width:150px; height:150px}
 #quote2 p {padding:0}
 
@@ -156,12 +213,19 @@ h2{ font-family:Proxima Nova}
 .banner_container2 #button {}
 }
 
-
-
+@media only screen and (max-width: 1400px)
+{
+h1:after {
+    width: 60px;
+    height: 7px;
+    margin-left: 10px;
+    top: -9px;
+}
+}
 
  blockquote {
     font-style: italic;
-	font-size: 16pt;
+	font-size: 16pt; padding-left: 5%; padding-right: 5%;
 }
  
 blockquote:before {
@@ -187,7 +251,26 @@ blockquote > p:first-child {
 
 /* editor */
 
-#editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 0; color: white !important; overflow: hidden}
-#editor h1 {color: white !important}
-#editor h2 {color: white !important}
-.video {width: 100%; height: 600px; background: #50b4a5; margin-bottom: 20px}
+#editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 0; color: white !important; overflow: hidden; height: 300px}
+
+.banner_1 { height: 600px;
+ background: url('img/bigback.jpg') no-repeat center; margin: 0
+}
+.banner_1_wrap {height: 600px;
+				display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; align-items: center;}
+				
+				.banner_1_wrap h1 {font-size: 36pt; color: white; padding-bottom: 24px; font-weight: bold;}
+.banner_1_wrap h2 {font-size: 24pt; color: white; padding-bottom: 24px; font-weight: bold;}
+.banner_1_wrap p {color: white; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71)}
+.banner_1_wrap div {margin-top: 0 !important}
+
+.banner_1_light { height: 600px;
+ background: url('img/bigback_light.jpg') no-repeat center; margin: 0
+}
+.banner_1_wrap {height: 600px;
+				display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto ; padding: 0 20px; align-items: center;}
+				
+				.banner_1_light h1 {font-size: 36pt; color: black; padding-bottom: 24px; font-weight: bold; text-shadow: 0px 1px 0px #939393}
+.banner_1_light h2 {font-size: 24pt; color: black; padding-bottom: 24px; font-weight: bold;}
+.banner_1_light p {color: black; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px #939393}
+.banner_1_light div {margin-top: 0 !important}
