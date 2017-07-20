@@ -43,25 +43,27 @@ table {
 	border-spacing: 0;
 }
 
-h1{ font-family:Proxima Nova}
-h2{ font-family:Proxima Nova}
+h1{ font-family:Proxima Nova, verdana, sans-serif;}
+h2{ font-family:Proxima Nova, verdana, sans-serif;}
 .abouthead { height: 281px;
  background: black url('img/backgr1.jpg') no-repeat center
 }
 .abouthead div {display: flex; 
 				flex-direction: column;
 				justify-content: flex-end; 
-				max-width: 1000px; margin: auto; height: 281px; margin: 0 auto ; padding: 0 20px;}
+				max-width: 1000px; margin: auto; height: 281px; margin: 0 auto ; padding: 0 20px; font-family:Proxima Nova, verdana, sans-serif; }
 				
-.abouthead h1 {font-size: 32pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2;
+.abouthead h1 {font-size: 32pt; color: white; margin-bottom: 12px; font-weight: bold; line-height: 1.2;
 }
-.abouthead p {padding-bottom: 20px; color: white}
+.abouthead p {padding-bottom: 25px; color: white}
+
+
 /* body */
 
 
 
 .banner { height: 872px;
- background: url('img/banner4.png') no-repeat center
+ background: url('img/newbanner.jpg') no-repeat center
 }
 .banner .banner_container {
 				max-width: 1000px; margin: 0 auto;}
@@ -69,7 +71,7 @@ h2{ font-family:Proxima Nova}
 
 }
 				
-.banner_container2 h1 {font-size: 48pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
+.banner_container2 h1 {font-size: 32pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
 }
 .banner_container2 p {color: white; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71)}
 .banner_container2 #button {width: 508px; height: 248px; background: url('img/button.png') no-repeat center; cursor: pointer}
@@ -110,7 +112,8 @@ h2{ font-family:Proxima Nova}
 }
 
 
-div.nexturl {text-align: center; margin: 60px auto; width: 100%}
+div.nexturl {text-align: center; margin: 30px auto; width: 100%; font-size: 18pt}
+div.nexturl h2 {width: 100%; font-size: 18pt}
 div.nexturl a {color: #151515;}
 div.nexturl a:hover {color: #ff4c4c;}
 div.nexturl a.active {color: #ff4c4c;}
@@ -138,8 +141,8 @@ h2.tire:after {
     margin-left: 13px;
 }
 
-.bodyabout h1 {font-size: 36pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
-.bodyabout h2 {font-size: 24pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
+.bodyabout h1 {font-size: 28pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
+.bodyabout h2 {font-size: 18pt; color: #151515; padding-bottom: 24px; font-weight: bold;}
 .bodyabout p {font-size: 16pt; line-height: 1.5; padding-bottom: 24px;}
 .bodyabout p:last-child {padding-bottom: 0;}
 .bodyabout ul {font-size: 16pt; line-height: 1.2; margin-bottom: 44px;
@@ -153,9 +156,10 @@ h2.tire:after {
     left:     -5px;
 }
 
-.about_clear {width: 100%; height:1px; margin-bottom: 50px}
+.about_clear {width: 100%; height:1px;}
 
 #block1 {flex-basis: 326px; flex-grow:1; padding-right: 20px; margin-top: 40px}
+#block1 h1:first-child {position: relative;top: -6px; padding-bottom: 18px;}
 #img1 {flex-grow:1;margin-top: 40px}
 #img1_cont {display: block;max-width: 100%}
 #img1_cont img {width: 100%; height: auto;}
@@ -181,11 +185,11 @@ h2.tire:after {
 .img_cont img {  width: 100%; /* ширина картинки */
   height: auto; /* высота картинки */}
 .img_cont {max-width: 596px}
-#quote1 {margin: 50px 0 0 0;flex-basis: 425px; flex-grow: 1;  align-self:center}
+#quote1 {margin: 0px 0 0 0;flex-basis: 425px; flex-grow: 1;  align-self:center;}
 #quote2 {margin: 60px 0 0 20px; flex-basis: 200px;  text-align: center}
 #quote2 img {width:150px; height:150px}
 #quote2 p {padding:0}
-
+@media screen and (max-width: 800px) { #quote1 {margin: 50px 0 0 0;flex-basis: 425px; flex-grow: 1;  align-self:center}}
 
 /* media-query */
 @media screen and (max-width: 800px) {
@@ -202,14 +206,15 @@ h2.tire:after {
 	.bodyabout ul {margin-left: 0 !important}
 	.img2_cont {max-width: 100%}
 	.banner { height: 1346px;
- background: black url('img/banner_low.jpg') no-repeat center; width: 100%
+ background: black url('img/newbannerlow.jpg') no-repeat center; width: 100%
 }
 
 .banner .banner_container2 {margin: 0 auto; padding-top:100px; text-align: center; padding-left: 0; max-width: 800px;overflow: hidden
 }
+.banner_container2 {padding-top: 180px !important}
 .banner_container2 h1 {font-size: 24pt; color: white; margin-bottom: 16px; font-weight: bold; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.71);
 }
-.banner_container2 p {font-size: 12pt;}
+.banner_container2 p {font-size: 12pt; padding-left: 10%; padding-right: 10%}
 .banner_container2 #button {}
 }
 
@@ -225,30 +230,18 @@ h1:after {
 
  blockquote {
     font-style: italic;
-	font-size: 16pt; padding-left: 5%; padding-right: 5%;
+	font-size: 16pt; 
 }
  
-blockquote:before {
-    color: #bbb;
-    content: "\201C"; /* Непечатаемый символ слева */
-    font-size: 3em;
-    line-height: 0.1em;
-    margin-right: 0.2em;
-    vertical-align: -.4em;
-}
- 
-blockquote:after {
-    color: #bbb;
-    content: "\201D"; /* Непечатаемый символ справа */
-    font-size: 3em;
-    line-height: 0.1em;
-    vertical-align: -.45em;
-}
+
  
 blockquote > p:first-child {
     display: inline;
 }
-
+.quote_wrap { display: flex; width: 80%; margin: 0 auto;}
+.quote_left {align-self:center; color: #bbb; font-size: 300%}
+.quote_right {align-self:center; color: #bbb; font-size: 300%}
+.quote_center {flex-grow:1; align-self:center; padding-left: 10px; padding-right: 10px;}
 /* editor */
 
 #editor {width: 100%;  background: #151515; margin-top: 150px; padding: 20px 0; color: white !important; overflow: hidden; height: 300px}
@@ -274,3 +267,77 @@ blockquote > p:first-child {
 .banner_1_light h2 {font-size: 24pt; color: black; padding-bottom: 24px; font-weight: bold;}
 .banner_1_light p {color: black; font-size: 24px; font-family:Proxima Nova, verdana, sans-serif; line-height: 1.2; text-shadow: 0px 1px 0px #939393}
 .banner_1_light div {margin-top: 0 !important}
+@media only screen and (max-width: 800px)
+{
+.abouthead h1 {font-size: 22pt; color: white; margin-bottom: 12px; font-weight: bold; line-height: 1.2;
+}
+.abouthead p {padding-bottom: 25px; color: white; font-size: 10pt;}
+.bodyabout h1 {font-size: 30pt !important; color: #151515; padding-bottom: 20px; font-weight: bold;}
+h1.tire:after {
+    content: '';
+    width: 20px;
+    height: 3px;
+    background: currentColor;
+    display: inline-block;
+
+    position: relative;
+    top: -8px;
+    margin-left: 13px;
+}
+}
+
+.button{text-decoration:none; text-align:center; 
+ padding:11px 32px; 
+ border:solid 1px #d64d3d; 
+ -webkit-border-radius:50px;
+ -moz-border-radius:50px; 
+ border-radius: 50px; 
+ font:18px Verdana, Geneva, sans-serif; 
+ font-weight:bold; 
+ color:#ffffff; 
+ background-color:#fe5e4c; 
+ background-image: -moz-linear-gradient(top, #fe5e4c 0%, #d64d3d 100%); 
+ background-image: -webkit-linear-gradient(top, #fe5e4c 0%, #d64d3d 100%); 
+ background-image: -o-linear-gradient(top, #fe5e4c 0%, #d64d3d 100%); 
+ background-image: -ms-linear-gradient(top, #fe5e4c 0% ,#d64d3d 100%); 
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d64d3d', endColorstr='#d64d3d',GradientType=0 ); 
+ background-image: linear-gradient(top, #fe5e4c 0% ,#d64d3d 100%);   
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  margin-top: 40px; display: block; width: 200px; margin-left: auto; margin-right: auto
+  
+  }.button:hover{
+ padding:11px 32px; 
+ border:solid 1px #d64d3d; 
+ -webkit-border-radius:50px;
+ -moz-border-radius:50px; 
+ border-radius: 50px; 
+ font:18px Verdana, Geneva, sans-serif; 
+ font-weight:bold; 
+ color:#ffffff; 
+ background-color:#d64d3d; 
+ background-image: -moz-linear-gradient(top, #d64d3d 0%, #fa5d42 100%); 
+ background-image: -webkit-linear-gradient(top, #d64d3d 0%, #fa5d42 100%); 
+ background-image: -o-linear-gradient(top, #d64d3d 0%, #fa5d42 100%); 
+ background-image: -ms-linear-gradient(top, #d64d3d 0% ,#fa5d42 100%); 
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa5d42', endColorstr='#fa5d42',GradientType=0 ); 
+ background-image: linear-gradient(top, #d64d3d 0% ,#fa5d42 100%);   
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
+  
+ }.button:active{
+ padding:11px 32px; 
+ border:solid 1px #d64d3d; 
+ -webkit-border-radius:50px;
+ -moz-border-radius:50px; 
+ border-radius: 50px; 
+ font:18px Verdana, Geneva, sans-serif; 
+ font-weight:bold; 
+ color:#ffffff; 
+ background:#d64d3d; 
+ -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
+ -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+ box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
+  
+ }
