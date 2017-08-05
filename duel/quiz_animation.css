@@ -1,0 +1,135 @@
+
+/* PHASE 2 */
+/*
+@-webkit-keyframes leftimg-move {
+0% {left: -350px; opacity: .0}
+
+				
+100%{left: 0px}
+	}
+@-webkit-keyframes rightimg-move {
+0% {left: 350px; opacity: .0}
+100%{left: 0px}
+}
+*/
+@-webkit-keyframes overlay-shane {
+0% {opacity: .2}
+100%{opacity: .9}	
+}
+
+#quiz_overlay.phase1 {-webkit-animation-name: overlay-shane; 
+					-webkit-animation-duration: 4s;
+					-webkit-animation-timing-function: ease-in-out; 
+					animation-iteration-count: infinite; 
+					animation-direction: alternate-reverse;
+    }
+#quiz_overlay.phase2 {opacity: 0.7; 				
+				-webkit-transition: all 5s ease;
+				-moz-transition: all 5s ease;
+				-o-transition: all 5s ease;
+				transition: all 5s ease;}	
+/* PHASE 3 */
+
+@-webkit-keyframes quiz_title_hide {
+0% {top: 0px}
+100%{opacity: .0}	
+}
+@-webkit-keyframes quiz_button-left_expand {
+0% {}
+100%{width: 350px; margin: 0; background: rgba(149, 255, 166, .5)}
+}
+@-webkit-keyframes quiz_button-right_decrease {
+0% {}
+100%{width: 110px;  margin-left: 0; background: rgba(255, 149, 166, .5)}		
+}
+
+
+#quiz_image1_container.phase1 {position: relative;left: -350px; opacity: .0}
+#quiz_image1_container.phase2 {position: relative;left: 0; opacity: 1; 				
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;}
+#quiz_image2_container.phase1 {position: relative;left: 350px; opacity: .0}
+#quiz_image2_container.phase2 {position: relative;left: 0; opacity: 1; 				
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;}
+#quiz-button-left.phase1 {position: relative;left: -150px; opacity: .0}
+#quiz-button-left.phase2 {position: relative;left: 0px; opacity: 1; 				
+				-webkit-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-moz-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-o-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				transition: all 0.4s cubic-bezier(.06,.98,.78,.97);}
+#quiz-button-right.phase1 {position: relative;left: 150px; opacity: .0}
+#quiz-button-right.phase2 {position: relative;left: 0px; opacity: 1; 				
+				-webkit-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-moz-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-o-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				transition: all 0.4s cubic-bezier(.06,.98,.78,.97);}
+
+#quiz_header.phase1 {Position:absolute; 
+				top: 150px;
+				
+}
+#quiz_header.phase2 {Position:absolute; 
+				top: 0;
+				
+				-webkit-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				-moz-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				-o-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				transition: all 0.7s cubic-bezier(.01,1.12,1,1.08);
+}	
+#quiz_versus.phase1 {Position:absolute; 
+				top: 170px; opacity: .0; z-index: -1;
+				
+}
+#quiz_versus.phase2 {Position:absolute; top: 150px;
+				 opacity: .7;
+				
+				-webkit-transition: all 0.7s ease;
+				-moz-transition: all 0.7s ease;
+				-o-transition: all 0.7s ease;
+				transition: all 0.7s ease;
+}			
+/*#quiz_image1_container.phase1 {position: relative; -webkit-animation-name: leftimg-move; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out;}
+#quiz_image2_container.phase1 {position: relative; -webkit-animation-name: rightimg-move; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out;}*/
+#quiz-button-left.phase2 {position: relative;-webkit-animation-name: quiz-button-emergence-left; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out; animation-fill-mode: forwards;}
+#quiz-button-right.phase2 {position: relative;-webkit-animation-name: quiz-button-emergence-right; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out; animation-fill-mode: forwards;}
+
+#quiz-button-left.phase3 { -webkit-animation-name: quiz_button-left_expand; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out; animation-fill-mode: forwards;}
+
+#quiz-button-right.phase3 { -webkit-animation-name: quiz_button-right_decrease; 
+					-webkit-animation-duration: 1s;
+					-webkit-animation-timing-function: ease-in-out; animation-fill-mode: forwards;}
+
+#quiz-button-title-left.phase3, #quiz-button-title-right.phase3 { opacity: .0; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+
+.quiz_img_overlay_loose { opacity: 0.7; background: black url(quiz_img/quiz_img_overlay.png) center; width: 224px; height: 223px; position: absolute; top:0;
+					-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+#quiz_versus.phase3 {opacity: 0; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+
+#quiz-img-result-left.phase3 {}

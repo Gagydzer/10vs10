@@ -1,0 +1,58 @@
+<head>
+<link rel="stylesheet" href="quiz_animation.css">
+<link rel="stylesheet" href="quiz_style.css">
+<meta charset="utf-8">
+</head>
+<body>
+	<script>
+	function quiz_phase1_to2(id)
+{
+ document.getElementById(id).className = 'phase2';
+ document.getElementById('quiz_image1_container').className = 'phase2';
+ document.getElementById('quiz_image2_container').className = 'phase2';
+ document.getElementById('quiz-button-left').className = 'phase2';
+ document.getElementById('quiz-button-right').className = 'phase2';
+  document.getElementById('quiz_versus').className = 'phase2';
+  document.getElementById('quiz_overlay').className = 'phase2';
+} 
+function quiz_phase2_to3()
+{
+
+ document.getElementById('quiz-button-left').className = 'phase3';
+ document.getElementById('quiz-button-right').className = 'phase3';
+ document.getElementById('quiz-button-title-right').className = 'phase3';
+ document.getElementById('quiz-button-title-left').className = 'phase3';
+ document.getElementById('quiz-img-result-left').className = 'phase3';
+ document.getElementById('quiz-img-result-right').className = 'phase3';
+ document.getElementById('overlay1').className = 'quiz_img_overlay_win';
+ document.getElementById('overlay2').className = 'quiz_img_overlay_loose';
+  document.getElementById('quiz_versus').className = 'phase3';
+}
+</script>
+	<div id="quiz_frame">
+		<h1 id="quiz_header" class="phase1" onclick="quiz_phase1_to2('quiz_header')">Cамая горячая штучка Америки?</h1>
+		<div id="quiz_versus" class="phase1"></div>
+		<div id="quiz_photo_container">
+		<div id="quiz_image1_container" class="phase1" onclick="quiz_phase2_to3()">
+				<img src="pic1.jpg" id="quiz_image1" border="0" width="224">
+				<div id="quiz-img-result-left" class="phase2"><img src="quiz_img/korona.png" style="margin-top:20px"><br>79%</div>
+				<div id="overlay1" class="quiz_img_overlay"></div>	
+		</div>
+		<div id="quiz_image2_container" class="phase1" onclick="quiz_phase2_to3()">
+				<img src="pic2.jpg" id="quiz_image2" border="0" width="224">
+				<div id="quiz-img-result-right" class="phase2">21%</div>
+				<div id="overlay2" class="quiz_img_overlay"></div>			
+		</div>
+		<span id="quiz-button-left" class="phase1" onclick="quiz_phase2_to3()">
+			<span id="quiz-button-title-left" class="phase2">Ким Кардашьян</span>
+			</span>
+		<span id="quiz-button-right" class="phase1" onclick="quiz_phase2_to3()">
+			<span id="quiz-button-title-right" class="phase2">Ханна Монтана</span>
+			</span>
+		</span>
+		</div>
+	<div id="quiz_overlay" class="phase1"></div>
+	</div>
+	
+	
+</body>
