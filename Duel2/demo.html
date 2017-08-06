@@ -1,0 +1,58 @@
+<head>
+</head>
+<body>
+<style>
+#selectBackground {
+  background: #000;
+  width: 187px;
+  height: 37px;
+}
+#selectBackground > p {
+  margin: 0;
+  padding: 0;
+  padding-top: 3px;
+  padding-left: 6px;
+  float: left;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+#selectBackground ul {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  margin-left: 90px;
+}
+#selectBackground ul li {
+  float: left;
+  list-style-type: none;
+  position: relative;
+  margin-left: 10px;
+}
+#selectBackground ul li a {
+  background: red url('../images/select_bg_unactive.png') no-repeat;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+#selectBackground ul li a.active {
+  background: yellow url('../images/select_bg_active.png') no-repeat;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$("#selectBackground ul li a").click(function(e) {
+  e.preventDefault();
+  $("#selectBackground ul li a").removeClass('active');
+  $(this).addClass('active');
+})</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div id="selectBackground">
+  <p>Select</p>
+  <ul>
+    <li><a href='' class="active"></a></li>
+    <li><a href=''></a></li>
+    <li><a href=''></a></li>
+  </ul>
+</div>
+</body>
