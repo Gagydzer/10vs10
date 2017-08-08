@@ -2,8 +2,11 @@
 <link rel="stylesheet" href="quiz_animation.css">
 <link rel="stylesheet" href="quiz_style.css">
 <meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jquery.spincrement.js"></script>
 </head>
 <body>
+
 	<script>
 	function quiz_phase1_to2(id)
 {
@@ -32,7 +35,9 @@ function quiz_phase2_to3()
 	document.getElementById('quiz-overlay-looser').className = 'quiz-img-overlay-lose';
 	document.getElementById('left-pie').className = 'phase3';
 	document.getElementById('right-pie').className = 'phase3';
+	
 }
+
 </script>
 	<div id="quiz_frame">
 		<h1 id="quiz_header" class="phase1" onclick="quiz_phase1_to2('quiz_header')">Cамая горячая штучка Америки?<br><button class="btn" type="button" id="quiz_button"><span>Кто же она..?</span></button></h1>
@@ -44,9 +49,16 @@ function quiz_phase2_to3()
 						<div id="quiz-flag-left" class="phase2">234</div>
 						<div id="quiz-title-left"><span>Ким</span><br><span>Кардашьян</span></div>
 						<div id="quiz-header-circle-left" class="phase2">
-						<div style="position: absolute; top: 157px;  left: 60px;">23%</div>
+						<div style="position: absolute; top: 157px;  left: 60px;"><p id="left-percent" class="spincrement" style="display: inline;">23</p>%</div>
 							<div id="left-pie">
-							
+							<script>
+							$('#quiz_image2_container').click(function (){
+							$(".spincrement").spincrement();
+							})
+							$('#quiz_image1_container').click(function (){
+							$(".spincrement").spincrement();
+							})
+</script>
 								<svg viewBox="0 0 32 32">
 									
 									<circle class="circle2" r="16" cx="16" cy="16" stroke-dasharray="0 100"></circle>
@@ -74,7 +86,7 @@ function quiz_phase2_to3()
 						<div id="quiz-title-right"><span>Ханна</span><br><span>Монтана
 						</div>
 						<div id="quiz-header-circle-right" class="phase2">
-						<div  style="position: absolute; top: 157px;  left: 53px;">62%</div>
+						<div  style="position: absolute; top: 157px;  left: 53px;"><p id="right-percent" class="spincrement" style="display: inline;">59</p>%</div>
 						<div id="right-pie">
 								<svg viewBox="0 0 32 32">
 									<title>75%</title>
