@@ -67,7 +67,6 @@ body {background: black}
     line-height: 33px;
     padding-top: 20px;
 	
-	margin-top: 20px;
 		margin-left: 25px
 }
  #quiz-flag-right {margin-left: auto; color: #fff;
@@ -92,7 +91,6 @@ body {background: black}
     line-height: 33px;
     padding-top: 20px;
 	
-	margin-top: 20px;
 		margin-right: 25px}
 #quiz_frame h1 {width: 100% !important;font-family: "Open Sans", Geneva, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 24pt; text-align: center; color: white;
 				text-shadow: 0px 1px 2px rgba(0,0,0,0.4); margin-bottom:20px; margin-top: 40px; cursor: pointer}
