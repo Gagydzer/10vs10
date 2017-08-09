@@ -1,0 +1,117 @@
+<head>
+<link rel="stylesheet" href="quiz_animation.css">
+<link rel="stylesheet" href="quiz_style.css">
+<meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jquery.spincrement.js"></script>
+</head>
+<body>
+
+	<script>
+	function quiz_phase1_to2(id)
+{
+ document.getElementById(id).className = 'phase2';
+ document.getElementById('quiz_image1_container').className = 'phase2';
+ document.getElementById('quiz_image2_container').className = 'phase2';
+ document.getElementById('quiz-button-left').className = 'phase2';
+ document.getElementById('quiz-button-right').className = 'phase2';
+  document.getElementById('quiz_versus').className = 'phase2';
+  document.getElementById('quiz_button').className = 'phase2';
+  document.getElementById('quiz-other').className = 'phase2';
+  document.getElementById('quiz-logo').className = 'phase2';
+} document.getElementById('quiz_button').addClass('phase2');
+function quiz_phase2_to3()
+{
+ 
+
+  document.getElementById('quiz_versus').className = 'phase3';
+  document.getElementById('quiz-flag-left').className = 'phase3';
+  document.getElementById('quiz-flag-right').className = 'phase3';
+  document.getElementById('quiz-header-circle-left').className = 'phase3';
+  document.getElementById('quiz-header-circle-right').className = 'phase3';
+  document.getElementById('quiz-heart-overlay-left').className = 'phase3';
+    document.getElementById('quiz-heart-overlay-right').className = 'phase3';
+	document.getElementById('quiz-overlay-winner').className = 'quiz-img-overlay-win';
+	document.getElementById('quiz-overlay-looser').className = 'quiz-img-overlay-lose';
+	document.getElementById('left-pie').className = 'phase3';
+	document.getElementById('right-pie').className = 'phase3';
+	
+}
+
+</script>
+<script>
+$(function () {
+  $("#quiz_image1_container").mouseover(function(){document.getElementById('quiz-overlay-looser').style.opacity='.5';});
+$("#quiz_image1_container").mouseout(function(){document.getElementById('quiz-overlay-looser').style.opacity='0';});
+});
+</script>
+	<div id="quiz_frame">
+		<h1 id="quiz_header" class="phase1" onclick="quiz_phase1_to2('quiz_header')">Cамая горячая штучка Америки?<br><button class="btn" type="button" id="quiz_button"><span>Кто же она..?</span></button></h1>
+		
+		<div id="quiz_versus" class="phase1"></div>
+		<div id="quiz_photo_container">
+			<div id="quiz_image1_container" class="phase1" onclick="quiz_phase2_to3()">
+					<div id="quiz-button-left" class="phase1">
+						<div id="quiz-flag-left" class="phase2">234</div>
+						<div id="quiz-title-left"><span>Ким</span><br><span>Кардашьян</span></div>
+						<div id="quiz-header-circle-left" class="phase2">
+						<div style="position: absolute; top: 195px;  left: 37px;"><p id="left-percent" class="spincrement" style="display: inline;">75</p>%</div>
+							<div id="left-pie">
+							<script>
+							$('#quiz_image2_container').click(function (){
+							$(".spincrement").spincrement();
+							})
+							$('#quiz_image1_container').click(function (){
+							$(".spincrement").spincrement();
+							})
+</script>
+								<svg viewBox="0 0 32 32">
+									
+									<circle class="circle2" r="16" cx="16" cy="16" stroke-dasharray="0 100"></circle>
+									<circle  class="circle1" r="13" cx="16" cy="16"></circle>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="quiz_img_subcontainer" id="quiz_img_subcontainer-left">
+						<img src="pic1.jpg" id="quiz_image1" border="0" width="270" height="270">
+						<div id="quiz-heart-overlay-left" class="phase2"></div>
+						<div id="quiz-overlay-winner"></div>
+					</div>
+					
+			</div>
+			<div id="quiz_image2_container" class="phase1" onclick="quiz_phase2_to3()">
+					<div class="quiz_img_subcontainer" id="quiz_img_subcontainer-right">
+						<img src="pic2.jpg" id="quiz_image2" border="0" width="270" height="270">
+						<div id="quiz-heart-overlay-right" class="phase2"></div>
+						<div id="quiz-overlay-looser"></div>
+					</div>
+					<div id="quiz-button-right" class="phase1" onclick="quiz_phase2_to3()">
+						<div id="quiz-flag-right" class="phase2">788
+						</div>
+						<div id="quiz-title-right"><span>Ханна</span><br><span>Монтана
+						</div>
+						<div id="quiz-header-circle-right" class="phase2">
+						<div  style="position: absolute; top: 195px;  left: 48px;"><p id="right-percent" class="spincrement" style="display: inline;">25</p>%</div>
+						<div id="right-pie">
+								<svg viewBox="0 0 32 32">
+									<title>75%</title>
+									<circle class="circle2" r="16" cx="16" cy="16" stroke-dasharray="0 100"></circle>
+									<circle  class="circle1" r="13" cx="16" cy="16"></circle>
+								</svg>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+
+		</div>
+		<div id="quiz-other" class="phase1"><b>140</b> голосов</div>
+		<div id="quiz-logo" class="phase1"></div>
+
+	<div id="three-dots"></div>
+
+	</div>
+	
+	
+</body>
