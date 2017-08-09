@@ -73,10 +73,10 @@ circle.circle1 {
     
 }
 #left-pie.phase3 .circle2 {
-animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
+animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 
 #right-pie.phase3 .circle2 {
-animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
+animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 
 @-webkit-keyframes overlay-shane {
 0% {opacity: .2}
@@ -90,7 +90,7 @@ animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
   }
   20%
   {
-    transform: scale( 1.1 );
+    transform: scale( 1.5 );
   }
   40%
   {
@@ -98,7 +98,7 @@ animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
   }
   60%
   {
-    transform: scale( 1.1 );
+    transform: scale( 1.5 );
   }
   80%
   {
@@ -228,7 +228,7 @@ animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 				-webkit-transition: all 0.7s ease;
 				-moz-transition: all 0.7s ease;
 				-o-transition: all 0.7s ease;
-				transition: all 0.7s ease;}
+				transition: all 0.7s ease;transition-delay: 1.7s}
 
 #quiz_header.phase2 {Position:absolute; 
 				top: 0;

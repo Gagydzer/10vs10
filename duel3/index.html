@@ -39,6 +39,12 @@ function quiz_phase2_to3()
 }
 
 </script>
+<script>
+$(function () {
+  $("#quiz_image1_container").mouseover(function(){document.getElementById('quiz-overlay-looser').style.opacity='.5';});
+$("#quiz_image1_container").mouseout(function(){document.getElementById('quiz-overlay-looser').style.opacity='0';});
+});
+</script>
 	<div id="quiz_frame">
 		<h1 id="quiz_header" class="phase1" onclick="quiz_phase1_to2('quiz_header')">Cамая горячая штучка Америки?<br><button class="btn" type="button" id="quiz_button"><span>Кто же она..?</span></button></h1>
 		
@@ -49,7 +55,7 @@ function quiz_phase2_to3()
 						<div id="quiz-flag-left" class="phase2">234</div>
 						<div id="quiz-title-left"><span>Ким</span><br><span>Кардашьян</span></div>
 						<div id="quiz-header-circle-left" class="phase2">
-						<div style="position: absolute; top: 157px;  left: 60px;"><p id="left-percent" class="spincrement" style="display: inline;">23</p>%</div>
+						<div style="position: absolute; top: 195px;  left: 37px;"><p id="left-percent" class="spincrement" style="display: inline;">75</p>%</div>
 							<div id="left-pie">
 							<script>
 							$('#quiz_image2_container').click(function (){
@@ -68,7 +74,7 @@ function quiz_phase2_to3()
 						</div>
 					</div>
 					<div class="quiz_img_subcontainer" id="quiz_img_subcontainer-left">
-						<img src="pic1.jpg" id="quiz_image1" border="0" width="224" height="223">
+						<img src="pic1.jpg" id="quiz_image1" border="0" width="270" height="270">
 						<div id="quiz-heart-overlay-left" class="phase2"></div>
 						<div id="quiz-overlay-winner"></div>
 					</div>
@@ -76,7 +82,7 @@ function quiz_phase2_to3()
 			</div>
 			<div id="quiz_image2_container" class="phase1" onclick="quiz_phase2_to3()">
 					<div class="quiz_img_subcontainer" id="quiz_img_subcontainer-right">
-						<img src="pic2.jpg" id="quiz_image2" border="0" width="224" height="223">
+						<img src="pic2.jpg" id="quiz_image2" border="0" width="270" height="270">
 						<div id="quiz-heart-overlay-right" class="phase2"></div>
 						<div id="quiz-overlay-looser"></div>
 					</div>
@@ -86,7 +92,7 @@ function quiz_phase2_to3()
 						<div id="quiz-title-right"><span>Ханна</span><br><span>Монтана
 						</div>
 						<div id="quiz-header-circle-right" class="phase2">
-						<div  style="position: absolute; top: 157px;  left: 53px;"><p id="right-percent" class="spincrement" style="display: inline;">59</p>%</div>
+						<div  style="position: absolute; top: 195px;  left: 48px;"><p id="right-percent" class="spincrement" style="display: inline;">25</p>%</div>
 						<div id="right-pie">
 								<svg viewBox="0 0 32 32">
 									<title>75%</title>
@@ -102,8 +108,7 @@ function quiz_phase2_to3()
 		</div>
 		<div id="quiz-other" class="phase1"><b>140</b> голосов</div>
 		<div id="quiz-logo" class="phase1"></div>
-		<div id="quiz_overlay" class="phase1"></div>
-	<div id="quiz_overlay2" class="phase1"></div>
+
 	<div id="three-dots"></div>
 
 	</div>
