@@ -38,7 +38,7 @@ $("#quiz_image1_container, #quiz_image2_container, .quiz_img_subcontainer").addC
 
 /* data-block */
 
-var quizdata = '{"title": "Самый ЖОСКИЙ персонаж Mad Max 2", "one": "Безумный Макс", "two": "Фьюриос", "onevotes": 10, "twovotes": 20}';
+var quizdata = '{"title": "Самый ЖОСКИЙ персонаж Mad Max 2", "one": "Безумный Макс", "two": "Фьюриос", "onevotes": 10, "twovotes": 10}';
 	var quizparsed = jQuery.parseJSON( quizdata );
 	var quizparseone, quizparsedtwo
 	quizparsedone = quizparsed.one.replace(/\s/ig, '</span><br><span>');
