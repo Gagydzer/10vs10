@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-test</title>
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+
+<div id="somediv"></div>
+<div id="votes1"></div>
+<div id="votes2"></div>
+<div id="counter"></div>
+<button>Golosovat</button>
+<script>
+	var quizdata = '{"title": "Самый ЖОСКИЙ персонаж Mad Max 2", "one": "Mad Max", "two": "Furios", "onevotes": 145, "twovotes": 75}';
+
+	
+	var quizparsed = jQuery.parseJSON( quizdata );
+	alert( quizparsed.title );
+	quizparsed.one = quizparsed.one.replace(/\n/ig, '<br>');
+	alert(quizparsed.one.replace(/ /ig, '<br>'));
+	$('#somediv').html(quizparsed.title);
+	$('#votes1').html(quizparsed.onevotes);
+	$('#votes2').html(quizparsed.twovotes);
+	$('#counter').html(quizparsed.onevotes+quizparsed.twovotes);
+	
+	$('button').bind('click', function(){
+	$('#counter').html(quizparsed.onevotes+quizparsed.twovotes+1);});
+</script>
+</body>
+</html>

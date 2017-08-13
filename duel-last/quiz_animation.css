@@ -1,69 +1,5 @@
 
-@keyframes grow1 { 
-to { stroke-dasharray: 0 100 } }
-@keyframes grow2 { 
-to { stroke-dasharray: 10 100 } }
-@keyframes grow3 { 
-from { stroke-dasharray: 0 100 }
-to { stroke-dasharray: 20 100 } }
-@keyframes grow4 { 
-to { stroke-dasharray: 30 100 } }
-@keyframes grow5 { 
-to { stroke-dasharray: 40 100 } }
-@keyframes grow6 { 
-to { stroke-dasharray: 50 100 } }
-@keyframes grow7 { 
-to { stroke-dasharray: 60 100 } }
-@keyframes grow8 { 
-to { stroke-dasharray: 70 100 } }
-@keyframes grow9 { 
-to { stroke-dasharray: 80 100 } }
-@keyframes grow10 { 
-to { stroke-dasharray: 90 100 } }
-@keyframes grow11 { 
-to { stroke-dasharray: 100 100 } }
 
-svg {
-    background: transparent;
-    border-radius: 50%;
-}
-
-#left-pie {
-    width: 75px;
-    height: 75px;
-    display: inline-block;
-    
-    transform: rotate(-90deg);
-}
-
-#right-pie {
-    width: 75px;
-    height: 75px;
-    display: inline-block;
-    
-    transform: rotate(-90deg);
-}
-
-svg {
-    background: transparent;
-    border-radius: 50%;
-}
-
-.circle2 {
-    fill: transparent;
-    stroke: #de5d4e;
-    stroke-width: 32;
-}
-circle.circle1 {
-    fill: #2f2d2b;
-    
-    
-}
-#left-pie.phase3 .circle2 {
-animation: grow7 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
-
-#right-pie.phase3 .circle2 {
-animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 
 @-webkit-keyframes overlay-shane {
 0% {opacity: .2}
@@ -112,10 +48,10 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
     }
 #quiz_photo_container {position: relative;
 				left: 0;
-				-webkit-transition: all 5s ease;
-				-moz-transition: all 5s ease;
-				-o-transition: all 5s ease;
-				transition: all 5s ease;
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
 				z-index:1;
 				}
 
@@ -207,7 +143,11 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 				top: 150px;
 				
 }
-
+#quiz_header {position: absolute; top: 0;
+-webkit-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				-moz-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				-o-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
+				transition: all 0.7s cubic-bezier(.01,1.12,1,1.08);}
 .quiz-img-overlay-win, .quiz-img-overlay-lose {
 				opacity: 0.7 !important;
 				-webkit-transition: all 0.7s ease;
@@ -218,8 +158,7 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 				z-index: 100}
 				
 
-#quiz_header.phase2 {Position:absolute; 
-				top: 0;
+#quiz_header.phase2 {position: absolute; top: 0;
 				
 				-webkit-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
 				-moz-transition: all 0.7s cubic-bezier(.03,1.09,.59,1.11);
@@ -247,12 +186,6 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 				-o-transition: all 0.7s ease;
 				transition: all 0.7s ease;
 }			
-/*#quiz_image1_container.phase1 {position: relative; -webkit-animation-name: leftimg-move; 
-					-webkit-animation-duration: 1s;
-					-webkit-animation-timing-function: ease-in-out;}
-#quiz_image2_container.phase1 {position: relative; -webkit-animation-name: rightimg-move; 
-					-webkit-animation-duration: 1s;
-					-webkit-animation-timing-function: ease-in-out;}*/
 
 #quiz-button-title-left.phase3, #quiz-button-title-right.phase3 { opacity: .0; -webkit-transition: all 0.5s ease;
 					-moz-transition: all 0.5s ease;
@@ -278,16 +211,8 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 					-moz-transition: all 0.5s ease;
 					-o-transition: all 0.5s ease;
 					transition: all 0.5s ease; transition-delay: 1s}
-#quiz-header-circle-left.phase2, #quiz-header-circle-right.phase2 {opacity: 0;  
-					-webkit-transition: all 0.5s ease;
-					-moz-transition: all 0.5s ease;
-					-o-transition: all 0.5s ease;
-					transition: all 0.5s ease;}						
-#quiz-header-circle-left.phase3, #quiz-header-circle-right.phase3 {opacity: 1; 
-					-webkit-transition: all 0.5s ease;
-					-moz-transition: all 0.5s ease;
-					-o-transition: all 0.5s ease;
-					transition: all 0.5s ease;}						
+				
+					
 .quiz_img_overlay_loose { opacity: 0.7; background: black url(quiz_img/quiz_img_overlay.png) center; width: 224px; height: 223px; position: absolute; top:0;
 					-webkit-transition: all 0.3s ease;
 				-moz-transition: all 0.3s ease;
@@ -300,7 +225,13 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 					-moz-transition: all 0.5s ease;
 					-o-transition: all 0.5s ease;
 					transition: all 0.5s ease;}
-					
+	
+#quiz_photo_container{-webkit-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					-moz-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					-o-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);}
+
+	
 #quiz_photo_container.win2 {
 				position: relative;
 				left: -800px;
@@ -318,13 +249,12 @@ animation: grow3 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
 				transition: all 1s cubic-bezier(.49,.11,.69,1.2);
 				transition-delay: 2.4s
 }
-#quiz-winner {opacity: 0; 
-text-align:center; 
-padding-top: 300px; 
-}
+#quiz-frame-winner2, #quiz-frame-winner1 {				-webkit-transition: all 1s cubic-bezier(.49,.11,.69,1.2);
+				-moz-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+				-o-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+				transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);}
 
-
-/*   */
+/*  Slides  */
 
 
 #quiz_photo_container.win1 {
@@ -344,13 +274,113 @@ padding-top: 300px;
 				transition: all 1s cubic-bezier(.49,.11,.69,1.2);
 				transition-delay: 2.4s
 }
-
-#quiz-winner.phase3 {padding-top: 160px; 
-				font-size: 46pt;	
+#quiz-winner.phase2 {font-size: 38pt;}
+#quiz-winner.phase3 {
+				top:0;
+				font-size: 38pt;	
 				opacity: 1;
-				-webkit-transition: all 1.5s cubic-bezier(.51,.44,.49,1.45);
-				-moz-transition: all 1.5s cubic-bezier(.51,.44,.49,1.45);
-				-o-transition: all 1.5s cubic-bezier(.51,.44,.49,1.45);
-				transition: all 1.5s cubic-bezier(.51,.44,.49,1.45);
+				-webkit-transition: all 1.5s ease;
+				-moz-transition: all 1.5s ease;
+				-o-transition: all 1.5s ease;
+				transition: all 1.5s ease;
 				transition-delay: 3s
+}
+
+.quiz-agree {opacity: 0; 					
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+			transition-delay: 4s}
+.quiz-agree.phase3 {opacity: 1; 					
+			-webkit-transition: all 1.5s ease;
+			-moz-transition: all 1.5s ease;
+			-o-transition: all 1.5s ease;
+			transition: all 1.5s ease;
+			transition-delay: 4s}			
+
+#quiz-circle.phase2 {opacity: 0;  
+					
+					-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}		
+					
+#quiz-circle.phase3  {opacity: 1; 
+					-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}	
+					
+#quiz-pie {
+	z-index: 15;
+	position: absolute;
+	top: 110px;
+	left: 265px;
+    width: 270px;
+    height: 270px;
+    display: inline-block;   
+    transform: rotate(-90deg);
+}
+
+#quiz-pie.phase3 .circle2 {animation-name:grow5;
+animation: 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
+
+
+
+circle.circle2 {
+	fill: transparent;
+	opacity: 0.9;
+    stroke: #e92e1f ;
+    stroke-width: 14;
+}
+circle.circle1 {
+    fill: #1d1d1d ; 
+	opacity: 0.8
+}
+
+@keyframes grow1 { 
+to { stroke-dasharray: 40 803 } }
+@keyframes grow2 { 
+to { stroke-dasharray: 80 803 } }
+@keyframes grow3 { 
+to { stroke-dasharray: 120 803 } }
+@keyframes grow4 { 
+to { stroke-dasharray: 160 803 } }
+@keyframes grow5 {
+to { stroke-dasharray: 200 803 } }
+@keyframes grow6 { 
+to { stroke-dasharray: 240 803 } }
+@keyframes grow7 { 
+to { stroke-dasharray: 280 803 } }
+@keyframes grow8 { 
+to { stroke-dasharray: 320 803 } }
+@keyframes grow9 { 
+to { stroke-dasharray: 360 803 } }
+@keyframes grow10 { 
+to { stroke-dasharray: 400 803 } }
+@keyframes grow11 { 
+to { stroke-dasharray: 440 803 } }
+@keyframes grow12 { 
+to { stroke-dasharray: 480 803 } }
+@keyframes grow13 { 
+to { stroke-dasharray: 520 803 } }
+@keyframes grow14 { 
+to { stroke-dasharray: 560 803 } }
+@keyframes grow15 { 
+to { stroke-dasharray: 600 803 } }
+@keyframes grow16 { 
+to { stroke-dasharray: 640 803 } }
+@keyframes grow17 { 
+to { stroke-dasharray: 680 803 } }
+@keyframes grow18 { 
+to { stroke-dasharray: 720 803 } }
+@keyframes grow19 { 
+to { stroke-dasharray: 760 803 } }
+@keyframes grow20 { 
+to { stroke-dasharray: 803 803 } }
+
+svg {
+    background: transparent;
+    border-radius: 50%;
 }

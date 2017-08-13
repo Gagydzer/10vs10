@@ -1,6 +1,6 @@
-body {background: black}
+body {background: #181818;}
 * 
-{
+{ 
   margin: 0;
   padding: 0;
 }
@@ -15,21 +15,24 @@ body {background: black}
 }
 
 #quiz-frame-winner2 {
+
 	height: 408px;
 	width: 800px;
-	background: url('win2.gif')  no-repeat center;
+	background: none;
 	background-size: cover;
 	position:relative;
 	left: 800px;
 	top:-370px;
 	overflow: hidden;
 }
-
+#quiz-frame-winner2.display {background: url('win2.gif')  no-repeat center;
+background-size: cover;}
+#quiz-frame-winner1.display {background: url('win1.gif')  no-repeat center;
+background-size: cover;}
 #quiz-frame-winner1 {
 	height: 408px;
 	width: 800px;
-	background: url('win1.gif')  no-repeat center;
-	background-size: cover;
+	background: none;
 	position:relative;
 	left: -800px;
 	top:-778px;
@@ -38,15 +41,17 @@ body {background: black}
 .quiz-frame-win-bg {height: 408px;
 					width: 800px;
 					background: black;
-					opacity: 0.5;
+					opacity: 0.2;
 					position: absolute;
 					top:0;
 					z-index:1}
-#quiz-winner {opacity: 0; 
+#quiz-winner {
+opacity: 0; 
 text-align:center; 
-padding-top: 300px;
+font-size: 46pt;
 z-index: 3;
-position: relative
+position: absolute;
+top: -100px;
 }
 @media screen and (min-width: 800px) { 
 
@@ -82,7 +87,7 @@ position: relative
     text-align: right;
     padding-right: 6px; 
 	margin-right: 3px; 
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 	margin-top: 1px;
     line-height: 30px;
     font-size: 18px;
@@ -92,11 +97,11 @@ position: relative
 	color: white: font-size: 12px}
 }
 
-#quiz-header-circle-left {
-    width: 75px;
-    height: 75px;
+#quiz-circle {
+    width: 200px;
+    height: 200px;
     color: #cfcfcf;
-    font-size: 16pt;
+    font-size: 24pt;
     padding-top: 25px;
 	margin: 0 auto;
 }
@@ -104,7 +109,7 @@ position: relative
     text-align: left;
     padding-left: 6px; 
 	margin-left: 3px; 
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 	margin-top: 1px;
     line-height: 30px;
     font-size: 18px;
@@ -139,7 +144,7 @@ position: relative
 #quiz_image1, #quiz_image2 {}
 #quiz_img_subcontainer-left {flex-basis: 270px}
 #quiz-button-left {
-				flex-basis: 120px;
+				
 				text-align: right; 
 				
 				font-family:"Open Sans", Geneva, Arial, Helvetica, sans-serif;
@@ -150,9 +155,10 @@ position: relative
 				-moz-transition: all 0.3s ease;
 				-o-transition: all 0.3s ease;
 				transition: all 0.3s ease; overflow: hidden; }
-.quiz-title {font-size: 32px;}
+.quiz-title {font-size: 22px; 
+			}
 #quiz-button-right {
-				flex-basis: 120px;
+				
 				text-align: left; 
 				
 				font-family:"Open Sans", Geneva, Arial, Helvetica, sans-serif;;
@@ -163,11 +169,14 @@ position: relative
 				-moz-transition: all 0.3s ease;
 				-o-transition: all 0.3s ease;
 				transition: all 0.3s ease; overflow: hidden; }
-#quiz-button-left span, #quiz-button-right span {padding: 0 3px;-webkit-transition: all 0.3s ease;
+#quiz-button-left span, #quiz-button-right span {
+
+				padding: 0 3px;-webkit-transition: all 0.3s ease;
 				-moz-transition: all 0.3s ease;
 				-o-transition: all 0.3s ease;
 				transition: all 0.3s ease; overflow: hidden;  }
-
+#quiz-lefttitle span {text-align: right}
+#quiz-righttitle  span {text-align: left}
 #quiz_image1_container, #quiz_image2_container {cursor: pointer; }
 .quiz_img_subcontainer {height: 270px; overflow: hidden;}
 #quiz-heart-overlay-left {background-size: 100%;
@@ -206,7 +215,7 @@ position: relative
 				-moz-transition: all 0.7s ease;
 				-o-transition: all 0.7s ease;
 				transition: all 0.7s ease;}
-#quiz-overlay-winner {opacity: 0;
+#quiz-overlay-winner-left, #quiz-overlay-winner-right {opacity: 0;
 					width: 270px; 
 					height: 270px; 
 					background: url(quiz_img/korona.png) no-repeat 50% 6%; 
@@ -215,7 +224,7 @@ position: relative
 					top: 0;
 					z-index: 10}
 					
-#quiz-overlay-looser {opacity: 0;
+#quiz-overlay-looser-left, #quiz-overlay-looser-right {opacity: 0;
 					width: 270px; 
 					height: 270px; 
 					background: black; 
@@ -228,36 +237,21 @@ position: relative
 					}
 #quiz_image2_container:hover #quiz-button-right span, #quiz_image1_container:hover #quiz-button-left span {cursor: pointer; background: RGBA(0, 0, 0, .5)}
 
-#quiz_overlay {height: 408px;
-	width: 800px; 	position:absolute;
-	top: 0;
-	 z-index:-1; background: url(back-overlay.png) no-repeat center; }
-	 #quiz_overlay2 {height: 408px;
-	width: 800px; 	position:absolute;
-	top: 0;
-	 z-index:-1; background: url(back-overlay2.png) no-repeat center; }
-
-
-
 #quiz_versus {width: 95px; height: 95px; background: url(quiz_img/vs.svg) no-repeat center; position: absolute;left: 357px;top: 170px; z-index: 999}	
 
+#quiz-percent {
+	color: white;
+	width: 200px;
+	position: absolute;
+	top: 190px;
+	left: 295px;
+	text-align:center;
+	z-index: 20;}
 
 
 
 
 
-#quiz-other {font-family:"Open Sans", Geneva, Arial, Helvetica, sans-serif; color: white; opacity: .3; position: absolute; top: 380px; padding-left: 14px; font-size: 10pt}
-#quiz-logo {width: 90px; height: 25px; background: url(vimeo_logo.png) no-repeat center; position: absolute; top: 370px; right: 10px; opacity: .3;}
-#three-dots {background: url(three-dots.png) no-repeat center; position: absolute; top: 10px; right: 10px; opacity: .3; width: 54px; height: 14px}
-#quiz-logo.phase1 {opacity: 0;}
-#quiz-other.phase1 {opacity: 0;}
-#quiz-logo.phase2, #quiz-other.phase2 {opacity: .3; -webkit-transition: all 0.3s ease;
-				-moz-transition: all 0.3s ease;
-				-o-transition: all 0.3s ease;
-				transition: all 0.3s ease; -webkit-transition: all 0.5s ease;
-					-moz-transition: all 0.5s ease;
-					-o-transition: all 0.5s ease;
-					transition: all 0.5s ease;}
 					
 .btn {
   position: relative;
@@ -326,6 +320,30 @@ position: relative
 *, *:before, *:after {
   box-sizing: border-box;
 }
-
+#quiz-other {font-family:"Open Sans", Geneva, Arial, Helvetica, sans-serif; color: white; opacity: .3; position: absolute; top: 380px; padding-left: 14px; font-size: 10pt}
+#quiz-logo {width: 90px; height: 25px; background: url(vimeo_logo.png) no-repeat center; position: absolute; top: 370px; right: 10px; opacity: .3;}
+#three-dots {background: url(three-dots.png) no-repeat center; position: absolute; top: 10px; right: 10px; opacity: .3; width: 54px; height: 14px}
+#quiz-logo.phase1 {opacity: 0;}
+#quiz-other.phase1 {opacity: 0;}
+#quiz-logo.phase2, #quiz-other.phase2 {opacity: .3; -webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
 
 .quiz-info {z-index:10;}
+
+#quiz-winner-back {height: 100%;
+				width: 100px;
+				position: absolute;
+				top: 0;
+				z-index: 50; background-size: contain;opacity: 0.4}
+#quiz-winner-back:hover {opacity:0.9; cursor: pointer}				
+#quiz-winner-back.right	{right:0; 
+						background: url(quiz_img/right-arrow.svg) no-repeat center}
+#quiz-winner-back.left	{left:0; 
+background: url(quiz_img/left-arrow.svg) no-repeat center}
+
+.nopointer {cursor:default !important}
