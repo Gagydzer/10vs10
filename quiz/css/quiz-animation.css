@@ -1,0 +1,99 @@
+.quiz_block_wrap {
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+.quiz_start.quiz_wrap:before {	
+	-webkit-animation-name: bgfade; 
+	-webkit-animation-duration: 3s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: infinite; 
+	animation-direction: alternate-reverse;
+}
+
+
+.btn {	
+	-webkit-animation-name: scale; 
+	-webkit-animation-duration: 12s;
+	-webkit-animation-timing-function: cubic-bezier(.3,1.66,.68,-1.09); 
+	animation-iteration-count: infinite; 
+	animation-direction: alternate-reverse;
+}
+
+.quiz_answers ul li {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.percents  {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+..quiz_answers ul li span.numbers  {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  display: block;
+  width: 0;
+  padding-top: 0;   
+  border-radius: 100%; 
+  background-color: rgba(242, 191, 187, .3); 
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+li:active:before {
+  width: 120%;
+  padding-top: 120%;  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+@-webkit-keyframes bgfade {
+	0% {opacity: .7}
+	100% {opacity: .2}
+}
+
+@-webkit-keyframes scale {
+  0%
+  {
+    transform: scale( 1 );
+  }
+  20%
+  {
+    transform: scale( 1.3 );
+  }
+  40%
+  {
+    transform: scale( 1 );
+  }
+  60%
+  {
+    transform: scale( 1.3 );
+  }
+  80%
+  {
+    transform: scale( 1 );
+  }
+  100%
+  {
+    transform: scale( 1 );
+  }	
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Документ без названия</title>
+<link href="css/quiz.css" rel="stylesheet" type="text/css">
+<link href="css/quiz-animation.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.spincrement.js"></script>
+
+</head>
+
+<body>
+	<div class="quiz_block">
+		<div class="quiz_block_wrap" style="left: 0px;">
+			<div class="quiz_start quiz_wrap" style="background-image:url(images/quiz_start.jpg)">
+				<div class="quiz_title">Как хорошо вы знаете<br>экзотических грызунов</div>
+				<div class="quiz_button_wrap">
+					<button class="btn" type="button"><span>Start</span></button></h1>
+				</div>
+			</div>
+			<div class="quiz_wrap" style="background-image:url(images/quiz.jpg)">
+				<div class="quiz_number"><span class="slide_counter">1</span>/15</div>
+				<div class="quiz_title">Кто этот пушистый зверек?</div>
+				<div class="quiz_answers">
+					<ul>
+						<li id="quiz_answer11"><div class="percents" style="width:0%;"></div><span>Конечно это песец</span><span class="numbers"><div></div>%</span></span></li>
+						<li id="quiz_answer12"><div class="percents" style="width:0;"></div><span>Оппосум</span><span class="numbers"><div></div>%</span></li>
+						<li id="quiz_answer13"><div class="percents" style="width:0%;"></div><span>Гибраалтарская сумчатая крыса</span><span class="numbers"><div></div>%</span></li>
+						<li id="quiz_answer14"><div class="percents" style="width:0%;"></div><span>Если слишком длинный ответ, то его надо обрезать как-нибудь</span><span class="numbers"><div></div>%</span></li>
+					</ul>
+				</div>				
+			</div>
+			<div class="quiz_wrap" style="background-image:url(images/quiz.jpg)">
+				<div class="quiz_number"><span class="slide_counter">2</span>/15</div>
+				<div class="quiz_title">Кто этот пушистый зверек?</div>
+				<div class="quiz_answers">
+					<ul>
+						<li><span>Конечно это песец</span></li>
+						<li class="wrong"><div class="percents" style="width:80%;"></div><span>Оппосум</span><span class="numbers">80%</span></li>
+						<li class="right"><div class="percents" style="width:20%;"></div><span>Гибраалтарская сумчатая крыса</span><span class="numbers">20%</span></li>
+						<li><span>Если слишком длинный ответ, то его надо обрезать как-нибудь</span></li>
+					</ul>
+				</div>				
+			</div>
+			<div class="quiz_wrap" style="background-image:url(images/quiz.jpg)">
+				<div class="quiz_number"><span class="slide_counter">3</span>/15</div>
+				<div class="quiz_title">Кто этот пушистый зверек?</div>
+				<div class="quiz_answers">
+					<ul>
+						<li><span>Конечно это песец</span></li>
+						<li class="wrong"><div class="percents" style="width:80%;"></div><span>Оппосум</span><span class="numbers">80%</span></li>
+						<li class="right"><div class="percents" style="width:20%;"></div><span>Гибраалтарская сумчатая крыса</span><span class="numbers">20%</span></li>
+						<li><span>Если слишком длинный ответ, то его надо обрезать как-нибудь</span></li>
+					</ul>
+				</div>				
+			</div>			
+		</div>
+		<div class="quiz_votes">
+			<span>500</span> голосов
+		</div>
+	</div>
+	<input type="button" id="previousslide" value="Предыдущий">
+	<input type="button" id="nextslide" value="Следующий">	
+	<script type="text/javascript" src="js/quiz_code.js"></script>
+</body>
+</html>
