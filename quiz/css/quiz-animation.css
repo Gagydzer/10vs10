@@ -20,8 +20,22 @@
 	-webkit-animation-timing-function: cubic-bezier(.3,1.66,.68,-1.09); 
 	animation-iteration-count: infinite; 
 	animation-direction: alternate-reverse;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }
-
+.btn.animate {
+	-webkit-animation-name: scale-out; 
+	animation-direction: normal;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 1s;
+	animation-iteration-count: 1; 
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
 .quiz_answers ul li {
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
@@ -42,6 +56,12 @@
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
 }
+
+.quiz_answers ul li {
+	animation-direction: normal;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 1s;
+	animation-iteration-count: 1; }
 
 li:before {
   content: "";
@@ -65,7 +85,41 @@ li:active:before {
   padding-top: 120%;  
   transition: width .2s ease-out, padding-top .2s ease-out;
 }
+.quiz_media_overlay { 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
 
+.quiz_media_overlay.display {opacity: 1}
+
+.quiz_progresscounter, .quiz_progress{ 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.quiz_resultimg {
+	opacity: 0;	
+	animation-fill-mode: forwards;
+	-webkit-animation-duration: 0.7s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: 1; 	
+}
+
+.quiz_textcontent {opacity: 0;
+	-webkit-animation-duration: .7s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards}
+.quiz_textcontent:nth-child(2) {
+	animation-delay: 0.4s;
+}
+.quiz_textcontent:nth-child(3) {
+	animation-delay: 0.8s;
+}
 @-webkit-keyframes bgfade {
 	0% {opacity: .7}
 	100% {opacity: .2}
@@ -96,4 +150,29 @@ li:active:before {
   {
     transform: scale( 1 );
   }	
+}
+
+@-webkit-keyframes scale-out {
+  0% {}
+  100%{
+    transform: scale( 10 );
+	opacity: 0;
+  }
+}
+ @-webkit-keyframes scale-in {
+  0% {transform: scale( 5 );
+	opacity: 0	;
+  }
+  100% {
+    transform: scale( 1 );
+	opacity: 1;
+  }
+ }
+ 
+@-webkit-keyframes from-left {
+  from {right: 150px; opacity: 0}
+  to{
+    right: 0;
+	opacity: 1;
+  }
 }
