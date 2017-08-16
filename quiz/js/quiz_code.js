@@ -25,7 +25,7 @@ function quiz_progress(){
 function quiz_showresult(){
 	setTimeout( function() {$('.quiz_resultimg').css('-webkit-animation-name', 'scale-in');
 	$('.quiz_textcontent').css('-webkit-animation-name', 'from-left');
-	}, 6000);
+	}, 4500);
 }
 function quiz_show_media (right) {
 	
@@ -34,7 +34,7 @@ $('#nextslide, .btn').bind('click', function(){
 	$('.btn').addClass('animate');
 	quiz_nextslide();
 	console.log('sdelan click')
-	if (slidecounter == slidestotal) {
+	if (slidecounter == (slidestotal+1)) {
 	quiz_showresult()	
 	}
 	} );
@@ -101,7 +101,7 @@ $('.quiz_answers ul li#quiz_answer13').bind('click', function(){
 		$('.quiz_answers ul li .numbers div').spincrement();
 	}, 3000);
 	setTimeout( function(){quiz_nextslide()}, 4000);
-	if (slidecounter == slidestotal) {
+	if (slidecounter == (slidestotal+1)) {
 	quiz_showresult()
 	}
 	});
