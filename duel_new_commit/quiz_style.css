@@ -1,0 +1,648 @@
+body {background: #181818; font-family: 'OpenSansCondensedLight';}
+* 
+{ 
+  margin: 0;
+  padding: 0;
+}
+
+/*_______________fonts__________________*/
+@font-face {
+	font-family: 'OpenSansCondensedBold';
+	src: url('../fonts/OpenSansCondensedBold.eot');
+	src: url('../fonts/OpenSansCondensedBold.woff') format('woff'), url('../fonts/OpenSansCondensedBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'OpenSansCondensedLight';
+	src: url('fonts/OpenSansCondensedLight.eot');
+	src: url('fonts/OpenSansCondensedLight.woff') format('woff'), url('../fonts/OpenSansCondensedLight.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'OpenSansCondensedLightItalic';
+	src: url('../fonts/OpenSansCondensedLightItalic.eot');
+	src: url('../fonts/OpenSansCondensedLightItalic.woff') format('woff'), url('../fonts/OpenSansCondensedLightItalic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*____________________________duel________________________________________*/
+
+#duel_frame {
+	height: 408px;
+	width: 800px;
+	background: url('frame-back.jpg')  no-repeat center;
+	position: relative;
+	overflow: hidden;
+}
+
+.duel_main_container {
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 1030px;
+	height: 408px;
+	margin: 0 auto
+}
+
+
+
+.duel_arrow {
+	height: 100%;
+	width: 50px;
+	z-index: 50; 
+	background-size: contain;
+	opacity: 0.3
+}
+.duel_arrow:hover {
+	opacity:0.9; 
+	cursor: pointer
+}
+.duel_arrow.left {
+	background: url(duel_img/left-arrow.svg) no-repeat center; margin-right: 15px;
+}
+.duel_arrow.right {
+	background: url(duel_img/right-arrow.svg) no-repeat center; margin-left: 15px;
+}
+.duel_aroow:hover {
+	opacity:0.9; 
+	cursor: pointer
+}
+
+
+.duel_frame_winner {
+	height: 408px;
+	width: 800px;
+	background-size: cover;
+	position:relative;
+	overflow: hidden;
+}
+
+.duel_overlay_logos {position:absolute; height: 408px; width: 800px;}
+
+.duel_frame_winner.winner_right {
+	left: 800px;
+	top:-370px;
+}
+
+.duel_frame_winner.winner_left {
+	left: -800px;
+	top:-778px;	
+}
+
+.tooltip_templates {display:none}
+
+.duel_frame_winner.winner_right.show {background: url('frame-back.jpeg')  no-repeat center; background-size: cover;}
+.duel_frame_winner.winner_left.show {background: url('frame-back.jpeg')  no-repeat center; background-size: cover;}
+
+.duel-frame-win-bg {height: 408px;
+					width: 800px;
+					background: black;
+					opacity: 0.4;
+					position: absolute;
+					top:0;
+					z-index:1}
+.duel_winner_container		{
+	height: 408px; 
+	width: 800px;
+	position: absolute;
+	z-index: 1000;
+	align-items: center;
+	display: flex; 
+	flex-direction: column; 
+	justify-content: space-between
+	
+}			
+					
+#duel-winner {
+opacity: 0; 
+text-align:center; 
+font-size: 46pt;
+margin: 15px;
+}
+@media screen and (min-width: 800px) { 
+
+#duel-img-result-left {width: 270px; 
+					height: 270px; 
+					position: absolute; 
+					top:0; 
+					color: white; 				
+					font-size: 65px;
+					font-family:lucida sans unicode, lucida grande, sans-serif; z-index:100}
+#duel-img-result-right {width: 270px; 
+					height: 270px; 
+					position: absolute; 
+					top:0; 
+					padding-top: 88px;
+					color: white; 				
+					font-size: 65px;
+					font-family:lucida sans unicode, lucida grande, sans-serif; z-index:100}
+#duel-img-result-left.phase2  {opacity: .0;}
+#duel-img-result-right.phase2 {opacity: .0;}
+#duel-img-result-left.phase3, #duel-img-result-right.phase3 {-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+.duel_img_overlay {opacity: 0; background: url(duel_img/duel_img_overlay.png) center; width: 270px; height: 270px; position: absolute; top:0;
+					-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;}
+
+
+#duel_frame h1 {z-index:2; width: 800px;font-size: 24pt; text-align: center; color: white;
+				text-shadow: 0px 1px 2px rgba(0,0,0,0.4); margin-bottom:20px; margin-top: 25px; cursor: pointer}
+#duel_frame h1:hover {text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;}
+
+
+
+.duel_photo_container {text-align: center; margin-top: 25px; height: 270px; display: flex;}
+.duel_image_container.left, .duel_image_container.right {display: flex; flex-wrap: nowrap; flex-basis: 400px; }
+.duel_image_container.left {justify-content:flex-end}
+.duel_image_container.right {justify-content:flex-start}
+.duel-button-left {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				text-align: right; 
+				padding-right: 15px;
+				width: 120px;
+				height: 270px;
+				color: white;			
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;  }
+.duel-title {font-size: 26px;
+			}
+.duel-button-right {display: flex;
+				flex-direction: column;
+				justify-content: space-between;				
+				text-align: left; 
+				width: 120px;
+				height: 270px;
+				color: white;
+				padding-left: 15px;
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; overflow: hidden; }
+.duel-button-left span, .duel-button-right span {
+
+				padding: 0 3px;-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; overflow: hidden;  }
+				
+
+				
+				
+
+
+ .duel-flag {
+	 color: #fff;  
+    
+	margin-right: 3px; 
+	margin-top: 1px;
+    line-height: 30px;
+    font-size: 18px;
+	width: 90px; 
+	height: 32px; 
+	
+	color: white: font-size: 12px
+	}
+
+ .duel-flag.left { 
+	padding-right: 6px; 
+	margin-left: auto;
+	text-align: right; 
+	background: url(duel_img/flag-left.png) no-repeat right; 
+ 
+ }
+ .duel-flag.right {
+	 padding-left: 6px; 
+	 margin-right: auto;
+	 text-align: left; 
+	 background: url(duel_img/flag-right.png) no-repeat left; }
+
+.duel-header-circle {
+	position: relative;
+    width: 75px;
+    height: 75px;
+	color: #cfcfcf;
+    font-size: 16pt;
+	cursor: pointer;
+}	
+.duel-header-circle.left {   
+	margin: 0 auto 15px 25px;
+}
+
+.duel-header-circle.right {
+	margin: 0 25px 15px auto;
+	}
+	
+.duel-header-circle.phase2 {
+	opacity: 0;  
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}						
+.duel-header-circle.phase3, {
+	opacity: 1; 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}	
+
+.duel_panel_percent_wrapper {
+	position: absolute; 
+	top: 21px; 
+	width: 100%; 
+	text-align: center;
+}	
+	
+.duel-title.left span {text-align: right}
+.duel-title.right  span {text-align: left}
+
+
+
+.duel_img_subcontainer {height: 270px; overflow: hidden; cursor: pointer;}
+.duel_heart_overlay {background-size: 100%;
+					opacity: 0;
+					width: 270px; 
+					height: 270px; 
+					position: relative;
+					left: 0;
+					top: -270px;
+					background: url(duel_img/image-add.svg) no-repeat center; 
+					-webkit-transition: all 0.7s ease;
+					-moz-transition: all 0.7s ease;
+					-o-transition: all 0.7s ease;
+					transition: all 0.7s ease;}
+
+.duel_img_subcontainer:hover .duel_heart_overlay {
+				opacity: 0.3;
+				-webkit-transition: all 0.7s ease;
+				-moz-transition: all 0.7s ease;
+				-o-transition: all 0.7s ease;
+				transition: all 0.7s ease;}
+				
+.duel_overlay.winner{	
+	background: url(duel_img/korona.png) no-repeat 50% 6%; 					
+	top: 0;
+	z-index: 10}
+	
+.duel_overlay {
+	opacity: 0;
+	width: 270px; 
+	height: 270px;
+	background-size: 50%;
+	position: absolute; 
+}	
+.duel_img_subcontainer.loose div.duel-overlay.looser {
+	opacity: 1;
+	background: black; 
+	position: absolute; 
+	top: 0;
+	-webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-o-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+
+.duel_versus {width: 95px; 
+height: 95px; 
+ background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+position: absolute;
+left: 357px;
+top: 170px; 
+z-index: 999;
+cursor: pointer;
+}	
+
+#duel-percent {
+	font-size: 26pt;
+	color: white;
+	width: 200px;
+	position: absolute;
+	top: 60px;
+	left: 40px;
+	text-align:center;
+	z-index: 20;}
+
+
+
+
+
+					
+.btn {
+  position: relative;
+	
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+	font-size: 16pt;
+  overflow: hidden;
+	
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #ED6358;
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus { cursor: pointer;
+  background-color: #ED6358;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn.phase2, .btn.phase3{display:none}
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(242, 191, 187, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+#duel-other {font-family: "OpenSansCondensedLight", "Open Sans", Geneva, Arial; color: white; opacity: .3; position: absolute; top: 380px; padding-left: 14px; font-size: 10pt}
+#duel-logo {width: 90px; height: 25px; background: url(vimeo_logo.png) no-repeat center; position: absolute; top: 370px; right: 10px; opacity: .3;}
+#three-dots {background: url(three-dots.png) no-repeat center; position: absolute; top: 10px; right: 10px; opacity: .3; width: 54px; height: 14px}
+#duel-logo.phase1 {opacity: 0;}
+#duel-other.phase1 {opacity: 0;}
+#duel-logo.phase2, #duel-other.phase2 {opacity: .3; -webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+
+.duel-info {z-index:10;}
+
+
+.duel_circle {
+	flex-basis: 220px;
+	padding: 10px;
+	margin: 10px 0 15px 0;
+    color: #cfcfcf;
+    font-size: 24pt;
+	position: relative;
+	border: 1px solid rgba(222, 93, 78, 0.4);
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.nopointer {cursor:default !important}
+
+.duel_result_columns { 
+				padding: 10px;
+				display:flex; 
+				flex-basis: 220px; 
+				margin: 0 15px 0 15px; 
+				justify-content: space-between; 
+				align-items: flex-end
+				}
+.duel-result-body {
+	width: 75%;
+	display:flex; 
+	align-items: flex-end; 
+	justify-content: middle; 
+	z-index: 100000;
+	margin: 10px 0 15px 0;
+	display: none;
+	border: 1px solid rgba(222, 93, 78, 0.4);
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	position: relative;
+}
+.duel-result-body :hover, .duel_circle:hover  {
+	border: 1px solid rgba(222, 93, 78, 0.9);
+}
+
+.duel_circle:hover .my_tooltip {opacity: 1}
+.duel-result-body:hover .my_tooltip {opacity: 1}
+.duel-result-title {width: 200px;
+    font-family: "OpenSansCondensedLight", "Open Sans", Geneva, Arial;
+	font-size: 32px;
+	color: white;	
+	}
+.duel-result-column {flex-basis: 75px; overflow: hidden; position: relative;}
+.duel-result-column.left { height: 270px}
+.duel-result-column.right {height: 270px}
+.duel-result-column-grow {width: 100%;
+				
+				-webkit-transition: all 0.7s linear;
+				-moz-transition: all 0.7s linear;
+				-o-transition: all 0.7s linear;
+				transition: all 0.7s linear;}
+.duel-result-column-grow {}
+.duel-result-column-grow.phase3 {}
+.duel-result-column-grow.left {background: #090974	; position: absolute; bottom: 0; vertical-align: bottom}
+.duel-result-column-grow.right {background: #F30021; position: absolute; bottom: 0; vertical-align: bottom}
+
+.duel-percent-one, .duel-percent-two {
+	position:absolute;
+	top: 210px;
+	left: 28px;
+	font-size: 28px;
+	color: white;
+	z-index: 10000;
+	
+}
+
+/* ADMINKA */
+
+input {
+	color: #fff;
+
+    border: none;
+    background: transparent;
+	display: inline-block;
+	line-height: 100%;
+	font-size: 24px;
+	padding: 10px;
+}
+input.create_battle_title1 {
+	width: 540px; 	
+    text-align: center;   
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 2px;
+	border: 1px solid rgba(222, 93, 78, 0.4)
+}
+textarea.create_battle_name {
+	height: 90px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 2px;
+	border: 1px solid rgba(222, 93, 78, 0.4);
+	width: 100px;
+	color: #fff;
+    text-shadow: 1px 1px 2px black, 0 0 0.3em #4F4343;
+	padding: 13px 8px 13px 8px;
+	display: inline-block;
+	line-height: 100%;
+	font-size: 18px;
+	overflow:hidden;
+	resize: none;
+	margin-top: 5px;
+}
+
+textarea.name1 {	text-align: center; margin-right: 3px;}
+textarea.name2 {	text-align: center; margin-left: 3px;}
+input.create_battle_title1:focus{
+	outline: none !important;
+	border: 1px solid rgba(222, 93, 78, 0.9)
+}
+textarea.create_battle_name:focus {
+	outline: none !important;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 2px;
+	border: 1px solid rgba(222, 93, 78, 0.9)
+}
+
+.duel_edit_panel {width: 100%; height: 750px; background: gray; padding-bottom: 200px;}
+
+.duel_vs_panel {
+	width: 800px;
+	height: 140px;
+
+}
+
+.duel_vs_panel_wrap {
+	margin: 20px auto;
+	width: 600px;
+	height: 140px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center
+}
+
+.duel_vs_variants {
+	 background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+	width: 95px;
+	height: 95px;	
+	cursor: pointer;
+}
+.duel_vs_variants.var1 {	
+	background: url(duel_img/vs.svg) no-repeat center;
+}
+
+.duel_vs_variants.var2 {	
+	background-image: url(duel_img/vs2.png);
+}
+.duel_vs_variants.var3 {	
+	background-image: url(duel_img/vs3.png);
+}
+.duel_vs_variants.var4 {	
+	background-image: url(duel_img/vs4.png);
+}
+.duel_vs_variants.var5 {	
+	background-image: url(duel_img/vs5.png);
+}
+.duel_choose_bg {
+	margin: 20px auto 20px auto;
+	padding: 10px;
+	height: 40px;
+	background: #2e2e2e;
+	cursor: pointer;
+	text-align: center;
+	font-family: arial;
+	max-width: 300px;
+	color: white;
+	opacity: .8
+	
+	
+}
+.duel_choose_bg:hover{
+	margin: 20px auto 20px auto;
+	padding: 10px;
+	height: 40px;
+	background: #2e2e2e;
+	cursor: pointer;
+	text-align: center;
+	font-family: arial;
+	max-width: 300px;
+	color: white;
+	opacity: 1
+	
+	
+}
+
+.my_tooltip {
+	width: 65px;
+	height: 24px;
+	cursor: pointer;
+	position: absolute;
+	right: -5px;
+	top: -4px;
+	z-index: 100000;
+	opacity: 0
+}
+
+
+.duel_winner_back {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: white;
+	display: none
+}
+
+.duel_winner_title  {font-size: 32pt}
+.duel_winner_title.big_font  {font-size: 38pt}
+
+.duel-flag {position: relative; cursor: pointer}
+.duel-flag span {position: relative;}
+.duel-flag svg {position: absolute; left: 0; top: 0; }
+.duel_flag_svg {fill:blue; }
+
+.duel_versus_svg.font{fill:#FFFFFF;}
