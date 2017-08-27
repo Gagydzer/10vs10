@@ -25,8 +25,8 @@
 			});
 
 
-					$(document).on('click', function(e) {
-				
+					$('div').on('click', function(e) {
+						console.log($(e.target).closest(".create_battle_name").length );
 					  if (!$(e.target).closest(".create_battle_name.name1").length) {
 						console.log('close arrow tooltip');	
 						$('.duel_arrow.left').tooltipster('close');
@@ -34,7 +34,7 @@
 					  e.stopPropagation();
 					});
 					
-					$(document).on('click', function(e) {
+					$('div').on('click', function(e) {
 				
 						  if (!$(e.target).closest(".create_battle_name.name2").length) {
 							console.log('close arrow tooltip');	
@@ -66,9 +66,9 @@
 		</div>
 	<div id="duel_frame" class="duel_frame">
 			<div class="duel_overlay_logos">
-			<div id="duel-other" class="phase2" class="duel-info"><b id="duel-total-votes"></b> голосов</div>
-			<div id="duel-logo" class="duel-info" class="phase2"></div>
-			<div id="three-dots" class="duel-info"></div>
+			<div id="duel-other" class="phase2" class="duel-info" style="display:none"><b id="duel-total-votes"></b> голосов</div>
+			<div  class="duel_chose_bg" class="phase2" title="Выберите фон">Выберите фон</div>
+			<div id="three-dots" class="duel-info" style="display:none"></div>
 			</div>
 			<div id="duel_subframe" class="duel_subframe">
 				<h1 class="duel_header phase2" onclick="duel_phase2_to2('duel_header')">
@@ -182,7 +182,7 @@
 							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
 							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
 						</div> 
-						<div id="duel-percent"><span><p id="duel-right-percent" class="spincrement" style="display: inline;">0</p>%</span><br>
+						<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent right spincrement" style="display: inline;">0</p>%</span><br>
 							<span style="text-align:center" class="duel-agree">Проголосовало<br>за</span>
 						</div>
 							<div id="duel-pie" class="duel_pie phase2">
@@ -195,6 +195,7 @@
 					
 				
 				<!-- Столбики	 -->
+				<!-- <div class="duel-collums-container"> -->
 				 <div class="duel-result-body right_win">
 					<div class="my_tooltip right columns" style="top: 5px; right: -8px;"> 
 							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
@@ -218,6 +219,7 @@
 					</div>
 					
 				</div> 
+				<!-- </div> -->
 				<!-- /Столбики	 -->
 			</div>	
 			</div>
@@ -238,7 +240,7 @@
 							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
 						</div> 
 
-				<div id="duel-percent"><span><p id="duel-right-percent" class="duel-percent left spincrement" style="display: inline;">0</p>%</span><br>
+				<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent left spincrement" style="display: inline;">0</p>%</span><br>
 				<span style="text-align:center" class="duel-agree">Проголосовало<br>за</span>
 				</div>
 					<div id="duel-pie" class="duel_pie phase2">
@@ -282,23 +284,33 @@
 	<div class="duel_arrow right" title="Задайте анимацию победителя">
 	</div>
 	<div class="duel_vs_panel">
-		<div class="duel_choose_bg duel_main_bg_switch">Выберите фон</div>
-
-		<div class="duel_vs_panel_wrap">
-		<!-- <div class="duel_arrow left">
-		</div> -->
-			<div class="duel_vs_variants var1">
+		<div class="duel_vs_panel_container">
+		
+			
+				<div class="duel_arrow left">
 			</div>
-			<div class="duel_vs_variants var2">
+				<div class="duel_vs_slider_wrap">
+					<div class="duel_vs_panel_slider">
+						<div class="duel_vs_variants var1">
+						</div>
+						<div class="duel_vs_variants var1">
+						</div>
+						<div class="duel_vs_variants var1">
+						</div>
+						<div class="duel_vs_variants var2">
+						</div>
+						<div class="duel_vs_variants var3">
+						</div>
+						<div class="duel_vs_variants var4">
+						</div>
+						<div class="duel_vs_variants var5">
+						</div>
+					</div>
+				</div>
+				<div class="duel_arrow right">
+			
 			</div>
-			<div class="duel_vs_variants var3">
-			</div>
-			<div class="duel_vs_variants var4">
-			</div>
-			<div class="duel_vs_variants var5">
-			</div>
-		<!-- <div class="duel_arrow right">
-		</div>	 -->
+			
 		</div>
 		
 	</div>

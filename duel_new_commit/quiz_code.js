@@ -39,14 +39,14 @@ var duel_versus_active = 0;
 var duel_config_vs = '1var';
 var config_duel_left_win_switch = 0;
 var config_duel_left_win_delete = 0;
-var config_duel_right_win_switch = 0;
-var config_duel_right_win_delete = 0;
+var config_duel_win_switch = 0;
+var config_duel_win_delete = 0;
 var duel_config_color = 'red';
 var color = "blue";
 var config_duel_winner_big_font = 0;
 var config_duel_select_bg = 0; //1 - left_winner 2 - right_winner;
 var config_current_color = 0;
-var config_colors = ['#de5d4e', 'blue', 'orange', 'green', 'white', 'black', 'red'];
+var config_colors = ['#de5d4e', 'purple', 'orange', 'blue'];
 
 function duel_leftwinner_prop(){
 	console.log('left arrow');
@@ -114,6 +114,17 @@ function duel_votes_percent(vote1, vote2) {
 	});
 	$(toselector).css('animation-name', animation+Math.floor(value/5));
 	};	
+ function duel_percent_delete(value, toselector, spinselector, animation){
+	$(spinselector).spincrement({
+    from: 0,                
+    to: value,              
+    decimalPlaces: 0,
+    decimalPoint: ".",      
+    thousandSeparator: ",", 
+    duration: 1
+	});
+	$(toselector).css('animation-name', animation+Math.floor(value/5));
+	};		
 function duel_percent_insert_columns(value, toselector, spinselector){
 	$(spinselector).spincrement({
     from: 0,                
@@ -125,7 +136,19 @@ function duel_percent_insert_columns(value, toselector, spinselector){
 	});	
 	$(toselector).addClass('phase3').css('height', Math.floor((value*250)/100)+'px');
 	console.log( 'duel_percent_insert1 arguments:', value, toselector, spinselector);
-	};	
+	};
+function duel_percent_delete_columns(value, toselector, spinselector){
+	$(spinselector).spincrement({
+    from: 0,                
+    to: value,              
+    decimalPlaces: 0,
+    decimalPoint: ".",      
+    thousandSeparator: ",", 
+    duration: 1
+	});	
+	$(toselector).addClass('phase3').css('height', Math.floor((value*250)/100)+'px');
+	console.log( 'duel_percent_insert1 arguments:', value, toselector, spinselector);
+	};		
 	/* все анимации */
 	
 function duel_result(){
@@ -218,67 +241,94 @@ function duel_switch_color(color) {
 }
 
 
-$('.duel_vs_panel_wrap').hide();
 
-$('.duel_arrow.left').click( function() {
+
+$('.duel_main_container > .duel_arrow.left').click( function() {
 	if (duel_left_arrow_active == 0 & duel_right_arrow_active == 0) {
+		setTimeout(function() {
 		duel_left_arrow_active = 1;
-		$('.duel_versus').hide("fast");
+		if (duel_config_vs == '1var') {
+		$('.duel_versus, .duel_versus svg').fadeOut("fast");
+		}
+		$('.duel_versus').fadeOut("fast");
 		duel_leftwinner_prop();
 		$('.duel_arrow.left').css('background', 'none').css('cursor', 'default');
-		$('.duel_choose_bg').removeClass('duel_main_bg_switch').removeClass('duel_right_bg_switch').addClass('duel_left_bg_switch').append(' первого победителя');
+		$('.duel_chose_bg').removeClass('duel_main_bg_switch').removeClass('duel_right_bg_switch').addClass('duel_left_bg_switch').append(' первого объекта');
+		setTimeout(function() {duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.left.spincrement", 'grow')
+		}, 100);
+		}, 100)
+		
 		config_duel_select_bg = 1;
 	}
 	else if (duel_left_arrow_active == 0 & duel_right_arrow_active == 1) {
-		$('.duel_versus').show("fast");		
+		setTimeout(function() {
+			
 		duel_right_arrow_active = 0;
 		duel_rightwinner_prop_back();
-		$('.duel_choose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
+		$('.duel_chose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
 		config_duel_select_bg = 0;
 		$('.duel_arrow.right').css('background', '').css('cursor', '');
+		setTimeout(function() {
+			if (duel_config_vs == '1var') {
+			$('.duel_versus, .duel_versus svg').fadeIn("fast");	}
+			$('.duel_versus').fadeIn("fast");
+			duel_percent_delete(0, '.duel_pie .circle2', ".duel_win_percent.right.spincrement", 'grow')
+		}
+		, 100);
+		}, 100)
 	}
 	else if (duel_left_arrow_active == 1 & duel_right_arrow_active == 0) {
 			console.log('click disabled');
 	}	
 }	);
 
-$('.duel_arrow.right').click( function() {
+$('.duel_main_container > .duel_arrow.right').click( function() {
 	if (duel_left_arrow_active == 0 & duel_right_arrow_active == 0) {
+		setTimeout(function() {
 		duel_right_arrow_active = 1;
-		$('.duel_versus').hide("fast");		
+		if (duel_config_vs == '1var') {$('.duel_versus svg').fadeOut("fast");	}
+		$('.duel_versus').fadeOut("fast");		
 		duel_rightwinner_prop();
 		$('.duel_arrow.right').css('background', 'none').css('cursor', 'default');		
-		$('.duel_choose_bg').removeClass('duel_main_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_right_bg_switch').append(' второго победителя');
+		$('.duel_chose_bg').removeClass('duel_main_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_right_bg_switch').append(' второго объекта');
+		setTimeout(function() {duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.right.spincrement", 'grow')
+		}
+		, 100);
 		config_duel_select_bg = 2;
-
+		}, 100)
 	}
 	else if (duel_left_arrow_active == 0 & duel_right_arrow_active == 1) {
 		console.log('click disabled');
 	}
 	else if (duel_left_arrow_active == 1 & duel_right_arrow_active == 0) {
+		setTimeout(function() {		
 		duel_leftwinner_prop_back()
 		$('.duel_arrow.left').css('background', '').css('cursor', '');
-		$('.duel_versus').show("fast");
 		duel_left_arrow_active = 0;
-		$('.duel_choose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
+		$('.duel_chose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
 		config_duel_select_bg = 0;
+		setTimeout(function() {
+			if (duel_config_vs == '1var') {$('.duel_versus svg').fadeIn("fast");}
+			$('.duel_versus').fadeIn("fast");
+			duel_percent_delete(0, '.duel_pie .circle2', ".duel_win_percent.left.spincrement", 'grow')
+		}, 100);
+		}, 100)
 
 	}	
 }	);
 
 $('.duel_versus').click( function() {
-	$('.duel_vs_panel_wrap').toggle();
-	$('.duel_choose_bg').toggle();
-
+	$('.duel_vs_panel_container').toggleClass('ph2')
 
 });
 
-$('.duel_frame').on('click', function(e) {
-	console.log(!$(e.target).closest(".duel_versus").length || !$('.duel_vs_panel'));
-  if (!$(e.target).closest(".duel_versus").length) {  	
-    $('.duel_vs_panel_wrap').hide();
+$('.duel_edit_panel').on('click', function(e) {
+
+  if ((!$(e.target).closest(".duel_versus").length)&&(!$(e.target).closest(".duel_vs_panel").length))  {
+    $('.duel_vs_panel_container').removeClass('ph2');
 	$('.duel_choose_bg').show();
 	duel_versus_active = 0;
+  
   }
   e.stopPropagation();
 });
@@ -309,11 +359,17 @@ $('.duel_delete_element').on('click', function() {
 $('.duel_vs_variants').click( function() {
 	var asd;
 	if ($(this).attr('class') == 'duel_vs_variants var1'){
-		$('.duel_versus svg').show(); 	
-		$('.duel_versus').css('background-image', 'none');
+	$('.duel_versus').fadeOut();
+	setTimeout(function () {	
+	$('.duel_versus').css('background-image', 'none');
+	}, 100);
+
+	$('.duel_versus').fadeIn(); 
+	$('.duel_versus svg').fadeIn(); 	
+
 	}
 	else {
-		$('.duel_versus svg').hide(); 	
+		$('.duel_versus svg').fadeOut(); 	
 		asd = $(this).css('background-image');
 		$('.duel_versus').css('background-image', asd);
 	}
@@ -323,37 +379,46 @@ $('.duel_vs_variants').click( function() {
 	
 });
 
+$('.duel-result-body').hide();
+
 $('.my_tooltip.circle .tooltip_switch_icon').on('click', function() {
 	console.log('!!!!!');
 	config_duel_win_switch = 1;
-	$('.duel_circle').fadeOut(duel_percent_insert(0, '.duel_pie .circle2', ".duel-percent.left.spincrement", 'grow'));
-	$('.duel-result-body').css('display','flex').fadeIn(
-	function () {
+	$('.duel_circle').fadeOut(setTimeout(function() {
+		duel_percent_delete(0, '.duel_pie .circle2', ".duel_win_percent.spincrement", 'grow')
+	}, 100));
+	$('.duel-result-body').css('display','flex');
+	setTimeout(function() {	$('.duel-result-body').css('opacity','1');}, 500);
 	duel_percent_insert_columns(25, ".duel-result-column-grow.left", '.duel-percent-one');
-	duel_percent_insert_columns(75, ".duel-result-column-grow.right", '.duel-percent-two');
-	}
-	);
+	duel_percent_insert_columns(75, ".duel-result-column-grow.right", '.duel-percent-two');	
+
+	;
 });
 
 $('.my_tooltip.circle .tooltip_delete_icon').on('click', function() {
 	console.log('asdasdasdas');
 	config_duel_win_delete = 1;
 	config_duel_winner_big_font = 1;
-	$('.duel_circle').fadeOut();
-	$('.duel_winner_back').fadeIn();
+	$('.duel_circle').fadeOut(setTimeout(function() {
+		duel_percent_delete(0, '.duel_pie .circle2', ".duel_win_percent.spincrement", 'grow');
+	}, 100));
+	$('.duel-result-body').css('display','none');
+	setTimeout(function() {	$('.duel-result-body').css('opacity','0');}, 500);
 	$('.duel_winner_title').addClass('big_font');
 	$('.duel_winner_container').css('justify-content', 'space-around');
+	$('.duel_winner_back').fadeIn();
 });
 
 $('.my_tooltip.columns .tooltip_switch_icon').on('click', function() {
 	console.log('!!!!!');
 	config_duel_win_switch = 0;
-	$('.duel_circle').fadeIn(duel_percent_insert(55, '.duel_pie .circle2', ".duel-percent.left.spincrement", 'grow'));
-	$('.duel-result-body').fadeOut(
-	function () {
+	$('.duel_circle').fadeIn(duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.spincrement", 'grow'));
+	$('.duel-result-body').css('display','none');
+	setTimeout(function() {	$('.duel-result-body').css('opacity','0');}, 500);
 	duel_percent_insert_columns(0, ".duel-result-column-grow.left", '.duel-percent-one')
-	}
-	);
+	duel_percent_insert_columns(0, ".duel-result-column-grow.right", '.duel-percent-two')
+
+	;
 });
 
 $('.my_tooltip.columns .tooltip_delete_icon').on('click', function() {
@@ -363,21 +428,35 @@ $('.my_tooltip.columns .tooltip_delete_icon').on('click', function() {
 	$('.duel-result-body').fadeOut();
 	$('.duel_winner_back').fadeIn();
 	$('.duel_winner_title').addClass('big_font');
+	$('.duel_winner_container').css('justify-content', 'space-around');
 	
 });
 
-setTimeout( function(){duel_percent_insert(55, '.duel_pie .circle2', ".duel-percent.left.spincrement", 'grow')}, 4000);
+setTimeout( function(){duel_percent_insert(55, '.duel_pie .circle2', ".duel-percent.spincrement", 'grow')}, 4000);
 
 
 
 $('.duel_winner_back').on('click', function() {
 	config_duel_win_delete = 0;
-	config_duel_win_switch = 0;
 	config_duel_winner_big_font = 0;
-	$('#duel1_circle').show();
+	$('.duel_winner_back').fadeOut();
 	$('.duel_winner_title').removeClass('big_font');
-	$('.duel_winner_container').css('justify-content', 'space-between');
-});
+	$('.duel_winner_container').css('justify-content', 'space-between');	
+	if (config_duel_win_switch == 0) {
+	console.log('1');
+	$('#duel1_circle').fadeOut();
+	$('.duel_circle').fadeIn(duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.spincrement", 'grow'));	
+	
+	}
+	else {
+	console.log('2');
+	
+	$('.duel-result-body').css('display','flex');
+	setTimeout(function() {	$('.duel-result-body').css('opacity','1');}, 500);
+	duel_percent_insert_columns(25, ".duel-result-column-grow.left", '.duel-percent-one');
+	duel_percent_insert_columns(75, ".duel-result-column-grow.right", '.duel-percent-two');		
+	}
+	});
 
 $('.color_picker a').click( function() {
 	duel_color = $(this).attr('data');
@@ -390,6 +469,30 @@ $('.duel-flag, .duel-header-circle').click( function() {
 		config_current_color = 0
 	}
 	duel_switch_color(config_colors[config_current_color]);
+	if (config_current_color == 'orange') {}
 });
 
 duel_switch_color('#de5d4e')
+
+
+var duel_vs_slider_counter = 0;
+var duel_vs_slider_length = 0;
+var duel_vs_slider_current_left = 0;
+$('.duel_vs_panel_container > .duel_arrow.right').click( function() {
+	duel_vs_slider_length = $('.duel_vs_panel_slider .duel_vs_variants').length - 5;
+	if (duel_vs_slider_length > duel_vs_slider_counter) {
+	duel_vs_slider_counter = ++duel_vs_slider_counter;
+	$('.duel_vs_panel_slider').css('left', -115*duel_vs_slider_counter+'px');
+	}
+});
+
+$('.duel_vs_panel_container > .duel_arrow.left').click( function() {
+	
+	duel_vs_slider_length = $('.duel_vs_panel_slider .duel_vs_variants').length - 5;
+	if ((duel_vs_slider_length > duel_vs_slider_counter)&&(duel_vs_slider_counter > 0)) {
+	duel_vs_slider_counter = ++duel_vs_slider_counter;
+	duel_vs_slider_current_left = $('.duel_vs_panel_slider').css('left')
+	console.log(duel_vs_slider_current_left)
+	$('.duel_vs_panel_slider').css('left', +duel_vs_slider_current_left+115+'px');
+	}
+});
