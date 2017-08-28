@@ -1,0 +1,399 @@
+
+
+
+@-webkit-keyframes overlay-shane {
+0% {opacity: .2}
+100%{opacity: .9}	
+}
+
+@-webkit-keyframes scale {
+  0%
+  {
+    transform: scale( 1.1 );
+  }
+  20%
+  {
+    transform: scale( 1.2 );
+  }
+  40%
+  {
+    transform: scale( 1.1 );
+  }
+  60%
+  {
+    transform: scale( 1.2 );
+  }
+  80%
+  {
+    transform: scale( 1.1 );
+  }
+  100%
+  {
+    transform: scale( 1.1 );
+  }	
+}
+
+#duel_overlay.phase1 {-webkit-animation-name: overlay-shane; 
+					-webkit-animation-duration: 4s;
+					-webkit-animation-timing-function: ease-in-out; 
+					animation-iteration-count: infinite; 
+					animation-direction: alternate-reverse;
+    }
+	
+.duel_versus, h1.phase1 button {-webkit-animation-name: scale; 
+					-webkit-animation-duration: 7s;
+					-webkit-animation-timing-function: cubic-bezier(.3,1.66,.68,-1.09); 
+					animation-iteration-count: infinite; 
+					animation-direction: alternate-reverse;
+    }
+.duel_photo_container {
+	position: relative;
+				left: 0;
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+				z-index:1;
+				}
+
+
+#duel_overlay.phase2 {opacity: 0.7; 				
+				-webkit-transition: all 5s ease;
+				-moz-transition: all 5s ease;
+				-o-transition: all 5s ease;
+				transition: all 5s ease;}
+#duel_overlay2.phase1 {-webkit-animation-name: overlay-shane; 
+					-webkit-animation-duration: 1.43s;
+					-webkit-animation-timing-function: ease-in-out; 
+					animation-iteration-count: infinite; 
+					animation-direction: alternate-reverse;
+    }
+#duel_overlay2.phase2 {opacity: 0.4; 				
+				-webkit-transition: all 5s ease;
+				-moz-transition: all 5s ease;
+				-o-transition: all 5s ease;
+				transition: all 5s ease;}				
+/* PHASE 3 */
+
+#duel_button.phase2 {opacity: 0; 				
+				-webkit-transition: all 0.2s ease;
+				-moz-transition: all 0.2s ease;
+				-o-transition: all 0.2s ease;
+				transition: all 0.2s ease;}
+@-webkit-keyframes duel_title_hide {
+0% {top: 0px}
+100%{opacity: .0}	
+}
+@-webkit-keyframes duel_button-left_expand {
+0% {}
+100%{width: 350px; margin: 0; background: rgba(149, 255, 166, .5)}
+}
+@-webkit-keyframes duel_button-right_decrease {
+0% {}
+100%{width: 110px;  margin-left: 0; background: rgba(255, 149, 166, .5)}		
+}
+
+
+.duel_image_container.left.phase1 {position: relative;left: -350px; opacity: .0}
+.duel_image_container.right.phase1 {position: relative;left: 350px; opacity: .0}
+.duel_image_container.left.phase2, .duel_image_container.right.phase2, .duel_image_container.left.phase3, .duel_image_container.right.phase3 {position: relative;left: 0; opacity: 1; 				
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;}
+.duel-frame-win-bg  {-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;}
+
+.duel-button-left.phase1 {position: relative;left: -150px; opacity: .0}
+.duel-button-right.phase1 {position: relative;left: 150px; opacity: .0}
+
+.duel-button-left.phase2 {position: relative;left: 0px; opacity: 1; 				
+				-webkit-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-moz-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-o-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				transition: all 0.4s cubic-bezier(.06,.98,.78,.97);}
+
+.duel-button-right.phase2 {position: relative;left: 0px; opacity: 1; 				
+				-webkit-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-moz-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				-o-transition: all 0.4s cubic-bezier(.06,.98,.78,.97);
+				transition: all 0.4s cubic-bezier(.06,.98,.78,.97);}
+.duel_heart_overlay.phase3{
+				opacity: 0;
+				left: -135px;
+				top: -405px;
+				width: 200%; 
+				height: 200%;
+				-webkit-transition: all 0.7s ease;
+				-moz-transition: all 0.7s ease;
+				-o-transition: all 0.7s ease;
+				transition: all 0.7s ease;}
+
+
+.duel_img_subcontainer:hover .duel_heart_overlay {
+				opacity: .8;
+				-webkit-transition: all 0.7s ease;
+				-moz-transition: all 0.7s ease;
+				-o-transition: all 0.7s ease;
+				transition: all 0.7s ease;}
+
+.duel_header {
+	position: relative; left:0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	}				
+
+
+
+
+
+.duel_header.win_right {position: relative;	left: -800px;}					
+.duel_header.win_left {position: relative;	left: 800px;}
+.duel_versus.phase1 {Position:absolute; 
+				top: 170px; opacity: .0; z-index: -1;
+				
+}
+.duel_versus.phase2 {Position:absolute; top: 180px;
+				 opacity: .7;
+				
+				-webkit-transition: all 0.7s ease;
+				-moz-transition: all 0.7s ease;
+				-o-transition: all 0.7s ease;
+				transition: all 0.7s ease;
+}			
+
+ .duel-flag {
+	 -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease; 
+	transition-delay: 1s
+ }
+ .duel-flag.phase3 {
+	 position:relative;
+	opacity: 1; 
+	left:0;  
+}
+ .duel-flag.left.phase2 {
+	 position:relative; 
+	 left: -200px; 
+	 opacity: 0;
+}
+					
+.duel-flag.right.phase2 {
+	position:relative; 
+	left: 200px; 
+	opacity: 0;
+}
+				
+					
+.duel_img_overlay_loose { opacity: 0.7; background: black url(duel_img/duel_img_overlay.png) center; width: 224px; height: 223px; position: absolute; top:0;
+					-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+.duel_versus.phase3 {opacity: 0; top:200px; -webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+	
+.duel_photo_container{-webkit-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					-moz-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					-o-transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);
+					transition: all 0.5s cubic-bezier(.49,.11,.69,1.2);}
+
+	
+
+
+
+/*  Slides  */
+
+.duel_photo_container, .duel_frame_winner {
+				position: relative;				
+				-webkit-transition: all .2s cubic-bezier(.49,.11,.69,1.2);
+				-moz-transition: all .2s cubic-bezier(.49,.11,.69,1.2);
+				-o-transition: all .2s cubic-bezier(.49,.11,.69,1.2);
+				transition: all .2s cubic-bezier(.49,.11,.69,1.2);
+				transition-delay: .1s
+}
+.duel_photo_container.win_right {position: relative;	left: -800px;}					
+.duel_photo_container.win_left {position: relative;	left: 800px;}
+
+#duel-winner.phase2 {font-size: 38pt;}
+#duel-winner.phase3 {
+				top:0;	
+				opacity: 1;
+				-webkit-transition: all 1.5s ease;
+				-moz-transition: all 1.5s ease;
+				-o-transition: all 1.5s ease;
+				transition: all 1.5s ease;
+				transition-delay: 0.5s
+}
+
+.duel-agree {
+			font-size: 24pt;
+			opacity: 1; 					
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+			transition-delay: 4s}
+.duel-agree.phase3 {opacity: 1; 					
+			-webkit-transition: all 1.5s ease;
+			-moz-transition: all 1.5s ease;
+			-o-transition: all 1.5s ease;
+			transition: all 1.5s ease;
+			transition-delay: 4s}			
+
+.duel-circle.phase2 {opacity: 0;  
+					
+					-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}		
+					
+.duel-circle.phase3  {opacity: 1; 
+					-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}	
+					
+#duel-pie {
+	flex-basis: 270px;	
+    width: 270px;
+    height: 270px;
+    transform: rotate(-90deg);
+}
+
+.page2.circle2 {animation: 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
+.page2.circle1 {
+animation: 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;}
+
+.page2.circle2 {
+	fill: transparent;
+	opacity: 0.9;
+    stroke: #de5d4e ;
+    stroke-width: 5;
+}
+.page2.circle1 {
+    fill: #1d1d1d ; 
+	opacity: 0.6
+}
+
+#duel-pie circle.circle2 {
+	fill: transparent;
+	opacity: 0.9;
+    stroke: #e92e1f ;
+    stroke-width: 14;
+	animation: 2s 1 cubic-bezier(.23,.88,.24,.91) forwards;
+}
+#duel-pie circle.circle1 {
+    fill: #1d1d1d ; 
+	opacity: 0.8
+}
+
+.my_tooltip  {
+	-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+}
+
+.duel_vs_panel_slider {-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;}
+
+@keyframes grow1 { 
+to { stroke-dasharray: 40 803 } }
+@keyframes grow2 { 
+to { stroke-dasharray: 80 803 } }
+@keyframes grow3 { 
+to { stroke-dasharray: 120 803 } }
+@keyframes grow4 { 
+to { stroke-dasharray: 160 803 } }
+@keyframes grow5 {
+to { stroke-dasharray: 200 803 } }
+@keyframes grow6 { 
+to { stroke-dasharray: 240 803 } }
+@keyframes grow7 { 
+to { stroke-dasharray: 280 803 } }
+@keyframes grow8 { 
+to { stroke-dasharray: 320 803 } }
+@keyframes grow9 { 
+to { stroke-dasharray: 360 803 } }
+@keyframes grow10 { 
+to { stroke-dasharray: 400 803 } }
+@keyframes grow11 { 
+to { stroke-dasharray: 440 803 } }
+@keyframes grow12 { 
+to { stroke-dasharray: 480 803 } }
+@keyframes grow13 { 
+to { stroke-dasharray: 520 803 } }
+@keyframes grow14 { 
+to { stroke-dasharray: 560 803 } }
+@keyframes grow15 { 
+to { stroke-dasharray: 600 803 } }
+@keyframes grow16 { 
+to { stroke-dasharray: 640 803 } }
+@keyframes grow17 { 
+to { stroke-dasharray: 680 803 } }
+@keyframes grow18 { 
+to { stroke-dasharray: 720 803 } }
+@keyframes grow19 { 
+to { stroke-dasharray: 760 803 } }
+@keyframes grow20 { 
+to { stroke-dasharray: 803 803 } }
+
+@keyframes lgrow1 { 
+to { stroke-dasharray: 5 100 } }
+@keyframes lgrow2 { 
+to { stroke-dasharray: 10 100 } }
+@keyframes lgrow3 { 
+to { stroke-dasharray: 15 100 } }
+@keyframes lgrow4 { 
+to { stroke-dasharray: 20 100 } }
+@keyframes lgrow5 { 
+to { stroke-dasharray: 25 100 } }
+@keyframes lgrow6 { 
+to { stroke-dasharray: 30 100 } }
+@keyframes lgrow7 { 
+to { stroke-dasharray: 35 100 } }
+@keyframes lgrow8 { 
+to { stroke-dasharray: 40 100 } }
+@keyframes lgrow9 { 
+to { stroke-dasharray: 45 100 } }
+@keyframes lgrow10 {
+to { stroke-dasharray: 50 100 } }
+@keyframes lgrow11 { 
+to { stroke-dasharray: 55 100 } }
+@keyframes lgrow12 { 
+to { stroke-dasharray: 60 100 } }
+@keyframes lgrow13 { 
+to { stroke-dasharray: 65 100 } }
+@keyframes lgrow14 { 
+to { stroke-dasharray: 70 100 } }
+@keyframes lgrow15 { 
+to { stroke-dasharray: 75 100 } }
+@keyframes lgrow16 { 
+to { stroke-dasharray: 80 100 } }
+@keyframes lgrow17 { 
+to { stroke-dasharray: 85 100 } }
+@keyframes lgrow18 { 
+to { stroke-dasharray: 90 100 } }
+@keyframes lgrow19 { 
+to { stroke-dasharray: 95 100 } }
+@keyframes lgrow20 { 
+to { stroke-dasharray: 100 100 } }
+
+svg {
+    background: transparent;
+}
+.duel-header-circle svg{border-radius: 50%;}
