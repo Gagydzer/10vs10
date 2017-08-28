@@ -10,26 +10,48 @@
 
 	 <script>
         $(document).ready(function() {
-            $('.tooltip').tooltipster();
-			$('.duel_arrow.left').tooltipster();
-			$('.duel_arrow.right').tooltipster();
+            $('.tooltip').tooltipster({
+    theme: 'Borderless'
+});
+			$('.duel_arrow.left .superstrelka').tooltipster({
+    theme: 'Borderless'
+});
+			$('.duel_arrow.right .superstrelka').tooltipster({
+    theme: 'Borderless'
+});
 			
 				
 			$('.create_battle_name.name1').on('click', function() {
 			console.log('arrow tooltip');	
-			  $('.duel_arrow.left').tooltipster('open');
+			  $('.duel_arrow.left .superstrelka').tooltipster('open');
 			});
 			$('.create_battle_name.name2').on('click', function() {
 			console.log('arrow tooltip');	
-			  $('.duel_arrow.right').tooltipster('open');
+			  $('.duel_arrow.right .superstrelka').tooltipster('open');
 			});
-
+			
+			$('.duel_arrow.left').on('mouseenter', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.left .superstrelka').tooltipster('open');
+			});
+			$('.duel_arrow.right').on('mouseenter', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.right .superstrelka').tooltipster('open');
+			});
+			$('.duel_arrow.left').on('mouseleave', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.left .superstrelka').tooltipster('close');
+			});
+			$('.duel_arrow.right').on('mouseleave', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.right .superstrelka').tooltipster('close');
+			});
 
 					$('div').on('click', function(e) {
 						console.log($(e.target).closest(".create_battle_name").length );
 					  if (!$(e.target).closest(".create_battle_name.name1").length) {
 						console.log('close arrow tooltip');	
-						$('.duel_arrow.left').tooltipster('close');
+						$('.duel_arrow.left .superstrelka').tooltipster('close');
 					  }
 					  e.stopPropagation();
 					});
@@ -38,7 +60,7 @@
 				
 						  if (!$(e.target).closest(".create_battle_name.name2").length) {
 							console.log('close arrow tooltip');	
-							$('.duel_arrow.right').tooltipster('close');
+							$('.duel_arrow.right .superstrelka').tooltipster('close');
 
 						  }
 							e.stopPropagation();
@@ -62,7 +84,8 @@
 	
 	<div class="duel_main_container">
 		
-	<div class="duel_arrow left" title="Задайте анимацию победителя">
+	<div class="duel_arrow left" >
+	<div class="superstrelka" title="Задайте анимацию первого победителя"></div>
 		</div>
 	<div id="duel_frame" class="duel_frame">
 			<div class="duel_overlay_logos">
@@ -100,7 +123,7 @@
 				<div id="duel_photo_container1" class="duel_photo_container phase2">
 					<div id="duel_image1_container" class="duel_image_container left phase2">
 						<div id="duel-button-left" class="duel-button-left phase3">
-								<div id="duel-flag-left" class="duel-flag left phase3 tooltip"  title="Кликните для выбора цвета элементов">
+								<div id="duel-flag-left" class="duel-flag left phase3 tooltip"  >
 								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="32"
 										 viewBox="0 0 90 32" >
 										 
@@ -112,7 +135,7 @@
 								<div class="duel-title left" id="duel-lefttitle">
 									<textarea name="title1" maxlength="150" class="create_battle_name name1" placeholder="Имя первого&#013объекта" title="напишите: Что сравниваем" value=""></textarea>
 								</div>
-								<div id="duel-header-circle-left" class="duel-header-circle left phase3 tooltip"  title="Кликните для выбора цвета элементов">
+								<div id="duel-header-circle-left" class="duel-header-circle left phase3 tooltip"  >
 									<div class="duel_panel_percent_wrapper" >
 										<p id="duel-left-percent" class="duel-percent left spincrement" style="display: inline;">25</p>%
 									</div>
@@ -139,7 +162,7 @@
 								<div class="duel_overlay looser right"></div>
 						</div>
 						<div id="duel-button-right" class="duel-button-right phase3">
-							<div id="duel-flag-right" class="duel-flag right phase3 tooltip"  title="Кликните для выбора цвета элементов">
+							<div id="duel-flag-right" class="duel-flag right phase3 tooltip"  >
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 									 width="90" height="32" viewBox="0 0 90 32">
 									<polygon class="duel_flag_svg flag_right" points="90,0 77.8,16 90,32 0,32 0,0 "/>
@@ -149,7 +172,7 @@
 							<div class="duel-title right"  id="duel-righttitle">
 								<textarea name="title1" maxlength="150" class="create_battle_name name2" placeholder="Имя второго&#013объекта" title="напишите: Что сравниваем" value=""></textarea>
 							</div>
-							<div id="duel-header-circle-right" class="duel-header-circle right phase3 tooltip"  title="Кликните для выбора цвета элементов">
+							<div id="duel-header-circle-right" class="duel-header-circle right phase3 tooltip"  >
 								<div class="duel_panel_percent_wrapper">
 									<p id="right-percent" class="spincrement" style="display: inline;">75</p>%
 								</div>
@@ -167,7 +190,7 @@
 			</div>			
 			<div id="duel_frame_winner2" class="duel_frame_winner winner_right">
 
-				<div class="duel-frame-win-bg"></div>
+				<div class="duel-frame-win-bg right-win"></div>
 				<div class="duel_winner_container">
 				<div class="duel_winner_back right_win">восстановить</div>
 				<h1 id="duel-winner" class="duel_winner_title phase3" >
@@ -179,8 +202,8 @@
 						
 						 <div id="duel1_circle" class="duel_circle right_win phase2">					
 						<div class="my_tooltip right circle"> 
-							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
-							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
 						</div> 
 						<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent right spincrement" style="display: inline;">0</p>%</span><br>
 							<span style="text-align:center" class="duel-agree">Проголосовало<br>за</span>
@@ -198,8 +221,8 @@
 				<!-- <div class="duel-collums-container"> -->
 				 <div class="duel-result-body right_win">
 					<div class="my_tooltip right columns" style="top: 5px; right: -8px;"> 
-							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
-							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
 						</div> 
 					<div class="duel-result-title left" id="duel-lefttitle" style="text-align: right">
 					Первый Итем
@@ -225,7 +248,7 @@
 			</div>
 			
 			<div id="duel_frame_winner1" class="duel_frame_winner winner_left">	
-			<div class="duel-frame-win-bg"></div>
+			<div class="duel-frame-win-bg left-win"></div>
 			<div class="duel_winner_container">
 			<div class="duel_winner_back left_win">восстановить</div>
 			<h1 id="duel-winner" class="duel_winner_title phase3" >
@@ -236,8 +259,8 @@
 			
 			<div id="duel-circle" class="duel_circle left_win phase2">
 						<div class="my_tooltip left circle"> 
-							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
-							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
 						</div> 
 
 				<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent left spincrement" style="display: inline;">0</p>%</span><br>
@@ -255,8 +278,8 @@
 			<!-- Столбики	 -->
 			  <div class="duel-result-body">
 						<div class="my_tooltip left columns"  style="top: 5px; right: -8px;"> 
-							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" title="Другая диаграмма" width="24" height="24"/>
-							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" title="Удалить диаграмму"  width="24" height="24"/>
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
 						</div> 
 
 					<div class="duel-result-title left" id="duel-lefttitle" style="text-align: right">
@@ -282,6 +305,7 @@
 	</div>
 	</div>
 	<div class="duel_arrow right" title="Задайте анимацию победителя">
+	<div class="superstrelka" title="Задайте анимацию второго победителя"></div>
 	</div>
 	<div class="duel_vs_panel">
 		<div class="duel_vs_panel_container">
@@ -290,20 +314,66 @@
 				<div class="duel_arrow left">
 			</div>
 				<div class="duel_vs_slider_wrap">
-					<div class="duel_vs_panel_slider">
+					<div class="duel_vs_panel_slider" style="left: 0px;">
 						<div class="duel_vs_variants var1">
 						</div>
 						<div class="duel_vs_variants var1">
 						</div>
 						<div class="duel_vs_variants var1">
-						</div>
-						<div class="duel_vs_variants var2">
 						</div>
 						<div class="duel_vs_variants var3">
 						</div>
 						<div class="duel_vs_variants var4">
 						</div>
 						<div class="duel_vs_variants var5">
+						</div>
+					</div>
+				</div>
+				<div class="duel_arrow right">
+			
+			</div>
+			
+		</div>
+			<div class="duel_bg_panel_container">
+		
+			
+				<div class="duel_arrow left">
+			</div>
+				<div class="duel_bg_slider_wrap">
+					<div class="duel_bg_panel_slider main duel_display" style="left: 0px;">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+					</div>
+					<div class="duel_bg_panel_slider left duel_display" style="left: 0px">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+					</div>
+					<div class="duel_bg_panel_slider right duel_display" style="left: 0px">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
 						</div>
 					</div>
 				</div>

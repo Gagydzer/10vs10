@@ -36,6 +36,11 @@ body {background: #181818; font-family: 'OpenSansCondensedLight';}
 	background: url('frame-back.jpg')  no-repeat center;
 	position: relative;
 	overflow: hidden;
+	background-size: cover;
+	-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
 }
 
 .duel_main_container {
@@ -56,10 +61,17 @@ body {background: #181818; font-family: 'OpenSansCondensedLight';}
 	z-index: 50; 
 	background-size: contain;
 	opacity: 0.3
+	
 }
-.duel_vs_panel_container .duel_arrow  {width: 25px; height: 150px;}
-.duel_vs_panel_container .duel_arrow.left {margin-right: -40px;}
-.duel_vs_panel_container .duel_arrow.right {margin-left: -40px;}
+
+.superstrelka {
+	width: 50px;
+	height: 1px;
+	margin-top: 180px; position: absolute; z-index: -1;
+}
+.duel_vs_panel .duel_arrow  {width: 25px; height: 150px;}
+.duel_vs_panel .duel_arrow.left {margin-right: -40px;}
+.duel_vs_panel .duel_arrow.right {margin-left: -40px;}
 .duel_arrow:hover {
 	opacity:0.9; 
 	cursor: pointer
@@ -101,13 +113,17 @@ body {background: #181818; font-family: 'OpenSansCondensedLight';}
 .duel_frame_winner.winner_right.show {background: url('frame-back.jpeg')  no-repeat center; background-size: cover;}
 .duel_frame_winner.winner_left.show {background: url('frame-back.jpeg')  no-repeat center; background-size: cover;}
 
-.duel-frame-win-bg {height: 408px;
+.duel-frame-win-bg {
+	height: 408px;
 					width: 800px;
-					background: black;
-					opacity: 0.4;
+					background-size: cover !important;
+					opacity: 1;
 					position: absolute;
 					top:0;
-					z-index:1}
+					z-index:1
+					}
+.duel-frame-win-bg.right-win {background: url(win2.gif) no-repeat center;	}				
+.duel-frame-win-bg.left-win {background: url(win1.gif) no-repeat center;	}			
 .duel_winner_container		{
 	height: 408px; 
 	width: 800px;
@@ -511,8 +527,13 @@ cursor: pointer;
 
 /* ADMINKA */
 
+*::-webkit-input-placeholder {color:#e6e6e6;}
+*::-moz-placeholder          {color:#e6e6e6;}
+*:-moz-placeholder           {color:#e6e6e6;}
+*:-ms-input-placeholder      {color:#e6e6e6;}
+
 input {
-	color: #fff;
+	color: white !important;
 
     border: none;
     background: transparent;
@@ -534,7 +555,7 @@ textarea.create_battle_name {
 	border-radius: 2px;
 	border: 1px solid transparent;
 	width: 100px;
-	color: #fff;
+	color: white !important;
     text-shadow: 1px 1px 2px black, 0 0 0.3em #4F4343;
 	padding: 13px 8px 13px 8px;
 	display: inline-block;
@@ -553,6 +574,7 @@ input.create_battle_title1:focus, input.create_battle_title1:hover{
 	outline: none !important;
 	border: 1px solid rgba(222, 93, 78, 0.9);
 	background: rgba(255, 255, 255, 0.1);
+	color: white !important;
 }
 textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 	outline: none !important;
@@ -563,6 +585,8 @@ textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 }
 
 .duel_edit_panel {width: 100%; height: 750px; background: gray; padding-bottom: 200px;}
+
+/* 111111111111111111111111111111111111111111111111111111 */
 
 .duel_vs_panel {
 	width: 800px;
@@ -585,6 +609,7 @@ textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 	transition: all 0.5s ease;
 }
 .duel_vs_panel_container.ph2 {top: 0 }
+.duel_bg_panel_container.ph2 {top: 0 }
 .duel_vs_panel_slider {
 	position: relative;
 
@@ -621,6 +646,93 @@ textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 .duel_vs_variants.var5 {	
 	background-image: url(duel_img/vs5.png);
 }
+
+/* 1111111111111111111111111111 */
+
+.duel_bg_panel_slider.duel_display, .duel_vs_panel_slider.duel_display  {display: none}
+
+.duel_bg_panel_container {
+	margin: 20px auto;
+	width: 800px;
+	height: 140px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: absolute;
+	top: -150px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.duel_bg_panel_slider {
+	position: relative;
+
+	width: 800px;
+	display: flex;
+	justify-content: left;
+	
+	}
+.duel_bg_slider_wrap {width: 565px; overflow: hidden;}
+.duel_bg_panel_slider.main .duel_bg_variants {
+	margin: 0 10px;
+	flex-grow: 0;
+	 background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+	flex-basis: 95px;
+	width: 95px;
+	height: 95px;	
+	cursor: pointer;
+	
+}
+.duel_bg_panel_slider.left .duel_bg_variants {
+	margin: 0 10px;
+	flex-grow: 0;
+	 background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+	flex-basis: 95px;
+	width: 95px;
+	height: 95px;	
+	cursor: pointer;
+	
+}
+.duel_bg_panel_slider.right .duel_bg_variants {
+	margin: 0 10px;
+	flex-grow: 0;
+	 background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+	flex-basis: 95px;
+	width: 95px;
+	height: 95px;	
+	cursor: pointer;
+	
+}
+ .duel_bg_variants.var1 {	
+	background: url(duel_img/bg1.jpg) no-repeat center;
+}
+
+.duel_bg_variants.var2 {	
+	background-image: url(duel_img/bg5.jpg);
+}
+.duel_bg_variants.var3 {	
+	background-image: url(duel_img/bg2.jpg);
+}
+.duel_bg_variants.var4 {	
+	background-image: url(duel_img/bg3.jpg);
+}
+.duel_bg_variants.var5 {	
+	background-image: url(duel_img/bg4.jpg);
+} 
+
+/* 111111111111111111111111111111111111111111111 */
+
+
+
+
 .duel_choose_bg {
 	margin: 20px auto 20px auto;
 	padding: 10px;
@@ -692,10 +804,13 @@ textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 .duel_overlay_logos {}
 .duel_chose_bg {
 	color: white;
-	height: 20px;
-	width:125px;
-	background: url('duel_img/chose_bg.png')  no-repeat left;
-	padding: 0px 0 4px 45px;
+	height: 29px;
+	width:110px;
+	background: url('duel_img/background.png')  no-repeat left top;
+	padding: 4px 0 6px 30px;
+	line-height: 2;
+	font-size: 8pt;
+	font-family: arial;
 	 position: absolute; 
 	 top: 380px; 
 	 right: 10px; 
@@ -709,6 +824,6 @@ textarea.create_battle_name:focus, textarea.create_battle_name:hover {
 	overflow: hidden;
 }
 .duel_chose_bg.duel_right_bg_switch, .duel_chose_bg.duel_left_bg_switch {
-	width:220px;
+	width:190px;
 }
 .duel_chose_bg:hover {opacity: 1;}

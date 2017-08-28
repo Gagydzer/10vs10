@@ -47,6 +47,12 @@ var config_duel_winner_big_font = 0;
 var config_duel_select_bg = 0; //1 - left_winner 2 - right_winner;
 var config_current_color = 0;
 var config_colors = ['#de5d4e', 'purple', 'orange', 'blue'];
+var duel_vs_panel = 0;
+var duel_bg_panel = 0;
+var duel_bg_panel_type = 'main';
+var config_duel_bg_main = 'var1';
+var config_duel_bg_left = 'var1';
+var config_duel_bg_right = 'var1';
 
 function duel_leftwinner_prop(){
 	console.log('left arrow');
@@ -246,13 +252,35 @@ function duel_switch_color(color) {
 $('.duel_main_container > .duel_arrow.left').click( function() {
 	if (duel_left_arrow_active == 0 & duel_right_arrow_active == 0) {
 		setTimeout(function() {
+		duel_bg_panel_type = 'left';
 		duel_left_arrow_active = 1;
+		
+		
+		if (duel_vs_panel == 1) {
+			duel_vs_panel = 0;
+			$('.duel_vs_panel_container').removeClass('ph2');
+			setTimeout(function() {
+				$('.duel_vs_panel_slider').addClass('duel_display');
+				}
+			, 200);	
+		}
 		if (duel_config_vs == '1var') {
 		$('.duel_versus, .duel_versus svg').fadeOut("fast");
 		}
+		
+		if (duel_bg_panel == 1) {
+			$('.duel_bg_panel_container').removeClass('ph2')
+			
+			setTimeout(function() {
+				$('.duel_bg_panel_slider.'+duel_bg_panel_type).removeClass('duel_display');
+				$('.duel_bg_panel_slider.main').addClass('duel_display');
+				$('.duel_bg_panel_container').addClass('ph2');
+			}
+			, 500);									
+		}
 		$('.duel_versus').fadeOut("fast");
 		duel_leftwinner_prop();
-		$('.duel_arrow.left').css('background', 'none').css('cursor', 'default');
+		$('.duel_main_container > .duel_arrow.left').css('background', 'none').css('cursor', 'default');
 		$('.duel_chose_bg').removeClass('duel_main_bg_switch').removeClass('duel_right_bg_switch').addClass('duel_left_bg_switch').append(' первого объекта');
 		setTimeout(function() {duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.left.spincrement", 'grow')
 		}, 100);
@@ -262,11 +290,22 @@ $('.duel_main_container > .duel_arrow.left').click( function() {
 	}
 	else if (duel_left_arrow_active == 0 & duel_right_arrow_active == 1) {
 		setTimeout(function() {
-			
+		duel_bg_panel_type = 'main';	
 		duel_right_arrow_active = 0;
 		duel_rightwinner_prop_back();
+		$('.duel_vs_panel_slider').removeClass('duel_display');
 		$('.duel_chose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
 		config_duel_select_bg = 0;
+		if (duel_bg_panel == 1) {
+			$('.duel_bg_panel_container').removeClass('ph2')
+			
+			setTimeout(function() {
+				$('.duel_bg_panel_slider.'+duel_bg_panel_type).removeClass('duel_display');
+				$('.duel_bg_panel_slider.right').addClass('duel_display');
+				$('.duel_bg_panel_container').addClass('ph2');
+			}
+			, 500);									
+		}
 		$('.duel_arrow.right').css('background', '').css('cursor', '');
 		setTimeout(function() {
 			if (duel_config_vs == '1var') {
@@ -285,11 +324,30 @@ $('.duel_main_container > .duel_arrow.left').click( function() {
 $('.duel_main_container > .duel_arrow.right').click( function() {
 	if (duel_left_arrow_active == 0 & duel_right_arrow_active == 0) {
 		setTimeout(function() {
+		duel_bg_panel_type = 'right';
 		duel_right_arrow_active = 1;
+		if (duel_vs_panel == 1) {
+			duel_vs_panel = 0;
+			$('.duel_vs_panel_container').removeClass('ph2');
+			setTimeout(function() {
+				$('.duel_vs_panel_slider').addClass('duel_display');
+				}
+			, 200);	
+		}
 		if (duel_config_vs == '1var') {$('.duel_versus svg').fadeOut("fast");	}
 		$('.duel_versus').fadeOut("fast");		
+		if (duel_bg_panel == 1) {
+			$('.duel_bg_panel_container').removeClass('ph2')
+			
+			setTimeout(function() {
+				$('.duel_bg_panel_slider.'+duel_bg_panel_type).removeClass('duel_display');
+				$('.duel_bg_panel_slider.main').addClass('duel_display');
+				$('.duel_bg_panel_container').addClass('ph2');
+			}
+			, 500);									
+		}
 		duel_rightwinner_prop();
-		$('.duel_arrow.right').css('background', 'none').css('cursor', 'default');		
+		$('.duel_main_container > .duel_arrow.right').css('background', 'none').css('cursor', 'default');		
 		$('.duel_chose_bg').removeClass('duel_main_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_right_bg_switch').append(' второго объекта');
 		setTimeout(function() {duel_percent_insert(55, '.duel_pie .circle2', ".duel_win_percent.right.spincrement", 'grow')
 		}
@@ -301,10 +359,22 @@ $('.duel_main_container > .duel_arrow.right').click( function() {
 		console.log('click disabled');
 	}
 	else if (duel_left_arrow_active == 1 & duel_right_arrow_active == 0) {
-		setTimeout(function() {		
-		duel_leftwinner_prop_back()
+		setTimeout(function() {	
+		duel_bg_panel_type = 'main';	
+		duel_leftwinner_prop_back();
+		$('.duel_vs_panel_slider').removeClass('duel_display');
 		$('.duel_arrow.left').css('background', '').css('cursor', '');
 		duel_left_arrow_active = 0;
+		if (duel_bg_panel == 1) {
+			$('.duel_bg_panel_container').removeClass('ph2')
+			
+			setTimeout(function() {
+				$('.duel_bg_panel_slider.'+duel_bg_panel_type).removeClass('duel_display');
+				$('.duel_bg_panel_slider.left').addClass('duel_display');
+				$('.duel_bg_panel_container').addClass('ph2');
+			}
+			, 500);									
+		}
 		$('.duel_chose_bg').removeClass('duel_right_bg_switch').removeClass('duel_left_bg_switch').addClass('duel_main_bg_switch').text('Выберите фон');
 		config_duel_select_bg = 0;
 		setTimeout(function() {
@@ -317,8 +387,35 @@ $('.duel_main_container > .duel_arrow.right').click( function() {
 	}	
 }	);
 
+
+
 $('.duel_versus').click( function() {
-	$('.duel_vs_panel_container').toggleClass('ph2')
+	$('.duel_vs_panel_container').toggleClass('ph2');
+	if (duel_vs_panel == 0) {
+		duel_vs_panel = 1;
+		$('.duel_bg_panel_container').removeClass('ph2')}
+	else {
+		if (duel_bg_panel = 1) {duel_bg_panel = 0}
+		duel_vs_panel = 0; 
+
+		$('.duel_bg_panel_container').removeClass('ph2');
+		$('.duel_bg_panel_slider.'+duel_bg_panel_type).addClass('duel_display');
+		}
+});
+
+$('.duel_chose_bg').click( function() {
+	$('.duel_bg_panel_container').toggleClass('ph2');
+	console.log('.duel_bg_left_panel_slider.'+duel_bg_panel_type);
+	
+	if (duel_bg_panel == 0) {
+		duel_bg_panel = 1;
+		$('.duel_bg_panel_slider.'+duel_bg_panel_type).toggleClass('duel_display');
+		$('.duel_vs_panel_container').removeClass('ph2')}
+	else {
+		duel_bg_panel = 0; 
+		$('.duel_vs_panel_container').removeClass('ph2');
+		setTimeout( function () {$('.duel_bg_panel_slider.'+duel_bg_panel_type).toggleClass('duel_display');}, 200);
+		}
 
 });
 
@@ -375,8 +472,39 @@ $('.duel_vs_variants').click( function() {
 	}
 	duel_config_vs = $(this).attr('class');
 	console.log('switch vs style:', duel_config_vs)
+		
+});
+
+
+
 	
+$('.duel_bg_panel_slider.main .duel_bg_variants').click( function() {
+	var asd;			
+	asd = $(this).css('background-image');
+	$('#duel_frame').css('background-image', asd);	
+	config_duel_bg_main = $(this).attr('class');
+	console.log('switch main bg:', config_duel_bg_main)		
+});
+
+
+
 	
+$('.duel_bg_panel_slider.left .duel_bg_variants').click( function() {	
+	var asd;			
+	asd = $(this).css('background-image');
+	$('.duel-frame-win-bg.left-win').css('background-image', asd);	
+	config_duel_bg_left = $(this).attr('class');
+	console.log('switch main bg:', config_duel_bg_left)		
+});
+
+
+	
+$('.duel_bg_panel_slider.right .duel_bg_variants').click( function() {	
+	var asd;			
+	asd = $(this).css('background-image');
+	$('.duel-frame-win-bg.right-win').css('background-image', asd);	
+	config_duel_bg_right = $(this).attr('class');
+	console.log('switch main bg:', config_duel_bg_right);		
 });
 
 $('.duel-result-body').hide();
@@ -477,22 +605,31 @@ duel_switch_color('#de5d4e')
 
 var duel_vs_slider_counter = 0;
 var duel_vs_slider_length = 0;
-var duel_vs_slider_current_left = 0;
+var duel_vs_slider_current_left = '0px';
+
 $('.duel_vs_panel_container > .duel_arrow.right').click( function() {
 	duel_vs_slider_length = $('.duel_vs_panel_slider .duel_vs_variants').length - 5;
+	// duel_vs_slider_current_left = $('.duel_vs_panel_slider').css('left');
 	if (duel_vs_slider_length > duel_vs_slider_counter) {
+	duel_vs_slider_current_left1 = +duel_vs_slider_current_left.replace(/px/g, '');
+	console.log(duel_vs_slider_current_left);
 	duel_vs_slider_counter = ++duel_vs_slider_counter;
-	$('.duel_vs_panel_slider').css('left', -115*duel_vs_slider_counter+'px');
+	duel_vs_slider_current_left1 = duel_vs_slider_current_left1-115;
+	duel_vs_slider_current_left = duel_vs_slider_current_left1+'px'
+	$('.duel_vs_panel_slider').css('left', duel_vs_slider_current_left);
 	}
 });
 
 $('.duel_vs_panel_container > .duel_arrow.left').click( function() {
 	
 	duel_vs_slider_length = $('.duel_vs_panel_slider .duel_vs_variants').length - 5;
-	if ((duel_vs_slider_length > duel_vs_slider_counter)&&(duel_vs_slider_counter > 0)) {
-	duel_vs_slider_counter = ++duel_vs_slider_counter;
-	duel_vs_slider_current_left = $('.duel_vs_panel_slider').css('left')
+	// duel_vs_slider_current_left = $('.duel_vs_panel_slider').css('left');
+	if ((duel_vs_slider_length - 5 < duel_vs_slider_counter)&&(duel_vs_slider_counter > 0)) {
+	duel_vs_slider_counter = --duel_vs_slider_counter;
+	duel_vs_slider_current_left1 = +duel_vs_slider_current_left.replace(/px/g, '');
+	duel_vs_slider_current_left1 = duel_vs_slider_current_left1+115;
+	duel_vs_slider_current_left = duel_vs_slider_current_left1+'px'
 	console.log(duel_vs_slider_current_left)
-	$('.duel_vs_panel_slider').css('left', +duel_vs_slider_current_left+115+'px');
+	$('.duel_vs_panel_slider').css('left', duel_vs_slider_current_left);
 	}
 });
