@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="css/quiz.css" rel="stylesheet" type="text/css">
+	<link href="css/quiz-animation.css" rel="stylesheet" type="text/css">
+	
+	<meta charset="UTF-8">
+	<title>quiz adminka</title>
+</head>
+<body>
+	<script src="js/velocity.min.js"></script>
+	<div class="quiz_edit_container">
+	<div class='quiz_edit'
+	>
+		<div class="quiz_start quiz_wrap ask" style="background-image:url(images/quiz_start.jpg)">
+				<div class="quiz_category">
+				<select size='1'>
+					<option>Выберите категорию</option>
+					 <option>Развлечения</option>
+					 <option>Поп-культура</option> 
+				</select>
+				</div>
+				<div class="quiz_title"><input name="quiz_ask" class="quiz_ask" 
+					v-model='quizTitle'
+					v-bind:value='quizTitle'
+					placeholder='Введите название'
+					>
+					<div class="quiz_choose_type">
+					Тест <input type="checkbox" v-model='isTest'> Викторина
+					</div>
+					{{ isTest }}
+					</div>
+					<div class='quiz_add_startbg'>
+					
+					</div>
+				
+
+				
+					
+						<div class="quiz_avtor">					
+							<div class="quiz_avtor_avatar"></div>
+							<div class="quiz_autor_data">		
+								<span class="quiz_autor_name">Женя Егоров</span>
+								<br>
+								<span class="quiz_autor_desc">Директор Мира</span>
+							</div>
+						</div>
+					
+			</div>
+		<div class="quiz_wrap ask" style="background-image:url(images/quiz.jpg)" 
+		v-on:click.self="ShiftPopuup('', '', 'body')"
+		v-for='(ask, index) in asks' 
+		v-bind:key='ask.index'>
+				<button class="quiz_delete_ask_button"
+				v-bind:key='ask.index=index' 
+				v-on:click="deleteAsk(ask.index)">X</button>		
+				<div class="quiz_number"><span class="slide_counter">{{ ask.id  }}</span>/{{ asksTotal }}</div>
+				<div class="quiz_title">
+					<input name="quiz_ask" class="quiz_ask"
+					v-model='ask.title'		
+					v-bind:placeholder="ask.title"
+					>
+				</div>
+				<transition     				
+
+				>
+				<div class="quiz_answers" 
+				v-bind:id="'ask'+index"
+				>
+					
+					
+						<transition-group name="list-complete" tag="ul">
+						<!-- <li style="display: inline-block"
+						is='answer-item'
+						v-model='answer.title'					
+						v-for='(answer, index) in ask.answers' 
+						v-bind:key='answer.id'
+						v-bind:id='answer.id'
+						v-bind:askid='ask.id'
+						v-bind:title="answer.title"
+						v-on:remove='deleteAnswer(ask.id, index)'
+						v-on:add='addNewAnswer(ask.id)'
+						v-on:asktools='Asktools(answer.id, ask.id)'
+						>					
+						</li> -->	
+						<li
+						is='answer-item'
+						v-model='answer.title'					
+						v-for='(answer, index) in ask.answers' 
+						v-bind:key='answer.id'
+						v-bind:index='index'
+						v-bind:ask-Index='ask.index'
+						v-bind:title="answer.title"
+						v-on:remove='deleteAnswer(ask.index, index)'
+						v-on:add='addNewAnswer(ask.index)'
+						v-on:asktools='Asktools(index, ask.index)'
+						v-bind:class='{right : answer.isCorrect}'
+						v-bind:is-test='isTest'
+						v-bind:points='answer.points'
+						>					
+						</li>			
+					
+					</transition-group>
+					<button align="center" 
+					v-on:click="addNewAnswer(index)" v-bind:class="hideButton(ask.nextAnswerId)">
+					Добавить ответ
+					</button>
+				</div>
+				</transition>				
+			</div>
+			<button align="center" v-on:click="addNewAsk">
+				Добавить вопрос
+			</button>
+			<!-- <div class="quiz_wrap quiz_result ask" style="background-image:url(images/quiz_start.jpg)">
+				<img src="media/petuh.svg" height="200" width="200" class="quiz_resultimg">
+				<div class="quiz_result_content">
+					<div class="quiz_textcontent status"><span>Cтремящийся</span></div>
+					<div class="quiz_textcontent"><span>7/16</span> верно</div>
+					<div class="quiz_textcontent">Лучше, чем 70% ответивших</div>
+					<div class="quiz_textcontent share"><span>Поделиться</span></div>
+				</div>
+			</div> -->
+		</div>
+		<div class="quiz_tools">
+		<answertools
+		
+		v-bind:is-test='isTest'
+		v-bind:currentanswer='currentanswer'		
+		v-bind:currentask='currentask'
+		v-bind:showpopup='showpopup'
+		v-bind:nextanswerid='tempNextAnswerIndex'
+		v-bind:temp-ans='tempAns'
+		v-on:updateiscorrect='updateIsCorrect(arguments)'
+		v-on:updatepoints='updatePoints(arguments)'
+		></answertools>
+		</div>
+		</div>
+  <script src="js/vue.js"></script>
+   <script src="js/quiz.js"></script>
+
+</body>
+
+	
+</html>
