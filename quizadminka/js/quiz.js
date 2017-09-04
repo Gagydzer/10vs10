@@ -51,8 +51,8 @@
 		<select size="1"\
 		@change="updatePoints($event.target.value)"\
 		>\
-					<option :selected="this.tempAns.points==2" value="1">1</option>\
-					<option :selected="this.tempAns.points==1" value="2">2</option>\
+					<option :selected="this.tempAns.points==1" value="1">1</option>\
+					<option :selected="this.tempAns.points==2" value="2">2</option>\
 					 <option :selected="this.tempAns.points==3" value="3">3</option>\
 					 <option :selected="this.tempAns.points==4" value="4">4</option>\
 					 <option :selected="this.tempAns.points==5" value="5">5</option>\
