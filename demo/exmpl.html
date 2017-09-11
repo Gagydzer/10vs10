@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<style> 
+#data { width: 600px; height: 600px; margin: 20px auto;}
+.block {color: white; font-size: 48px; text-align: center; padding-top: 200px; width: 600px; height: 400px; background-image: url(wrong.gif); background-repeat: no-repeat; background-position: center}
+</style>
+<div id="data">
+	<p>URL + ENTER</p>
+	<input name="quiz_ask" class="quiz_ask"
+		v-model='newitem'
+		v-on:keyup.enter="pushItem(newitem)"			
+		>	
+	<template v-for="(image, index) in images">
+		
+		 
+		<div style="border: 3 px solid grey">
+		<div class='block' v-bind:style="{backgroundImage: bgImage[index], backgroundSize: bgSize[index], filter: bgBlur[index]}">
+			
+				{{ image.title }}						
+		</div>
+		<div> 
+			<form>
+			<input v-model="image.bgSwitch" type="radio" id="cover" value="cover"> cover<Br>
+			<input v-model="image.bgSwitch" type="radio" id="contain" value="contain"> contain<Br>
+			<input v-model="image.bgSwitch" type="radio" id="percents" value="percents"> percents<Br>
+			</form>
+			<template v-if="image.bgSwitch == 'percents'">
+			<p>Высота, %</p>
+			<p><input v-model.number="image.bgPercents.height" type="range" min="1" max="200"></p>
+			<p>Ширина, %</p>
+			<p><input v-model.number="image.bgPercents.width" type="range" min="1" max="200"></p>
+			
+			</template>
+			<p>Мыло, %</p>
+			<p><input v-model.number="image.imgblur" type="range" min="1" max="200"></p>
+		</div>
+		</div>
+	</template>
+	
+</div>
+<script>
+    window.onload=function(){
+
+Vue.component('window', {
+	template: '<div>\
+	<myoverlay> \
+	<div slot="header">Default header</div>\
+	Default text\
+	</myoverlay>\
+	</div>',
+	})
+	
+Vue.component('myoverlay', {
+	template: '<div  style="width: 300px; height: 500px; background: grey">\
+	<div style="background: red"><slot name="header">Quotes from great peeoples</slot></div>\
+	<h1 slot="body"><slot>Content from component</slot></h1></div>\
+	',
+	})
+ new Vue({
+  el: '#data',
+  data: {
+  newitem: '',
+  images: [{
+    title: 'Hello',
+	bg: 'wrong.gif',
+	bgSwitch: 'cover',
+	bgPercents: {height: 50, width: 50},
+	imgblur: 5
+	},
+	{
+    title: 'Hello',
+	bg: 'right.gif',
+	bgSwitch: 'cover',
+	bgPercents: {height: 50, width: 50},
+	imgblur: 5
+	}]},
+	
+ 
+  computed: {
+		bgSize: function() {
+			var temparr = [];
+				this.images.forEach( function(currentValue, index, array) { 
+				console.log(currentValue)
+				if (currentValue.bgSwitch == 'cover') {
+					temparr.push(currentValue.bgSwitch);
+					}
+				if (currentValue.bgSwitch == 'contain') {
+					temparr.push(currentValue.bgSwitch);
+					}
+				if (currentValue.bgSwitch == 'percents') {
+					temparr.push(currentValue.bgPercents.height + '% ' + currentValue.bgPercents.width + '%');
+					}
+				
+				})
+			return temparr
+		},
+		bgImage: function() {
+			var temparr = [];
+				this.images.forEach( function(currentValue, index, array) {
+				temparr.push('url(' + currentValue.bg + ')');
+				
+			})
+			return temparr
+		},
+		bgBlur: function() {
+			var temparr = [];
+				this.images.forEach( function(currentValue, index, array) {
+				temparr.push('blur(' + currentValue.imgblur + 'px)');
+				
+			})
+			return temparr
+		},
+		bgContain: function() {
+			var temparr = [];
+				this.images.forEach( function(currentValue, index, array) { 
+				var self = this
+				console.log(index)
+					var tempitem ;
+					tempitem = { bgSize: currentValue, bgImage: this.bgImage, bgBlur: this.bgBlur};
+					temparr.push(tempitem);
+					})
+			return temparr		 
+		}
+		
+
+	},
+  methods: {
+	pushItem: function(value) {
+		var tempitem = {
+						title: 'Hello',
+						bg: value,
+						bgSwitch: 'cover',
+						bgPercents: {height: 75, width: 75},
+						imgblur: 3
+						}
+		this.images.push(tempitem)
+	}
+  }
+})
+}
+</script>
+	<script src="vue.js"></script>
+</body>
+</html>
