@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="css/buttons.css" rel="stylesheet" type="text/css">
+	<link href="css/quiz.css" rel="stylesheet" type="text/css">
+	<link href="css/quiz-animation.css" rel="stylesheet" type="text/css">
+	
+	<meta charset="UTF-8">
+	<title>quiz adminka</title>
+</head>
+<body>
+		<script src="js/var.js"></script>
+		
+	<script src="js/velocity.min.js"></script>
+	<div class="quiz_edit_container">
+	
+	<div class='quiz_edit' 
+	v-on:click.self="hidePopUp('bg')"
+	>
+		<div class="quiz_choose_type" style="color: black;" 
+		
+		v-on:click.self="hidePopUp('all')">	
+			<template><toggle-button v-model="isTest"
+				:value="isTest"
+				:sync="isTest"
+				:labels="{checked: 'Тест', unchecked: 'Квиз'}"
+				:width="110"
+				:height="25"
+				/></template>
+				
+			
+					
+
+		</div>
+		<transition name="autor">
+			<div v-if="!showCover" class="quiz_block_for_button">
+				<button class="quiz_add_in_list"
+					v-on:click="showCover = true">
+					Вернуть обложку
+				</button>
+			</div>
+			<div v-else class="quiz_wrap ask" 
+			v-on:click.self="hidePopUp('bg')"
+			>
+				<div class="quiz_bg" :style="startBgConfig.compStyle"></div>
+				<div class="quiz_container"  v-on:click.self="hidePopUp('bg')">
+						<button
+						title="Удалить обложку"
+						class="quiz_delete_ask_button"
+						v-on:click="showCover = false"></button>	
+					<div class="quiz_category">
+						<select size='1'>
+							<option v-for="category in categories" :value="category.id">{{ category.title }}</option>
+						</select>
+					</div>
+					<div class="quiz_title">
+						<textarea name="quiz_ask"
+						maxlength="75"
+						v-model='quizTitle'
+						v-bind:value='quizTitle'
+						placeholder='Введите название'
+						></textarea>
+						<button class="btn" type="button">
+							<span><input maxlength="15" type="text" v-model="startTitle" class="input-clear"></span>
+						</button>
+					</div>																		
+					<div class="quiz_avtor" >
+						<transition name="autor">
+							<div v-on:click="showAutor = true"  key="autorUnactive" class="autor" style="position: absolute" v-if="!showAutor">
+							<button class="quiz_show_autor"
+							v-on:click="showAutor = true"></button>
+							</div>
+							<div v-on:click="showAutor = false" key="autorActive" style="position: absolute"  class="autor" v-else>
+							<button
+							class="quiz_delete_autor"
+							v-on:click="showAutor = false"></button>					
+							<div class="quiz_avtor_avatar"></div>
+							<div class="quiz_autor_data">		
+								<span class="quiz_autor_name">Женя Егоров</span>
+								<br>
+								<span class="quiz_autor_desc">Директор Мира</span>
+							</div>
+							</div>					
+						</transition>				
+					</div>	
+					<div class="quiz_add_startbg_wrapper">
+						<button class='quiz_add_startbg' v-on:click="bgTools('start', ' ')" title="Выберите обложку"></button>
+					</div>
+				</div>			
+			</div>
+		</transition>		
+			
+			<!-- ВОПРОСЫ -->
+			
+			<transition-group 
+			name="asks"
+			v-bind:css="false"
+			v-on:before-enter="beforeChangeNextAskId" 
+			v-on:enter="enterChangeNextAskId" 
+			tag="div">
+			<div class="quiz_wrap"  
+			v-on:click.self="hidePopUp('all')"
+			v-for='(ask, index) in asks' 
+			v-bind:key='index'
+			v-bind:id="'wrapask'+(index+1)"
+			>
+				<transition name="mediaShow">
+				<div  
+				v-if="showMedia&&(currentask == index)"
+				class="quiz_media_overlay">
+					<img v-bind:src="media[CurrentMediaIndex].url" class="blur" >
+					<div v-if="media[CurrentMediaIndex].title" style="position: absolute; top: 250px; width: 600px; text-align: center; font-size: 42px" class="quiz_title"><span>{{ media[CurrentMediaIndex].title }}</span></div>
+				</div>
+				</transition>
+				<div class="quiz_bg" :style="ask.config.compStyle"></div>
+				<div class="quiz_container" v-on:click.self="hidePopUp('all')">				
+					<button
+					title="Удалить вопрос"
+					class="quiz_delete_ask_button"
+					v-bind:key='ask.index=index' 
+					v-on:click="deleteAsk(ask.index)"></button>		
+					<div class="quiz_number"><span class="slide_counter">{{ index + 1  }}</span>/{{ asksTotal }}</div>
+					<div class="quiz_title">
+						<textarea name="quiz_ask" class="quiz_ask"
+						maxlength="50"
+						v-model='ask.title'		
+						v-bind:placeholder="ask.title"
+						></textarea>				
+					</div>
+					<div class='quiz_add_image'
+					v-on:click="bgTools('ask', index)">					
+						</div>				
+					<div class="quiz_answers"
+					:style="'height: ' +  answersContainerHeight[index]"
+					v-on:click.self="hidePopUp('all')"
+					v-bind:id="'ask'+index"
+					>										
+							<transition-group name="list-complete" tag="ul">
+							<li
+							class='quiz_answer'
+							is='item'
+							v-model='answer.title'					
+							v-for='(answer, index) in ask.answers' 
+							v-bind:key='answer.id'
+							v-bind:index='index'
+							v-bind:ask-Index='ask.index'
+							v-bind:title="answer.title"
+							v-on:remove='deleteAnswer(ask.index, index)'
+							v-on:add='addNewAnswer(ask.index)'
+							v-on:asktools='Asktools(index, ask.index)'
+							v-bind:class='{right : answer.isCorrect&&isTest}'
+							v-bind:is-test='isTest'
+							v-bind:points='answer.points'
+							v-bind:results='quizResults'
+							>					
+							</li>								
+						</transition-group>
+						<div class="button_wrap" style="position: absolute; bottom: 15px;" v-on:click.self="hidePopUp('all')">
+							<button class="quiz_add_in_list"
+							v-on:click="addNewAnswer(index)" v-bind:class="fadeButton(ask.nextAnswerId)">
+							Добавить ответ
+							</button>
+						</div>
+					</div>
+				</div>				
+			</div>
+			</transition-group>
+			<div class="button_wrap_add_q">
+				<button title="Добавить вопрос" class="quiz_button_add_q" v-on:click="addNewAsk">			
+				</button>
+			</div>
+			
+			<div class="quiz_wrap quiz_result ask" style="background-image:url(images/quiz_end.jpg)"
+			v-on:click.self="hidePopUp('all')">
+				<div class="quiz_bg" :style="endBgConfig.compStyle"></div>
+				<div class="quiz_container"  v-on:click.self="hidePopUp('bg')">
+					<img :src="resultTestImg" v-if='(isTest)&&(resultTestImg)' height="200" width="200" class="quiz_resultimg_adm">
+					<div class="quiz_title" v-else><h1>Настройте итоги теста</h1></div>
+					<div class="quiz_result_data_adm">
+									
+						<template v-if='isTest'>
+							<transition-group name="list-complete" tag="ul">
+								<li
+								is='item'
+								v-model='result.title'					
+								v-for='(result, index) in testResults' 
+								v-bind:key='index'
+								:test-results-intervals="testResultsIntervals"
+								v-bind:index='index'
+								v-bind:title="result.title"
+								v-on:remove='deleteTestResult(index)'
+								v-on:asktools='Resulttools(index)'
+								v-on:add='addNewTestResult()'
+								>					
+								</li>			
+							
+							</transition-group>
+							<div class="button_wrap">
+								<button
+								v-on:click="addNewTestResult()" class="quiz_add_in_list" :class="hideButton(nextResultIndex)">
+								Добавить ответ
+								</button>
+							</div>
+						</template>
+						
+						<template v-else>
+							<transition-group name="list-complete" tag="ul">
+								<li
+								is='item'
+								v-model='result.title'
+								v-for='(result, index) in quizResults' 
+								v-bind:key='index'
+								v-bind:index='index'
+								v-bind:title="result.title"
+								v-on:remove='deleteQuizResult(index)'
+								v-on:add='addNewQuizResult()'						
+								v-bind:points='result.points'
+								v-on:asktools='Resulttools(index)'
+								>					
+								</li>			
+							
+							</transition-group>
+							<div class="button_wrap">
+								<button
+								v-on:click="addNewQuizResult()" class="quiz_add_in_list" v-bind:class="hideButton(nextResultIndex)">
+								Добавить ответ
+								</button>
+							</div>
+							
+						</template>				
+					</div>
+					<div v-on:click.self="hidePopUp('all')" class="quiz_add_startbg_wrapper" v-if="isTest">
+							<button class='quiz_add_startbg' v-on:click="bgTools('end', ' ')" title="Выберите обложку"></button>
+							</div>
+				</div>
+			</div> 
+			<div class="button_wrap_bottom">
+			<button class="quiz_bottom_buttons publ"
+					>Сохранить и опубликовать
+				</button>
+					<button class="quiz_bottom_buttons save"
+					>Сохранить
+				</button>
+			</div>
+		</div>
+			<div class="quiz_tools">			
+				<tools
+				v-bind:media="media"
+				v-bind:is-test="isTest"
+				v-bind:results='quizResults'
+				v-bind:currentanswer='currentanswer'		
+				v-bind:currentask='currentask'
+				v-bind:showpopup='showpopup'
+				v-bind:nextanswerid='tempNextAnswerIndex'
+				v-bind:temp-ans='tempAns'
+				v-on:updateiscorrect='updateIsCorrect(arguments)'
+				v-on:updatepoints='updatePoints(arguments)'
+				v-on:updatemediaid='quizUpdateMediaId(arguments)'
+				:show-cover="showCover"
+				></tools>
+				
+				<tools-results
+				:is-Test="isTest"
+				v-if="showresultpopup"
+				v-bind:asks="nextaskIndex"
+				v-bind:results='results'
+				v-bind:media="mediaResults"
+				v-bind:current-result='currentResult'		
+				v-bind:showpopup='showresultpopup'
+				v-bind:nextResultIndex='nextResultIndex-1'
+				@update:value="value => {results[currentResult].description = value}"
+				v-on:update-media-result="updateMediaResult(arguments)"
+				:show-cover="showCover"
+				></tools-results>
+				
+				<tools-bg
+				v-bind:current-ask-el="asks[currentask]"
+				v-bind:temp-bg-type="tempBgType"
+				v-bind:media="mediaBgs"
+				v-bind:start-bg-config="startBgConfig"
+				v-bind:end-bg-config="endBgConfig"
+				v-bind:is-test="isTest"	
+				v-bind:nextanswerid='tempNextAnswerIndex'
+				v-bind:currentask='currentask'
+				v-bind:total-asks='nextaskIndex'
+				v-bind:showpopup='showBgPopup'
+				v-bind:temp-ans='tempAns'
+				v-on:update-bg-config='updateBgConfig(arguments)'
+				:show-cover="showCover"
+				
+				></tools-bg>		
+			</div>
+			
+		</div>
+		
+  <script src="js/vue.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/buttons.js"></script>
+  <script src="js/tools-bg.js"></script>
+  <script src="js/tools-quiz-results.js"></script>
+  <script src="js/tools.js"></script>
+   <script src="js/quiz.js"></script>
+   
+  
+
+   
+
+</body>
+
+	
+</html>

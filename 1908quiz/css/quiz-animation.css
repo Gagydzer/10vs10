@@ -1,0 +1,313 @@
+.quiz_block_wrap {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.quiz_start.quiz_wrap:before {	
+	-webkit-animation-name: bgfade; 
+	-webkit-animation-duration: 3s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: infinite; 
+	animation-direction: alternate-reverse;
+}
+
+
+.btn {	
+	-webkit-animation-name: scale; 
+	-webkit-animation-duration: 12s;
+	-webkit-animation-timing-function: cubic-bezier(.3,1.66,.68,-1.09); 
+	animation-iteration-count: infinite; 
+	animation-direction: alternate-reverse;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+.btn.animate {
+	-webkit-animation-name: scale-out; 
+	animation-direction: normal;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 1s;
+	animation-iteration-count: 1; 
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+
+/* .quiz_answers ul li {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.percents  {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+..quiz_answers ul li span.numbers  {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.quiz_answers ul li {
+	animation-direction: normal;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 1s;
+	animation-iteration-count: 1; } */
+
+/* li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  display: block;
+  width: 0;
+  padding-top: 0;   
+  border-radius: 100%; 
+  background-color: rgba(242, 191, 187, .3); 
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+li:active:before {
+  width: 120%;
+  padding-top: 120%;  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+} */
+
+.Button_hide {opacity: 0; transition: all .3s ease;}
+
+.quiz_answers { transition: all .3s ease;}
+
+.quiz_media_overlay { 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.quiz_media_overlay.right { 
+	-webkit-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-moz-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-o-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+}
+
+.quiz_media_overlay.display {opacity: 1; display: block}
+
+.quiz_progresscounter, .quiz_progress{ 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.quiz_resultimg {
+
+	animation-fill-mode: forwards;
+	-webkit-animation-duration: 0.7s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: 1; 	
+}
+
+.quiz_textcontent {opacity: 0;
+	-webkit-animation-duration: .7s;
+	-webkit-animation-timing-function: ease-in-out; 
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards}
+.quiz_textcontent:nth-child(2) {
+	animation-delay: 0.4s;
+}
+.quiz_textcontent:nth-child(3) {
+	animation-delay: 0.8s;
+}
+@-webkit-keyframes bgfade {
+	0% {opacity: .7}
+	100% {opacity: .2}
+}
+
+@-webkit-keyframes scale {
+  0%
+  {
+    transform: scale( 1 );
+  }
+  20%
+  {
+    transform: scale( 1.1 );
+  }
+  40%
+  {
+    transform: scale( 1 );
+  }
+  60%
+  {
+    transform: scale( 1.1 );
+  }
+  80%
+  {
+    transform: scale( 1 );
+  }
+  100%
+  {
+    transform: scale( 1 );
+  }	
+}
+
+@-webkit-keyframes scale-out {
+  0% {}
+  100%{
+    transform: scale( 10 );
+	opacity: 0;
+  }
+}
+ @-webkit-keyframes scale-in {
+  0% {transform: scale( 5 );
+	opacity: 0	;
+  }
+  100% {
+    transform: scale( 1 );
+	opacity: 1;
+  }
+ }
+ 
+@-webkit-keyframes from-left {
+  from {right: 150px; opacity: 0}
+  to{
+    right: 0;
+	opacity: 1;
+  }
+}
+
+/* ADMINKA */
+
+.quiz_ask_popup, .quiz_result_popup, .quiz_bg_popup {	transition: all .3s ease;}
+
+
+li { transition: all 1s;
+width: 90%}
+
+.popupshow-enter-active {
+  transition: all .3s ease;
+}
+
+.popupshow-leave-to {
+	opacity: 0; transition: all .1s ease;
+}
+
+.popupshow-enter, .transwer-leave-to {
+  opacity: 0;
+transform: translateX(30px);}
+
+.mediaShow-enter {opacity: 0}
+.mediaShow-enter-to {
+	animation: mediaShow 1s;
+}
+.mediaShow-leave  {
+	opacity: 1
+}
+.mediaShow-leave-to {opacity: 0}
+@-webkit-keyframes mediaShow { 
+	0% {opacity: 0}
+	70% {opacity: 1}
+	100% {opacity: 1}
+}
+
+.slide-enter-to {
+	transform: translateY(-340px);
+  transition: all .5s ease;
+}
+
+.slide-leave-to {
+	transform: translateX(-450px); transition: all .5s ease;
+}
+
+.slide-enter {
+  opacity: 0; 
+transform: translateX(450px) translateY(-334px);}
+
+.list-complete-item {
+  transition: all 1s;
+  display: block;
+  margin-right: 10px;
+  position: absolute;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active до версии 2.1.8 */ {
+	
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
+
+.quiz_add_in_list {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;	
+}
+
+
+.ask-group-item {
+  transition: all 1s;
+  display: block;
+  margin-right: 10px;
+}
+.ask-group-enter, .ask-group-leave-to
+/* .list-complete-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.ask-group-leave-active {
+  position: absolute;
+}
+
+.quiz_answer {
+		-webkit-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-moz-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-o-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+}
+.button_wrap {
+	-webkit-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-moz-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	-o-transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	transition: all 1.5s cubic-bezier(.25,1.12,.12,.99);
+	
+}
+.quiz_avtor div {transition: all .5s;}
+
+.autor-enter{
+
+	opacity: 0;
+  transition: all .5s ease;
+}
+
+.autor-enter-to {
+
+	opacity: 1;
+  transition: all .5s ease;
+}
+.autor-leave {
+
+	opacity: 1;
+  transition: all .5s ease;
+}
+.autor-leave-to {
+
+	opacity: 0;
+  transition: all .5s ease;
+}
