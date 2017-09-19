@@ -1,0 +1,423 @@
+<head>
+
+	<link rel="stylesheet" href="quiz_animation.css">
+	<link rel="stylesheet" href="quiz_style.css">
+    <link rel="stylesheet" type="text/css" href="tooltipster/dist/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css" />
+<meta charset="utf-8">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.spincrement.js"></script>
+	<script type="text/javascript" src="tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+
+	 <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster({
+    theme: 'tooltipster-borderless'
+});
+			$('.duel_arrow.left .superstrelka').tooltipster({
+    theme: 'tooltipster-borderless'
+});
+			$('.duel_arrow.right .superstrelka').tooltipster({
+    theme: 'tooltipster-borderless'
+});
+			
+				
+			$('.create_battle_name.name1').on('click', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.left .superstrelka').tooltipster('open');
+			});
+			$('.create_battle_name.name2').on('click', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.right .superstrelka').tooltipster('open');
+			});
+			
+			$('.duel_main_container > .duel_arrow.left').on('mouseenter', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.left .superstrelka').tooltipster('open');
+			});
+			$('.duel_main_container > .duel_arrow.right').on('mouseenter', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.right .superstrelka').tooltipster('open');
+			});
+			$('.duel_main_container > .duel_arrow.left').on('mouseleave', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.left .superstrelka').tooltipster('close');
+			});
+			$('.duel_main_container > .duel_arrow.right').on('mouseleave', function() {
+			console.log('arrow tooltip');	
+			  $('.duel_arrow.right .superstrelka').tooltipster('close');
+			});
+
+					$('div').on('click', function(e) {
+						console.log($(e.target).closest(".create_battle_name").length );
+					  if (!$(e.target).closest(".create_battle_name.name1").length) {
+						console.log('close arrow tooltip');	
+						$('.duel_arrow.left .superstrelka').tooltipster('close');
+					  }
+					  e.stopPropagation();
+					});
+					
+					$('div').on('click', function(e) {
+				
+						  if (!$(e.target).closest(".create_battle_name.name2").length) {
+							console.log('close arrow tooltip');	
+							$('.duel_arrow.right .superstrelka').tooltipster('close');
+
+						  }
+							e.stopPropagation();
+					});
+	
+	
+	
+	
+
+});
+    </script>
+</head>
+<body>
+
+	<!-- фейд противоположного при наведении -->
+	
+	    
+	        
+    
+	<div class="duel_edit_panel">
+	
+	<div class="duel_main_container">
+		
+	<div class="duel_arrow left" >
+	<div class="superstrelka" title="Задайте анимацию первого победителя"></div>
+		</div>
+	<div id="duel_frame" class="duel_frame">
+			<div class="duel_overlay_logos">
+			<div id="duel-other" class="phase2" class="duel-info" style="display:none"><b id="duel-total-votes"></b> голосов</div>
+			<div  class="duel_chose_bg" class="phase2" title="Выберите фон">Выберите фон</div>
+			<div id="three-dots" class="duel-info" style="display:none"></div>
+			</div>
+			<div id="duel_subframe" class="duel_subframe">
+				<h1 class="duel_header phase2" onclick="duel_phase2_to2('duel_header')">
+					<input name="name" class="create_battle_title1" placeholder="Напишите название дуэли" title="напишите: Что сравниваем" value="">
+				</h1>
+					
+				<div id="duel_versus1" class="duel_versus phase2 tooltip" title="Кликните для выбора стиля дуэли">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 width="95" height="95" viewBox="0 0 284 284" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve">					
+						<circle class="duel_versus_svg circle_svg" cx="141.7" cy="141.7" r="141.7"/>
+					
+					
+						<path class="duel_versus_svg font" d="M40.4,77.1c-0.1-0.3-0.1-0.6-0.1-0.8c0-0.5,0.1-0.9,0.4-1.2c0.4-0.6,1-0.8,1.7-0.8h5.6c0.9,0,1.6,0,2.1,0.1
+							c0.5,0.1,1,0.3,1.5,0.7c0.6,0.4,1,1.1,1.4,2L97.6,207l43.2-129.9c0.4-0.9,0.8-1.6,1.4-2c0.6-0.4,1.1-0.7,1.5-0.7
+							c0.5-0.1,1.1-0.1,2.1-0.1h5.2c1.4,0,2.1,0.6,2.1,1.7c0,0.4-0.1,0.7-0.2,1.2l-45.7,135.1c-0.9,2.6-2.6,3.9-5.2,3.9h-9.5
+							c-2.5,0-4.3-1.3-5.2-3.9L40.4,77.1z"/>
+						<path class="duel_versus_svg font" d="M152.2,108c0-6,1.2-11.4,3.6-16.2c2.4-4.7,5.6-8.6,9.7-11.5c4.1-2.9,8.8-5.2,14.1-6.7c5.3-1.5,11-2.3,17.1-2.3
+							c5.8,0,11.9,0.9,18.1,2.6c6.3,1.7,11.5,4,15.7,6.9c4.2,2.9,6.3,5.8,6.3,8.8c0,1.8-0.9,3.6-2.6,5.4c-0.6,0.6-1.2,0.6-1.9,0
+							c-11.2-8.7-23.7-13-37.7-13c-4,0-7.8,0.5-11.5,1.4c-3.7,1-7.1,2.4-10.2,4.3c-3.1,1.9-5.6,4.6-7.5,8c-1.9,3.4-2.8,7.4-2.8,11.9
+							c0.1,4.5,1.6,8.5,4.5,12c3,3.5,6.8,6.5,11.4,8.9c4.6,2.4,9.8,4.8,15.5,7c5.7,2.3,11.3,4.7,16.9,7.3c5.6,2.6,10.7,5.6,15.3,8.9
+							c4.6,3.3,8.4,7.6,11.3,12.8c2.9,5.2,4.4,11.1,4.4,17.7c0,6.2-1.3,11.8-3.9,16.6c-2.6,4.9-6.1,8.7-10.5,11.6
+							c-4.4,2.9-9.2,5-14.5,6.5c-5.3,1.4-10.8,2.2-16.5,2.2c-4.8,0-9.7-0.4-14.5-1.2c-4.8-0.8-9.3-1.9-13.5-3.4c-4.2-1.5-7.6-3.5-10.2-6
+							c-2.6-2.5-3.9-5.3-3.9-8.5c0-1.2,0.4-2.6,1.1-4.1c0.5-0.8,1.1-0.9,1.9-0.4c5.1,3.9,11.1,6.9,18.1,9.2c7,2.3,13.9,3.4,20.7,3.4
+							c9.9,0,18.2-2.4,24.7-7.3s9.8-11.3,9.8-19.1c0-4.2-0.9-8-2.7-11.5c-1.8-3.4-4.2-6.3-7.3-8.7c-3.1-2.4-6.6-4.6-10.5-6.6
+							c-3.9-2-8.1-3.9-12.5-5.6c-4.4-1.7-8.7-3.5-13-5.2c-4.3-1.8-8.4-3.7-12.3-6c-3.9-2.2-7.4-4.7-10.4-7.3c-3-2.7-5.5-5.9-7.2-9.8
+							C153.1,117.1,152.2,112.7,152.2,108z"/>					
+					</svg>
+				</div>
+				<div id="duel_photo_container1" class="duel_photo_container phase2">
+					<div id="duel_image1_container" class="duel_image_container left phase2">
+						<div id="duel-button-left" class="duel-button-left phase3">
+								<div id="duel-flag-left" class="duel-flag left phase3 tooltip"  >
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="32"
+										 viewBox="0 0 90 32" >
+										 
+									<polygon class="duel_flag_svg flag_left" points="0,0 12.2,16 0,32 90,32 90,0 "/>
+								</svg>
+								<span>50</span>
+								
+								</div>
+								<div class="duel-title left" id="duel-lefttitle">
+									<textarea name="title1" maxlength="150" class="create_battle_name name1" placeholder="Имя первого&#013объекта" title="напишите: Что сравниваем" value=""></textarea>
+								</div>
+								<div id="duel-header-circle-left" class="duel-header-circle left phase3 tooltip"  >
+									<div class="duel_panel_percent_wrapper" >
+										<p id="duel-left-percent" class="duel-percent left spincrement" style="display: inline;">25</p>%
+									</div>
+									<div id="left-pie" class="left-pie phase3">							
+										<svg viewBox="0 0 32 32">
+											<circle class="page2 circle1" r="17" cx="16" cy="16"></circle>
+											<circle class="page2 circle2" r="16" cx="16" cy="16" stroke-dasharray="25 100"></circle>									
+										</svg>
+									</div>					
+								</div>
+						</div>
+						<div class="duel_img_subcontainer left" id="duel_img_subcontainer-left">
+								<img src="pic1.jpg" class="duel_image1" id="duel_image1" border="0" width="270" height="270">
+								<div class="duel_heart_overlay left phase2"></div>
+								<div class="duel_overlay winner left"></div>
+								<div class="duel_overlay looser left"></div>
+						</div>						
+					</div>
+					<div class="duel_image_container right phase2">
+						<div class="duel_img_subcontainer right">
+								<img src="pic2.jpg" id="duel_image2" border="0" width="270" height="270">
+								<div class="duel_heart_overlay right phase2"></div>
+								<div class="duel_overlay winner right"></div>
+								<div class="duel_overlay looser right"></div>
+						</div>
+						<div id="duel-button-right" class="duel-button-right phase3">
+							<div id="duel-flag-right" class="duel-flag right phase3 tooltip"  >
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+									 width="90" height="32" viewBox="0 0 90 32">
+									<polygon class="duel_flag_svg flag_right" points="90,0 77.8,16 90,32 0,32 0,0 "/>
+								</svg>
+							<span>200</span> 
+							</div>
+							<div class="duel-title right"  id="duel-righttitle">
+								<textarea name="title1" maxlength="150" class="create_battle_name name2" placeholder="Имя второго&#013объекта" title="напишите: Что сравниваем" value=""></textarea>
+							</div>
+							<div id="duel-header-circle-right" class="duel-header-circle right phase3 tooltip"  >
+								<div class="duel_panel_percent_wrapper">
+									<p id="right-percent" class="spincrement" style="display: inline;">75</p>%
+								</div>
+								<div id="right-pie" class="right-pie phase3">
+									<svg viewBox="0 0 32 32">
+										<title>75%</title>
+										<circle class="page2 circle1" r="17" cx="16" cy="16"></circle>
+										<circle class="page2 circle2" r="16" cx="16" cy="16" stroke-dasharray="75 100"></circle>										
+									</svg>
+								</div>
+							</div>							
+						</div>	
+					</div>
+				</div>
+			</div>			
+			<div id="duel_frame_winner2" class="duel_frame_winner winner_right">
+
+				<div class="duel-frame-win-bg right-win"></div>
+				<div class="duel_winner_container">
+				<div class="duel_winner_back right_win">восстановить</div>
+				<h1 id="duel-winner" class="duel_winner_title phase3" >
+				<input name="name" class="create_battle_title1" placeholder="напишите: Что сравниваем" title="напишите: Что сравниваем" value="">
+
+				</h1>
+				
+					
+						
+						 <div id="duel1_circle" class="duel_circle right_win phase2">					
+						<div class="my_tooltip right circle"> 
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
+						</div> 
+						<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent right spincrement" style="display: inline;">0</p>%</span><br>
+							<span style="text-align:center" class="duel-agree">Проголосовало<br>за</span>
+						</div>
+							<div id="duel-pie" class="duel_pie phase2">
+							<svg  width='270' height='270' viewBox="0 0 270 270">
+						<circle class="circle1" r="129" cx="135" cy="135"></circle>
+						<circle class="circle2" r="128" cx="135" cy="135" stroke-dasharray="0 803"></circle>						
+							</svg>
+							</div>
+						</div>  
+					
+				
+				<!-- Столбики	 -->
+				<!-- <div class="duel-collums-container"> -->
+				 <div class="duel-result-body right_win">
+					<div class="my_tooltip right columns" style="top: 5px; right: -8px;"> 
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
+						</div> 
+					<div class="duel-result-title left" id="duel-lefttitle" style="text-align: right">
+					Первый Итем
+					</div>
+					<div class="duel_result_columns">
+						<div class="duel-result-column left">
+							<div class="duel-percent-one"></div>
+							<div class="duel-result-column-grow left"></div>
+						</div>
+						<div class="duel-result-column right">
+							<div class="duel-percent-two"></div>
+							<div class="duel-result-column-grow right"></div>
+						</div>
+					</div>
+					<div class="duel-result-title"  id="duel-righttitle"  style="text-align: left">
+					Второй итем
+					</div>
+					
+				</div> 
+				<!-- </div> -->
+				<!-- /Столбики	 -->
+			</div>	
+			</div>
+			
+			<div id="duel_frame_winner1" class="duel_frame_winner winner_left">	
+			<div class="duel-frame-win-bg left-win"></div>
+			<div class="duel_winner_container">
+			<div class="duel_winner_back left_win">восстановить</div>
+			<h1 id="duel-winner" class="duel_winner_title phase3" >
+				<input name="name" class="create_battle_title1" placeholder="напишите: Что сравниваем" title="напишите: Что сравниваем" value="">
+			</h1>		
+
+			
+			
+			<div id="duel-circle" class="duel_circle left_win phase2">
+						<div class="my_tooltip left circle"> 
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
+						</div> 
+
+				<div id="duel-percent"><span><p id="duel-right-percent" class="duel_win_percent left spincrement" style="display: inline;">0</p>%</span><br>
+				<span style="text-align:center" class="duel-agree">Проголосовало<br>за</span>
+				</div>
+					<div id="duel-pie" class="duel_pie phase2">
+					<svg  width='270' height='270' viewBox="0 0 270 270">
+				<circle class="circle1" r="129" cx="135" cy="135"></circle>
+				<circle class="circle2" r="128" cx="135" cy="135" stroke-dasharray="0 803"></circle>
+				
+					</svg>
+					</div>
+			</div>
+			
+			<!-- Столбики	 -->
+			  <div class="duel-result-body">
+						<div class="my_tooltip left columns"  style="top: 5px; right: -8px;"> 
+							<img src="duel_img/switch_icon.svg" class="tooltip_switch_icon right_win tooltip" width="24" height="24"/>
+							<img src="duel_img/delete_icon.svg" class="tooltip_delete_icon right_win tooltip" width="24" height="24"/>
+						</div> 
+
+					<div class="duel-result-title left" id="duel-lefttitle" style="text-align: right">
+					Первый Итем
+					</div>
+					<div class="duel_result_columns">
+						<div class="duel-result-column left">
+							<div class="duel-percent-one"></div>
+							<div class="duel-result-column-grow left"></div>
+						</div>
+						<div class="duel-result-column right">
+							<div class="duel-percent-two"></div>
+							<div class="duel-result-column-grow right"></div>
+						</div>
+					</div>
+					<div class="duel-result-title"  id="duel-righttitle"  style="text-align: left">
+					Второй итем
+					</div>
+			</div> 	 
+			<!-- /Столбики	 -->
+		</div>
+		
+	</div>
+	</div>
+	<div class="duel_arrow right" title="Задайте анимацию победителя">
+	<div class="superstrelka" title="Задайте анимацию второго победителя"></div>
+	</div>
+	<div class="duel_vs_panel">
+		<div class="duel_vs_panel_container">
+		
+			
+				<div class="duel_arrow left">
+			</div>
+				<div class="duel_vs_slider_wrap">
+					<div class="duel_vs_panel_slider" style="left: 0px;">
+						<div class="duel_vs_variants var1">
+						</div>
+						<div class="duel_vs_variants var3">
+						</div>
+						<div class="duel_vs_variants var4">
+						</div>
+						<div class="duel_vs_variants var5">
+						</div>
+						<div class="duel_vs_variants var3">
+						</div>
+						<div class="duel_vs_variants var4">
+						</div>
+						<div class="duel_vs_variants var5">
+						</div>
+						<div class="duel_vs_variants var4">
+						</div>
+						<div class="duel_vs_variants var5">
+						</div>
+						<div class="duel_vs_variants var3">
+						</div>
+					</div>
+				</div>
+				<div class="duel_arrow right">
+			
+			</div>
+			
+		</div>
+			<div class="duel_bg_panel_container">
+		
+			
+				<div class="duel_arrow left">
+			</div>
+				<div class="duel_bg_slider_wrap">
+					<div class="duel_bg_panel_slider main duel_display" style="left: 0px;">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>	
+						<div class="duel_bg_variants var5">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>						
+					</div>
+					<div class="duel_bg_panel_slider left duel_display" style="left: 0px">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+					</div>
+					<div class="duel_bg_panel_slider right duel_display" style="left: 0px">
+						<div class="duel_bg_variants var1">
+						</div>
+						<div class="duel_bg_variants var2">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+						<div class="duel_bg_variants var3">
+						</div>
+						<div class="duel_bg_variants var4">
+						</div>
+						<div class="duel_bg_variants var5">
+						</div>
+					</div>
+				</div>
+				<div class="duel_arrow right">
+			
+			</div>
+			
+		</div>
+		
+	</div>
+	</div>
+	</div>
+<script src="quiz_code.js"></script>
+<script>
+$(function () {
+$("duel_image_container.left").mouseover(function(){document.getElementById('duel-overlay-looser').style.opacity='.5';});
+$("duel_image_container.left").mouseout(function(){document.getElementById('duel-overlay-looser').style.opacity='0';});
+});
+</script>
+</body>
