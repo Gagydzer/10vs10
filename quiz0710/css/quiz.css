@@ -1273,7 +1273,7 @@ button.quiz_promo:focus {outline: none;}
 	bottom:0;
 	display: block;
 	box-sizing: border-box;
-	background: var(--tools-lvl3-bg); 
+	background: var(--tools-lvl2-bg); 
 	outline: none; 
 	padding: 10px;
 	width: 174px;
