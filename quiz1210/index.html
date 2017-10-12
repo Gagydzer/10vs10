@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="css/buttons.css" rel="stylesheet" type="text/css">
+	<link href="css/var.css" rel="stylesheet" type="text/css">
+	<link href="css/quiz.css" rel="stylesheet" type="text/css">
+	<link href="css/quiz-animation.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/vue2-scrollbar.css" type="text/css">
+	<meta charset="UTF-8">
+	<title>quiz adminka</title>
+</head>
+<body>
+		<script src="js/var.js"></script>
+		
+	<script src="js/velocity.min.js"></script>
+	<div class="quiz_edit_container" @click.self="hidePopUp('all')">
+		
+	<div class='quiz_edit' 
+	@click.self="hidePopUp('all')"
+	>
+	<transition name="slide-sidebar">
+			<quiz-sidebar
+			v-if="showSidebar"
+			:class="{active: showSidebar}"
+			:is-test="isTest"
+			:categories="categories"
+			:current-Categories-Id="currentCategoriesId"
+			:is-Private="isPrivate"
+			:is-Share="isShare"
+			:key-words="tags"
+			@close-sidebar="showSidebar = false"
+			
+			@hide-popup="hidePopUp('all')"
+			@update-show-comments="value => (showComments = value)"
+			@update-is-test="value => (isTest = value)"
+			@update-is-private="value => (isPrivate = value)"
+			@update-is-share="value => (isShare = value)"
+			@update-current-categories-id="value => (currentCategoriesId = value)"
+			@keywords="value => (tags = value)"></quiz-sidebar>
+	</transition>
+	
+		<div class="quiz_choose_type" style="color: black;" 
+		
+		@click.self="hidePopUp('all')">	
+			
+					
+
+		</div>
+		<transition name="autor">
+			<div v-if="!showCover" class="quiz_block_for_button">
+				<button class="quiz_add_in_list"
+					@click="showCover = true">
+					Вернуть обложку
+				</button>
+			</div>
+			<div v-else class="quiz_wrap ask" 
+			@click.self="hidePopUp('all')"
+			>
+				<div class="quiz_bg" :style="startBgConfig.compStyle"></div>
+				<div class="quiz_container"  @click.self="hidePopUp('all')">
+						<button
+						title="Удалить обложку"
+						class="quiz_delete_ask_button"
+						@click="showCover = false"></button>	
+					<div class="quiz_category">
+						<button class="quiz_showsidebar" @click="showSidebar = !showSidebar" title="Открыть боковую панель"></button>
+					</div>
+					<div class="quiz_title">
+						<textarea name="quiz_ask"
+						maxlength="75"
+						v-model='quizTitle'
+						:value='quizTitle'
+						placeholder='Введите название'
+						></textarea>
+						<button class="btn" type="button">
+							<span><input maxlength="15" type="text" v-model="startTitle" class="input-clear"></span>
+						</button>
+					</div>																		
+					<div class="quiz_avtor" >
+						<transition name="autor">
+							<div @click="showAutor = true"  key="autorUnactive" class="autor" style="position: absolute" v-if="!showAutor">
+							<button class="quiz_show_autor"
+							@click="showAutor = true"></button>
+							</div>
+							<div @click="showAutor = false" key="autorActive" style="position: absolute"  class="autor" v-else>
+							<button
+							class="quiz_delete_autor"
+							@click="showAutor = false"></button>					
+							<div class="quiz_avtor_avatar"></div>
+							<div class="quiz_autor_data">		
+								<span class="quiz_autor_name">Женя Егоров</span>
+								<br>
+								<span class="quiz_autor_desc">Директор Мира</span>
+							</div>
+							</div>					
+						</transition>				
+					</div>	
+					<div class="quiz_add_startbg_wrapper">
+						<button class='quiz_add_startbg' @click="bgTools('start', ' ')" title="Выберите обложку"></button>
+					</div>
+				</div>			
+			</div>
+		</transition>		
+			
+			<!-- ВОПРОСЫ -->
+			
+			<transition-group 
+			name="asks"
+			:css="false"
+			@before-enter="beforeChangeNextAskId" 
+			@enter="enterChangeNextAskId" 
+			
+			@click.self="hidePopUp('all')"
+			tag="div">
+			<div class="quiz_wrap ask"  
+			@click.self="hidePopUp('all')"
+			v-for='(ask, index) in asks' 
+			:key='index'
+			:id="'wrapask'+(index+1)"
+			>
+				<transition name="mediaShow">
+				<div  
+				@click.self="hidePopUp('all')"
+				v-if="showMedia&&(currentask == index)"
+				class="quiz_media_overlay">
+					<img :src="mediaUrl" class="blur" >
+					<div v-if="tempMediaTitle" style="position: absolute; top: 250px; width: 600px; text-align: center; font-size: 42px" class="quiz_title"><span>{{ tempMediaTitle }}</span></div>
+				</div>
+				</transition>
+				<div class="quiz_bg" :style="ask.config.compStyle"></div>
+				<div class="quiz_container" @click.self="hidePopUp('all')">				
+					<button
+					title="Удалить вопрос"
+					class="quiz_delete_ask_button"
+					:key='ask.index=index' 
+					@click="deleteAsk(ask.index)"></button>		
+					<div class="quiz_number"><span class="slide_counter">{{ index + 1  }}</span>/{{ asksTotal }}</div>
+					<div class="quiz_title">
+						<textarea name="quiz_ask" class="quiz_ask"
+						maxlength="50"
+						v-model='ask.title'		
+						:placeholder="ask.title"
+						></textarea>				
+					</div>
+					<div class='quiz_add_image'
+					@click="bgTools('ask', index)">					
+						</div>				
+					<div class="quiz_answers"
+					:style="'height: ' +  answersContainerHeight[index]"
+					@click.self="hidePopUp('all')"
+					:id="'ask'+index"
+					>										
+							<transition-group name="list-complete" tag="ul">
+							<li
+							:show-delete="Boolean(ask.answers.length > 2)"
+							class='quiz_answer'
+							is='item'
+							v-model='answer.title'					
+							v-for='(answer, index) in ask.answers' 
+							:key='answer.id'
+							:index='index'
+							:ask-Index='ask.index'
+							:title="answer.title"
+							@remove='deleteAnswer(ask.index, index)'
+							@add='addNewAnswer(ask.index)'
+							@asktools='Asktools(index, ask.index)'
+							:class='{right : answer.isCorrect&&isTest}'
+							:is-test='isTest'
+							:points='answer.points'
+							:results='quizResults'
+							>					
+							</li>								
+						</transition-group>
+						<div class="button_wrap" style="position: absolute; bottom: 15px;" @click.self="hidePopUp('all')">
+							<button class="quiz_add_in_list"
+							@click="addNewAnswer(index)" :class="fadeButton(ask.answers.length)">
+							Добавить ответ
+							</button>
+						</div>
+					</div>
+				</div>				
+			</div>
+			</transition-group>
+			<div class="button_wrap_add_q">
+				<button title="Добавить вопрос" @click.self="hidePopUp('all')" class="quiz_button_add_q" @click="addNewAsk">			
+				</button>
+			</div>
+			
+			<div class="quiz_wrap quiz_result ask" style="">
+				
+				<div class="quiz_bg" :style="endBgConfig.compStyle"></div>
+				<transition name="mediaShow">
+						<result-overlay
+						v-if="mediaResultWatcher"
+						:media-result-watcher="mediaResultWatcher"
+						:image-url="resultTestImg"
+						:rang="results[currentResult].title"
+						:total-asks="NextAskIndex"
+						:corect-asks="5"
+						:promo="promo"
+						:descr="results[currentResult].description"
+						:is-test="isTest"
+						:user-promo="userPromo"
+						:promo-list="promoList"
+						@media-result-watcher-off="() => {this.mediaResultWatcher = false}"
+						@click-void-promo="clickVoidPromo()"
+						@edit-promo="editPromo(arguments)"
+						@index="(value) => {promoListIndex = value}"
+						@delete-promo="deletePromo(arguments)"
+						@close-promo-popup="hidePopUp('promo')"
+						@array="updatePromoArrayData(arguments)"
+						></result-overlay>
+				</transition>
+				<div class="quiz_container"  @click.self="hidePopUp('all')"  v-if="!mediaResultWatcher">
+					<button @click="mediaResultWatcher = !mediaResultWatcher" class="quiz_to_results forward" title="Результат"></button>
+					<img height="200" width="200" class="quiz_resultimg_adm"
+					:src="resultTestImg" 
+					v-if='(isTest)&&(resultTestImg)' 
+					@click="Resulttools(currentResult)"
+					>
+					<div class="quiz_title" v-else><h1>Настройте итоги теста</h1></div>
+					<div class="quiz_result_data_adm" @click.self="hidePopUp('all')">
+									
+						
+							<transition-group name="list-complete" tag="ul">
+								<li
+								:show-delete="Boolean(results.length > 2)"
+								is='item'
+								v-model='result.title'					
+								v-for='(result, index) in results'
+								:is-test="isTest"
+								:key='index'
+								:test-results-intervals="testResultsIntervals"
+								:index='index'
+								:title="result.title"
+								@remove='deleteResult(index)'
+								@asktools='Resulttools(index)'
+								@add='addNewResult()'
+								:points='result.points'
+								>					
+								</li>			
+							
+							</transition-group>
+							<div class="button_wrap">
+								<button
+								@click="addNewResult()" class="quiz_add_in_list" :class="fadeButton(results.length)">
+								Добавить Результат
+								</button>
+							</div>
+										
+					</div>
+					<div @click.self="hidePopUp('all')" class="quiz_add_startbg_wrapper">
+							<button class='quiz_add_startbg' @click="bgTools('end', ' ')" title="Выберите обложку"></button>
+							</div>
+				</div>
+			</div> 
+			<div class="button_wrap_bottom">
+			<button class="quiz_bottom_buttons publ"
+					>Сохранить и опубликовать
+				</button>
+					<button class="quiz_bottom_buttons save"
+					>Сохранить
+				</button>
+			</div>
+		</div>
+			<div class="quiz_tools" @click.self="hidePopUp('all')">	
+
+				<tools
+				:close-tools-categories="closeToolsCategories"
+				:user-media="userMedia"
+				:media-categories="mediaCategories"
+				:current-category-id="currentMediaCategoryId"
+				:is-test="isTest"
+				:results='quizResults'
+				:currentanswer='currentanswer'		
+				:currentask='currentask'
+				:showpopup='showpopup'
+				:nextanswerid='tempNextAnswerIndex'
+				:temp-ans='tempAns'
+				@updatetitle='updateTitle(arguments)'
+				@updateiscorrect='updateIsCorrect(arguments)'
+				@updatepoints='updatePoints(arguments)'
+				@updatemediaid='quizUpdateMediaId(arguments)'
+				:show-cover="showCover"></tools>
+				
+
+				<tools-results
+				:media-result-watcher="mediaResultWatcher"
+				:close-tools-categories="closeToolsCategories"
+				:current-result='currentResult'
+				:user-media="userResults"
+				:is-Test="isTest"
+				:asks="NextAskIndex"
+				:results='results'
+				:media-categories="currentResultCaterogies"
+				:current-category-id="currentResultCategoryId"		
+				:showpopup='showresultpopup'
+				:next-result-index='nextResultIndex'
+				@update:value="value => {results[currentResult].description = value}"
+				@update-media-result="updateMediaResult(arguments)"
+				@result-on="mediaResultWatcher = true"
+				:show-cover="showCover">
+				</tools-results>
+
+				<tools-bg
+				:close-tools-categories="closeToolsCategories"
+				:user-media="userBgs"
+				:media-categories="bgCategories"
+				:current-ask-el="asks[currentask]"
+				:temp-bg-type="tempBgType"
+				:start-bg-config="startBgConfig"
+				:end-bg-config="endBgConfig"
+				:is-test="isTest"	
+				:nextanswerid='tempNextAnswerIndex'
+				:currentask='currentask'
+				:total-asks='NextAskIndex'
+				:showpopup='showBgPopup'
+				:temp-ans='tempAns'
+				@update-bg-config='updateBgConfig(arguments)'
+				:show-cover="showCover">	
+				</tools-bg>
+
+				<tools-promo
+				:promo-Array-Length="promoArrayLength"
+				:promo-Array-Index="promoArrayIndex"
+				:showpopup="showPromoPopup"
+				:promo-from-user="currentPromoType"
+				:promo="promo"
+				:promo-list="promoList"
+				:user-promo="userPromo"
+				:promo-index="currentPromoIndex"
+				:promo-list-index="promoListIndex"
+				:show-cover="showCover"
+				:asks='NextAskIndex'
+				@update-promo="updatePromo(arguments)"
+				@push-promo="pushPromo()"
+				@create-promo="createPromo(arguments[0], arguments[1], arguments[2], arguments[3],)"
+				@update-promo-from-user="updateUserPromo(arguments)"
+				@update-promo-to-from-user="updateToFromUserPromo(arguments)"
+				@array="updatePromoArrayData(arguments)"
+				>
+				</tools-promo>
+			</div>
+			
+		</div>
+	
+  <script src="js/vue.js"></script>
+  <script src="js/lodash.min.js"></script>
+		
+		
+		<script src="js/StfSelect.js"></script>
+		<script src="js/StfSelectOption.js"></script>
+  <script src="js/vue2-scrollbar.js"></script>
+  <script src="js/resultOverlay.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/mediaItem.js"></script>
+ 
+  <script src="js/tools-promo-slide.js"></script>
+  <script src="js/tools-promo.js"></script>
+  <script src="js/buttons.js"></script>
+  <script src="js/imgCategories.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/tools-quiz-results.js"></script>
+  <script src="js/tools-bg.js"></script>
+  <script src="js/inputTag.js"></script>
+  <script src="js/quiz-sidebar.js"></script>
+  
+   <script src="js/quiz.js"></script>
+   
+
+
+   
+
+</body>
+
+	
+</html>
