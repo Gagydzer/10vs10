@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'menubarItem',
-  props: ['title'],
+  props: ['title', 'bgUrl', 'url'],
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -21,16 +21,17 @@ export default {
  .menubar {
   .item {
     display: inline-block;
-    width: 110px;
+    width: 157px;
     position: relative;
-    height: 70px;
+    height: 100px;
     background: gray;
-    margin-right: 5px;
+    margin-right: 9px;
     box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), -1px 0px 2px rgba(0, 0, 0, 0.15);
     .title {
       position: absolute;
       bottom:0;
       width: 100%;
+      font-size: 16px;
       text-align: center;
       padding: 6px;
       box-sizing: border-box;

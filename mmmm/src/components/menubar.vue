@@ -2,7 +2,7 @@
   <div class="menubar_wrapper">
     <vue-scrollbar classes="my-scrollbar" ref="Scrollbar">
     <div class="menubar scroll-me" :style="{'min-width': width + 'px'}">
-      <menubar-item v-for="(item, index) in items" :title="item" key="index"/>
+      <menubar-item v-for="(item, index) in items" :title="item.title" :bg="item.bgUrl" :url="item.url" key="index"/>
     </div>
     </vue-scrollbar>
   </div>
@@ -19,14 +19,10 @@ export default {
   components: {
     menubarItem, VueScrollbar
   },
-  data: function () {
-    return { 
-      items: ['Заголовок', 'Знаменитости', 'Технологии', 'Стиль жизни', 'Путешествия', 'Кино', 'Еда', 'Путешествия', 'Кино', 'Еда', 'Путешествия', 'Кино', 'Еда',]
-    }
-  },
+  props: ['items'],
   computed: {
     width() {
-      return this.items.length * 115
+      return this.items.length * 166
     }
   }
 }
@@ -37,6 +33,9 @@ export default {
 .menubar_wrapper {
 }
 .menubar {
+  
 }
-
+.vue-scrollbar__scrollbar-horizontal  {
+    display: none
+  }
 </style>
