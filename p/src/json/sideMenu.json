@@ -1,0 +1,53 @@
+[
+    {
+       "title": "Заголовок 1",
+       "isExpanded": true,
+       "menu": [
+          {
+             "title": "Первая страница",
+             "pageId": 1,
+             "hasChildren": true,
+             "isExpanded": true,
+             "menu": [
+                {
+                   "title": "Вторая страница",
+                   "pageId": 2
+                },
+                {
+                   "title": "Элемент списка",
+                   "pageId": 2
+                },
+                {
+                   "title": "Элемент списка",
+                   "pageId": 2
+                }
+             ]
+          },
+          {
+             "title": "Элемент списка",
+             "pageId": 2
+          },
+          {
+             "title": "Элемент списка",
+             "pageId": 3
+          }
+       ]
+    },
+    {
+       "title": "Заголовок 2",
+       "menu": [
+          {
+             "title": "Элемент списка",
+             "pageId": 1
+          },
+          {
+             "title": "Элемент списка",
+             "pageId": 2
+          },
+          {
+             "title": "Элемент списка",
+             "pageId": 3
+          }
+       ]
+    }
+ ]
